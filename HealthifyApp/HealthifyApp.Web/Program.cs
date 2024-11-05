@@ -1,4 +1,4 @@
-using HealthifyApp.Data;
+using HealthifyApp.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

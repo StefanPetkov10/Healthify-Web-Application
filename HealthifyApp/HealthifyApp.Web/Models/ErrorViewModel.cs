@@ -1,4 +1,4 @@
-namespace HealthifyApp.Models
+namespace HealthifyApp.Web.Models
 {
     public class ErrorViewModel
     {

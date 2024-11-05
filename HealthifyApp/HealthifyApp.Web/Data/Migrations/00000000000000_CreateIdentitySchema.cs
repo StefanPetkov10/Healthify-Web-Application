@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace HealthifyApp.Data.Migrations
+namespace HealthifyApp.Web.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

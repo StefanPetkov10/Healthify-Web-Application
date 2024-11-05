@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using HealthifyApp.Models;
+using HealthifyApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HealthifyApp.Controllers
+namespace HealthifyApp.Web.Controllers
 {
     public class HomeController : Controller
     {
