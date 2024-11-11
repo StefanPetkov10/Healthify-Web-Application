@@ -11,9 +11,6 @@
             public const string WeightRangeMessage = "The {0} must be between {1} and {2}.";
             public const string GoalsLengthMessage = "The {0} must be at least {1} and at max {2} characters long.";
             public const string GenderRequiredMessage = "The {0} is required.";
-
-
-
         }
     }
 }

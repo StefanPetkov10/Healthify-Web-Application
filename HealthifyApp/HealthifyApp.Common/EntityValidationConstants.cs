@@ -24,5 +24,40 @@
 
             public const string JoinDateTimeFormat = "dd-MM-yyyy";
         }
+
+        public static class Workout
+        {
+            public const int NameMinLength = 2;
+            public const int NameMaxLength = 50;
+
+            public const int DescriptionMinLength = 10;
+            public const int DescriptionMaxLength = 1000;
+
+            public const int DurationMinValue = 5;
+            public const int DurationMaxValue = 180;
+
+            public const string ScheduleDateTimeFormat = "dd-MM-yyyy HH:mm";
+        }
+
+        public static class Exercise
+        {
+            public const int NameMinLength = 2;
+            public const int NameMaxLength = 50;
+
+            public const int DescriptionMinLength = 10;
+            public const int DescriptionMaxLength = 250;
+
+            public const int DurationMinValue = 1;
+            public const int DurationMaxValue = 180;
+        }
+
+        public static class WorkoutExercise
+        {
+            public const int SetsMinValue = 1;
+            public const int SetsMaxValue = 10;
+
+            public const int RepsMinValue = 1;
+            public const int RepsMaxValue = 25;
+        }
     }
 }
