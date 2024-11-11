@@ -42,6 +42,9 @@ namespace HealthifyApp.Data.Models
         [MaxLength(GoalsMaxLength)]
         public string Goals { get; set; } = null!;
 
+        [Required]
+        public DateTime CreatedOn { get; set; }
+
         public virtual ICollection<ApplicationUserProfile> ApplicationUserProfiles { get; set; }
     }
 }

@@ -21,6 +21,8 @@
 
             public const int GoalsMinLength = 10;
             public const int GoalsMaxLength = 250;
+
+            public const string JoinDateTimeFormat = "dd-MM-yyyy";
         }
     }
 }
