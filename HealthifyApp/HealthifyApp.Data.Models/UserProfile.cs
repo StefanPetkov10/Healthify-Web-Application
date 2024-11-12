@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using static HealthifyApp.Common.EntityValidationConstants.UserProfile;
 
 namespace HealthifyApp.Data.Models
@@ -24,15 +24,14 @@ namespace HealthifyApp.Data.Models
         public string LastName { get; set; } = null!;
 
         [Required]
-        [Range(AgeMinValue, AgeMaxValue)]
         public int Age { get; set; }
 
         [Required]
-        [Range((double)HeightMinValue, (double)HeightMaxValue)]
+        [Column(TypeName = "decimal(18,2)")]
         public float Height { get; set; }
 
         [Required]
-        [Range(WeightMinValue, WeightMaxValue)]
+        [Column(TypeName = "decimal(18,2)")]
         public float Weight { get; set; }
 
         [Required]

@@ -24,7 +24,6 @@ namespace HealthifyApp.Data.Models
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 
-        [Range(DurationMinValue, DurationMaxValue)]
         public int? Duration { get; set; }
 
         [Required]

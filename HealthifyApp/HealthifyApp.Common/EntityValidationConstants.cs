@@ -59,5 +59,7 @@
             public const byte RepsMinValue = 1;
             public const byte RepsMaxValue = 25;
         }
+
+
     }
 }

@@ -23,9 +23,8 @@ namespace HealthifyApp.Data.Models
         [MaxLength(DescriptionMaxLength)]
         public string Description { get; set; } = null!;
 
-        [Required]
         [MaxLength(DurationMaxValue)]
-        public string Duration { get; set; } = null!;
+        public int? Duration { get; set; }
 
         public string? ImageUrl { get; set; }
 

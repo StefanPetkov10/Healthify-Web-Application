@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-using static HealthifyApp.Common.EntityValidationConstants.WorkoutExercise;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthifyApp.Data.Models
 {
@@ -14,13 +11,9 @@ namespace HealthifyApp.Data.Models
         public Guid ExerciseId { get; set; }
         public virtual Exercise Exercise { get; set; } = null!;
 
-        [Required]
-        [Range(SetsMinValue, SetsMaxValue)]
-        public int Sets { get; set; }
+        public int? Sets { get; set; }
 
-        [Required]
-        [Range(RepsMinValue, RepsMaxValue)]
-        public int Reps { get; set; }
+        public int? Reps { get; set; }
 
     }
 }
