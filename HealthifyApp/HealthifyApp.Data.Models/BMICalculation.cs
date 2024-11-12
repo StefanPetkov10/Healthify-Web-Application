@@ -17,11 +17,18 @@ namespace HealthifyApp.Data.Models
         public DateTime Date { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public float Height { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public float Weight { get; set; }
 
-        public float? BMI { get; set; }
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public float BMI { get; set; }
+
+        [Required]
+        public string Category { get; set; } = null!;
     }
 }

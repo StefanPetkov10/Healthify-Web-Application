@@ -10,6 +10,11 @@ namespace HealthifyApp.Data.Models
         {
             this.Id = Guid.NewGuid();
             this.ApplicationUserProfiles = new HashSet<ApplicationUserProfile>();
+            this.Workouts = new HashSet<Workout>();
+            this.ProgressLogs = new HashSet<ProgressLog>();
+            this.NutritionPlans = new HashSet<NutritionPlan>();
+            this.BMICalculations = new HashSet<BMICalculation>();
+            this.WaterIntakes = new HashSet<WaterIntake>();
         }
 
         [Key]
@@ -45,5 +50,11 @@ namespace HealthifyApp.Data.Models
         public DateTime CreatedOn { get; set; }
 
         public virtual ICollection<ApplicationUserProfile> ApplicationUserProfiles { get; set; }
+
+        public virtual ICollection<Workout> Workouts { get; set; }
+        public virtual ICollection<ProgressLog> ProgressLogs { get; set; }
+        public virtual ICollection<NutritionPlan> NutritionPlans { get; set; }
+        public virtual ICollection<BMICalculation> BMICalculations { get; set; }
+        public virtual ICollection<WaterIntake> WaterIntakes { get; set; }
     }
 }

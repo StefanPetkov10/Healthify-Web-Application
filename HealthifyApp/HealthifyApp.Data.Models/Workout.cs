@@ -29,6 +29,7 @@ namespace HealthifyApp.Data.Models
         [Required]
         public DateTime ScheduleDateTime { get; set; }
 
+        [Required]
         public Guid UserProfileId { get; set; }
         [ForeignKey(nameof(UserProfileId))]
         public virtual UserProfile UserProfile { get; set; }
