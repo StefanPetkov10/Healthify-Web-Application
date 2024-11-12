@@ -1,4 +1,4 @@
-﻿namespace HealthifyApp.Data.Models
+﻿namespace HealthifyApp.Data.Models.Enums
 {
     public enum Gender
     {

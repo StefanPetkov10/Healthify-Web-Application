@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using HealthifyApp.Data.Models.Enums;
 using static HealthifyApp.Common.EntityValidationConstants.UserProfile;
 
 namespace HealthifyApp.Data.Models
