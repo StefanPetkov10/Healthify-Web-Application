@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthifyApp.Data.Models
 {
-    public class ProgressLog
+    public class WaterIntake
     {
         [Key]
         public Guid Id { get; set; }
@@ -16,14 +16,9 @@ namespace HealthifyApp.Data.Models
         [Required]
         public DateTime Date { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
-        public float Weight { get; set; }
+        [Required]
+        public float DailyGoal { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
-        public float? Waist { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
-        public float? Hips { get; set; }
-        [Column(TypeName = "decimal(18,2)")]
-        public float? Chest { get; set; }
+        public float? Consumed { get; set; }
     }
 }
