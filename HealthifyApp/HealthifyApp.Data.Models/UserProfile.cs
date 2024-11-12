@@ -36,7 +36,7 @@ namespace HealthifyApp.Data.Models
         public float Weight { get; set; }
 
         [Required]
-        public string Gender { get; set; } = null!;
+        public Gender Gender { get; set; }
 
         [Required]
         [MaxLength(GoalsMaxLength)]

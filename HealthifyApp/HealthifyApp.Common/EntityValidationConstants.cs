@@ -4,60 +4,60 @@
     {
         public static class UserProfile
         {
-            public const int FirstNameMinLength = 2;
-            public const int FirstNameMaxLength = 57;
+            public const byte FirstNameMinLength = 2;
+            public const byte FirstNameMaxLength = 57;
 
-            public const int LastNameMinLength = 2;
-            public const int LastNameMaxLength = 57;
+            public const byte LastNameMinLength = 2;
+            public const byte LastNameMaxLength = 57;
 
-            public const int AgeMinValue = 10;
-            public const int AgeMaxValue = 117;
+            public const byte AgeMinValue = 10;
+            public const byte AgeMaxValue = 117;
 
-            public const float HeightMinValue = 0.5F;
-            public const float HeightMaxValue = 2.5F;
+            public const byte HeightMinValue = 50;
+            public const byte HeightMaxValue = 254;
 
-            public const int WeightMinValue = 30;
-            public const int WeightMaxValue = 300;
+            public const byte WeightMinValue = 30;
+            public const short WeightMaxValue = 300;
 
-            public const int GoalsMinLength = 10;
-            public const int GoalsMaxLength = 250;
+            public const byte GoalsMinLength = 10;
+            public const byte GoalsMaxLength = 254;
 
             public const string JoinDateTimeFormat = "dd-MM-yyyy";
         }
 
         public static class Workout
         {
-            public const int NameMinLength = 2;
-            public const int NameMaxLength = 50;
+            public const byte NameMinLength = 2;
+            public const byte NameMaxLength = 50;
 
-            public const int DescriptionMinLength = 10;
-            public const int DescriptionMaxLength = 1000;
+            public const byte DescriptionMinLength = 10;
+            public const short DescriptionMaxLength = 1000;
 
-            public const int DurationMinValue = 5;
-            public const int DurationMaxValue = 180;
+            public const byte DurationMinValue = 5;
+            public const byte DurationMaxValue = 240;
 
             public const string ScheduleDateTimeFormat = "dd-MM-yyyy HH:mm";
         }
 
         public static class Exercise
         {
-            public const int NameMinLength = 2;
-            public const int NameMaxLength = 50;
+            public const byte NameMinLength = 2;
+            public const byte NameMaxLength = 50;
 
-            public const int DescriptionMinLength = 10;
-            public const int DescriptionMaxLength = 250;
+            public const byte DescriptionMinLength = 10;
+            public const byte DescriptionMaxLength = 254;
 
-            public const int DurationMinValue = 1;
-            public const int DurationMaxValue = 180;
+            public const byte DurationMinValue = 1;
+            public const byte DurationMaxValue = 240;
         }
 
         public static class WorkoutExercise
         {
-            public const int SetsMinValue = 1;
-            public const int SetsMaxValue = 10;
+            public const byte SetsMinValue = 1;
+            public const byte SetsMaxValue = 10;
 
-            public const int RepsMinValue = 1;
-            public const int RepsMaxValue = 25;
+            public const byte RepsMinValue = 1;
+            public const byte RepsMaxValue = 25;
         }
     }
 }

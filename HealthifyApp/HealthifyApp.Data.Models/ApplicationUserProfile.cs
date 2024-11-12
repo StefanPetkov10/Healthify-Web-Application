@@ -1,5 +1,8 @@
-﻿namespace HealthifyApp.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HealthifyApp.Data.Models
 {
+    [Table("ApplicationUserProfiles")]
     public class ApplicationUserProfile
     {
         public Guid ApplicationUserId { get; set; }
