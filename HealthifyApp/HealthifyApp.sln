@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Data", "Health
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Data.Models", "HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj", "{5DC5B58A-30D3-4152-A046-52BEC34F5358}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Web.ViewModels", "HealthifyApp.Web.ViewModels\HealthifyApp.Web.ViewModels.csproj", "{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Web.Infrastructure", "HealthifyApp.Web.Infrastructure\HealthifyApp.Web.Infrastructure.csproj", "{2EC1970E-C9B6-4117-B54B-5A105E24329C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC1970E-C9B6-4117-B54B-5A105E24329C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC1970E-C9B6-4117-B54B-5A105E24329C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC1970E-C9B6-4117-B54B-5A105E24329C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC1970E-C9B6-4117-B54B-5A105E24329C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +59,8 @@ Global
 		{DD02AE23-65F6-4BDD-977D-8609F29D50D5} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
 		{19363107-2952-4BA5-B966-CFD85B24AF73} = {BCAAB474-B9BD-4E78-ADA5-028518D43D2A}
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358} = {BCAAB474-B9BD-4E78-ADA5-028518D43D2A}
+		{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
+		{2EC1970E-C9B6-4117-B54B-5A105E24329C} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32BC7D33-36CD-4974-9535-9834D73693A7}

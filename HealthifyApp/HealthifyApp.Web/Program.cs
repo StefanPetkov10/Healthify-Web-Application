@@ -1,4 +1,5 @@
 using HealthifyApp.Data;
+using HealthifyApp.Data.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,7 @@ builder.Services.AddDbContext<HealthifyDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
+builder.Services.AddSingleton<SeedData>();
 
 // Add Identity with GUID keys
 builder.Services

@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj" />
     <ProjectReference Include="..\HealthifyApp.Common\HealthifyApp.Common.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data\HealthifyApp.Data.csproj" />

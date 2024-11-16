@@ -6,6 +6,13 @@ namespace HealthifyApp.Data.Configuration
 {
     public class WorkoutExerciseConfiguration : IEntityTypeConfiguration<WorkoutExercise>
     {
+        private readonly SeedData _seedData;
+
+        public WorkoutExerciseConfiguration(SeedData seedData)
+        {
+            _seedData = seedData;
+        }
+
         public void Configure(EntityTypeBuilder<WorkoutExercise> builder)
         {
             builder
@@ -14,12 +21,20 @@ namespace HealthifyApp.Data.Configuration
             builder
                 .HasOne(um => um.Workout)
                 .WithMany(u => u.WorkoutExercises)
-                .HasForeignKey(um => um.WorkoutId);
+                .HasForeignKey(um => um.WorkoutId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(um => um.Exercise)
                 .WithMany(m => m.WorkoutExercises)
-                .HasForeignKey(um => um.ExerciseId);
+                .HasForeignKey(um => um.ExerciseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasData(
+                    _seedData.WorkoutExercise1,
+                    _seedData.WorkoutExercise2
+                );
         }
     }
 }
