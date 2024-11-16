@@ -44,16 +44,28 @@ namespace HealthifyApp.Data.Configuration
             User1 = new ApplicationUser()
             {
                 UserName = "User1",
+                NormalizedUserName = "USER1",
                 Email = "user1@example.com",
-                PasswordHash = hasher.HashPassword(null, "Password123!")
+                NormalizedEmail = "USER1@EXAMPLE.COM",
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+
             };
+            User1.PasswordHash = hasher.HashPassword(User1, "user1");
 
             User2 = new ApplicationUser()
             {
                 UserName = "User2",
+                NormalizedUserName = "USER2",
                 Email = "user2@example.com",
-                PasswordHash = hasher.HashPassword(null, "Password123!")
+                NormalizedEmail = "USER2@EXAMPLE.COM",
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ConcurrencyStamp = Guid.NewGuid().ToString(),
+
             };
+            User2.PasswordHash = hasher.HashPassword(User2, "user2!");
 
             UserProfile1 = new UserProfile()
             {
