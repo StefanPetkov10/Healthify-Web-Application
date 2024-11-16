@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Web", "HealthifyApp.Web\HealthifyApp.Web.csproj", "{DD02AE23-65F6-4BDD-977D-8609F29D50D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Web", "HealthifyApp.Web\HealthifyApp.Web.csproj", "{DD02AE23-65F6-4BDD-977D-8609F29D50D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}"
 EndProject
@@ -11,13 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BCAAB474-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{85A9F396-6366-4BDB-96BD-7ABDA5C71458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Common", "HealthifyApp.Common\HealthifyApp.Common.csproj", "{85533282-1B6D-49CD-BD08-824A3F24DADF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Common", "HealthifyApp.Common\HealthifyApp.Common.csproj", "{85533282-1B6D-49CD-BD08-824A3F24DADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Data", "HealthifyApp.Data\HealthifyApp.Data.csproj", "{19363107-2952-4BA5-B966-CFD85B24AF73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Data", "HealthifyApp.Data\HealthifyApp.Data.csproj", "{19363107-2952-4BA5-B966-CFD85B24AF73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Data.Models", "HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj", "{5DC5B58A-30D3-4152-A046-52BEC34F5358}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaApp.Web.ViewModels", "CinemaApp.Web.ViewModels\CinemaApp.Web.ViewModels.csproj", "{C5140EC0-BF71-4953-A7F0-F591197D85ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Data.Models", "HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj", "{5DC5B58A-30D3-4152-A046-52BEC34F5358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +39,6 @@ Global
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5140EC0-BF71-4953-A7F0-F591197D85ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5140EC0-BF71-4953-A7F0-F591197D85ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5140EC0-BF71-4953-A7F0-F591197D85ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5140EC0-BF71-4953-A7F0-F591197D85ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,7 +47,6 @@ Global
 		{DD02AE23-65F6-4BDD-977D-8609F29D50D5} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
 		{19363107-2952-4BA5-B966-CFD85B24AF73} = {BCAAB474-B9BD-4E78-ADA5-028518D43D2A}
 		{5DC5B58A-30D3-4152-A046-52BEC34F5358} = {BCAAB474-B9BD-4E78-ADA5-028518D43D2A}
-		{C5140EC0-BF71-4953-A7F0-F591197D85ED} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32BC7D33-36CD-4974-9535-9834D73693A7}
