@@ -15,7 +15,7 @@ namespace HealthifyApp.Data.Models
             this.Workouts = new HashSet<Workout>();
             this.ProgressLogs = new HashSet<ProgressLog>();
             this.NutritionIntake = new HashSet<NutritionIntake>();
-            this.Goal = new HashSet<Goal>();
+            this.Goals = new HashSet<Goal>();
             this.TargetNutritional = new HashSet<TargetNutrition>();
             this.BMICalculations = new HashSet<BMICalculation>();
             this.WaterIntakes = new HashSet<WaterIntake>();
@@ -53,10 +53,6 @@ namespace HealthifyApp.Data.Models
         [Comment("The gender of the user")]
         public Gender Gender { get; set; }
 
-        [Required]
-        [Comment("The goals of the user.")]
-        [MaxLength(GoalsMaxLength)]
-        public string Goals { get; set; } = null!;
 
         [Required]
         [Comment("The creation of the user account.")]
@@ -67,7 +63,7 @@ namespace HealthifyApp.Data.Models
         public virtual ICollection<Workout> Workouts { get; set; }
         public virtual ICollection<ProgressLog> ProgressLogs { get; set; }
         public virtual ICollection<NutritionIntake> NutritionIntake { get; set; }
-        public virtual ICollection<Goal> Goal { get; set; }
+        public virtual ICollection<Goal> Goals { get; set; }
         public virtual ICollection<TargetNutrition> TargetNutritional { get; set; }
         public virtual ICollection<BMICalculation> BMICalculations { get; set; }
         public virtual ICollection<WaterIntake> WaterIntakes { get; set; }

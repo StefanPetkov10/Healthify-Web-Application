@@ -81,7 +81,6 @@ namespace HealthifyApp.Data.Configuration
                 Height = 180,
                 StartingWeight = 80,
                 Gender = Gender.Male,
-                Goals = "Lose weight",
                 CreatedOn = DateTime.Now
             };
 
@@ -93,7 +92,6 @@ namespace HealthifyApp.Data.Configuration
                 Height = 165,
                 StartingWeight = 60,
                 Gender = Gender.Female,
-                Goals = "Gain muscle",
                 CreatedOn = DateTime.Now
             };
         }
