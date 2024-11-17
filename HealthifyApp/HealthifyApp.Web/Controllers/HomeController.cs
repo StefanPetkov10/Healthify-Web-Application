@@ -20,20 +20,47 @@ namespace HealthifyApp.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userProfile = await _context.UserProfiles
-                   .FirstOrDefaultAsync();
+            if (User.Identity == null || !User.Identity.IsAuthenticated)
+            {
+                // If the user is not logged in, show default content
+                return View(new HomeIndexViewModel());
+            }
 
+            // Fetch user profile for the authenticated user
+            var userProfile = await _context.UserProfiles
+                .Include(up => up.Workouts)
+                .Include(up => up.ProgressLogs)
+                .Include(up => up.Goals)
+                .Include(up => up.WaterIntakes)
+                .Include(up => up.NutritionIntake)
+                .Include(up => up.TargetNutritional)
+                .FirstOrDefaultAsync(up => up.ApplicationUserProfiles
+                    .Any(a => a.ApplicationUser.UserName == User.Identity.Name));
+
+            if (userProfile == null)
+            {
+                // Handle case where user profile is not found
+                return NotFound("User profile not found.");
+            }
+
+            // Populate the view model with data
             var model = new HomeIndexViewModel
             {
-                LastWorkout = userProfile.Workouts
-                        .OrderByDescending(w => w.ScheduleDateTime)
-                        .FirstOrDefault()?.Name ?? "No workouts yet",
-                CurrentWeight = userProfile.ProgressLogs
-                        .FirstOrDefault()?.CurrentWeight.ToString("F2") ?? "No actual information about weight",
-                GoalWeight = userProfile.Goals
-                    .FirstOrDefault()!.GoalWeight.ToString("F2"),
-                WaterIntakeStatus = $"{userProfile.WaterIntakes.Where(w => w.Date.Date == DateTime.Today).Sum(w => w.Consumed ?? 0)} / {userProfile.WaterIntakes.FirstOrDefault()?.DailyGoal} liters",
-                CalorieStatus = "1500/2000 kcal"
+                LastWorkout = userProfile.Workouts?
+                    .OrderByDescending(w => w.ScheduleDateTime)
+                    .FirstOrDefault()?.Name ?? "No workouts yet",
+                CurrentWeight = userProfile.ProgressLogs?
+                    .OrderByDescending(pl => pl.Date)
+                    .FirstOrDefault()?.CurrentWeight.ToString("F2") ?? "No actual information about weight",
+                GoalWeight = userProfile.Goals?
+                    .FirstOrDefault()?.GoalWeight.ToString("F2") ?? "No goal weight set",
+                WaterIntakeStatus = $"{userProfile.WaterIntakes?
+                    .Where(w => w.Date.Date == DateTime.Today)
+                    .Sum(w => w.Consumed ?? 0) ?? 0} / {userProfile.WaterIntakes?
+                    .FirstOrDefault()?.DailyGoal ?? 0} liters",
+                CalorieStatus = $"{userProfile.NutritionIntake?
+                    .Sum(c => c.Calories) ?? 0} / {userProfile.TargetNutritional?
+                    .FirstOrDefault()?.TargetCalories ?? 0} kca"
             };
 
             return View(model);
