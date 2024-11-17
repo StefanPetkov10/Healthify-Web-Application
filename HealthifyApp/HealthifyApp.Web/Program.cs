@@ -1,5 +1,6 @@
 using HealthifyApp.Data;
 using HealthifyApp.Data.Configuration;
+using HealthifyApp.Web.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -61,6 +62,7 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
+app.ApplyMigrations();
 app.Run();
 
 static void ConfigureIdentityOptions(WebApplicationBuilder builder, IdentityOptions configuration)

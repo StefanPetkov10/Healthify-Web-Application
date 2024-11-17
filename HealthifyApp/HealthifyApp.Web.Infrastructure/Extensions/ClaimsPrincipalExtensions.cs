@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace HealthifyApp.Web.Infrastructure
+namespace HealthifyApp.Web.Infrastructure.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {
