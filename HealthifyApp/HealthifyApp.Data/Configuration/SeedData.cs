@@ -12,8 +12,12 @@ namespace HealthifyApp.Data.Configuration
         public UserProfile UserProfile2 { get; set; }
         public BMICalculation BMICalculation1 { get; set; }
         public BMICalculation BMICalculation2 { get; set; }
-        public NutritionPlan NutritionPlan1 { get; set; }
-        public NutritionPlan NutritionPlan2 { get; set; }
+        public TargetNutrition TargetNutrition1 { get; set; }
+        public TargetNutrition TargetNutrition2 { get; set; }
+        public NutritionIntake NutritionIntake1 { get; set; }
+        public NutritionIntake NutritionIntake2 { get; set; }
+        public Goal Goal1 { get; set; }
+        public Goal Goal2 { get; set; }
         public ProgressLog ProgressLog1 { get; set; }
         public ProgressLog ProgressLog2 { get; set; }
         public WaterIntake WaterIntake1 { get; set; }
@@ -29,7 +33,9 @@ namespace HealthifyApp.Data.Configuration
         {
             SeedUsersAndProfiles();
             SeedBMICalculations();
-            SeedNutritionPlans();
+            SeedTargetNutrition();
+            SeedNutritionIntakes();
+            SeedGoals();
             SeedProgressLogs();
             SeedWaterIntake();
             SeedWorkouts();
@@ -73,7 +79,7 @@ namespace HealthifyApp.Data.Configuration
                 LastName = "Doe",
                 Age = 30,
                 Height = 180,
-                Weight = 80,
+                StartingWeight = 80,
                 Gender = Gender.Male,
                 Goals = "Lose weight",
                 CreatedOn = DateTime.Now
@@ -85,7 +91,7 @@ namespace HealthifyApp.Data.Configuration
                 LastName = "Smith",
                 Age = 25,
                 Height = 165,
-                Weight = 60,
+                StartingWeight = 60,
                 Gender = Gender.Female,
                 Goals = "Gain muscle",
                 CreatedOn = DateTime.Now
@@ -102,7 +108,7 @@ namespace HealthifyApp.Data.Configuration
                 Height = 180,
                 Weight = 80,
                 BMI = 24.7f,
-                Category = "Normal weight"
+                Category = BMICategory.NormalWeight
             };
 
             BMICalculation2 = new BMICalculation()
@@ -112,30 +118,77 @@ namespace HealthifyApp.Data.Configuration
                 Height = 165,
                 Weight = 60.6f,
                 BMI = 22.0f,
-                Category = "Normal weight"
+                Category = BMICategory.NormalWeight
             };
         }
 
-        private void SeedNutritionPlans()
+        private void SeedTargetNutrition()
         {
-            NutritionPlan1 = new NutritionPlan()
+            TargetNutrition1 = new TargetNutrition()
             {
                 UserProfileId = UserProfile1.Id,
-                Goal = "Lose weight",
-                Calories = 2000,
-                Protein = 150,
-                Carbohydrates = 100,
-                Fats = 50
+                GoalName = "Lose weight",
+                TargetCalories = 2000,
+                TargetProtein = 150,
+                TargetCarbohydrates = 100,
+                TargetFats = 50
             };
 
-            NutritionPlan2 = new NutritionPlan()
+            TargetNutrition2 = new TargetNutrition()
             {
                 UserProfileId = UserProfile2.Id,
-                Goal = "Gain muscle",
-                Calories = 2500,
-                Protein = 200,
-                Carbohydrates = 200,
-                Fats = 60
+                GoalName = "Gain muscle",
+                TargetCalories = 2500,
+                TargetProtein = 200,
+                TargetCarbohydrates = 200,
+                TargetFats = 60
+            };
+        }
+
+        private void SeedNutritionIntakes()
+        {
+            NutritionIntake1 = new NutritionIntake()
+            {
+                UserProfileId = UserProfile1.Id,
+                Date = DateTime.Today.AddDays(1),
+                Calories = 1800,
+                Protein = 140,
+                Carbohydrates = 90,
+                Fats = 45
+            };
+
+            NutritionIntake2 = new NutritionIntake()
+            {
+                UserProfileId = UserProfile2.Id,
+                Date = DateTime.Today.AddDays(1),
+                Calories = 2600,
+                Protein = 210,
+                Carbohydrates = 220,
+                Fats = 63
+            };
+        }
+
+        private void SeedGoals()
+        {
+            Goal1 = new Goal()
+            {
+                UserProfileId = UserProfile1.Id,
+                StartDate = DateTime.Today,
+                GoalType = Goals.LoseWeight,
+                Activity = Activity.ModeratelyActive,
+                GoalWeight = 75.0f,
+                GoalWaist = 85.0f,
+                GoalChest = 95.0f
+            };
+
+            Goal2 = new Goal()
+            {
+                UserProfileId = UserProfile2.Id,
+                StartDate = DateTime.Today,
+                GoalType = Goals.GainWeight,
+                Activity = Activity.VeryActive,
+                GoalWeight = 67.0f,
+                GoalHips = 97.0f
             };
         }
 
@@ -144,8 +197,8 @@ namespace HealthifyApp.Data.Configuration
             ProgressLog1 = new ProgressLog()
             {
                 UserProfileId = UserProfile1.Id,
-                Date = DateTime.Now,
-                Weight = 79.5f,
+                Date = DateTime.Today.AddDays(1),
+                CurrentWeight = 79.5f,
                 Waist = 90.0f,
                 Chest = 100.0f
             };
@@ -153,8 +206,8 @@ namespace HealthifyApp.Data.Configuration
             ProgressLog2 = new ProgressLog()
             {
                 UserProfileId = UserProfile2.Id,
-                Date = DateTime.Now,
-                Weight = 60.5f,
+                Date = DateTime.Today.AddDays(1),
+                CurrentWeight = 60.5f,
                 Hips = 95.0f
             };
         }
@@ -180,22 +233,23 @@ namespace HealthifyApp.Data.Configuration
 
         private void SeedWorkouts()
         {
-            Workout1 = new Workout()
-            {
-                UserProfileId = UserProfile1.Id,
-                Name = "Morning Strength",
-                Description = "A full-body workout to start the day.",
-                ScheduleDateTime = DateTime.Now.AddHours(1),
-                Duration = 60
-            };
 
             Workout2 = new Workout()
             {
-                UserProfileId = UserProfile2.Id,
+                UserProfileId = UserProfile1.Id,
                 Name = "Evening Cardio",
                 Description = "High-intensity cardio for fat burn.",
                 ScheduleDateTime = DateTime.Now.AddHours(3),
                 Duration = 45
+            };
+
+            Workout1 = new Workout()
+            {
+                UserProfileId = UserProfile2.Id,
+                Name = "Morning Strength",
+                Description = "A full-body workout to start the day.",
+                ScheduleDateTime = DateTime.Now.AddHours(1),
+                Duration = 60
             };
         }
 

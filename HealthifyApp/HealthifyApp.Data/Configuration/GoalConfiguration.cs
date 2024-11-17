@@ -4,20 +4,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HealthifyApp.Data.Configuration
 {
-    public class NutritionPlanConfiguration : IEntityTypeConfiguration<NutritionPlan>
+    public class GoalConfiguration : IEntityTypeConfiguration<Goal>
     {
         private readonly SeedData _seedData;
 
-        public NutritionPlanConfiguration(SeedData seedData)
+        public GoalConfiguration(SeedData seedData)
         {
             _seedData = seedData;
         }
 
-        public void Configure(EntityTypeBuilder<NutritionPlan> builder)
+        public void Configure(EntityTypeBuilder<Goal> builder)
         {
             builder.HasData(
-                _seedData.NutritionPlan1,
-                _seedData.NutritionPlan2
+                _seedData.Goal1,
+                _seedData.Goal2
             );
         }
     }

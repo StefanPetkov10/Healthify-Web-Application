@@ -25,7 +25,9 @@ namespace HealthifyApp.Data
         public virtual DbSet<Exercise> Exercises { get; set; } = null!;
         public virtual DbSet<WorkoutExercise> WorkoutExercises { get; set; } = null!;
         public virtual DbSet<ProgressLog> ProgressLogs { get; set; } = null!;
-        public virtual DbSet<NutritionPlan> NutritionPlans { get; set; } = null!;
+        public virtual DbSet<NutritionIntake> NutritionIntake { get; set; } = null!;
+        public virtual DbSet<Goal> Goals { get; set; } = null!;
+        public virtual DbSet<TargetNutrition> TargetNutritional { get; set; } = null!;
         public virtual DbSet<BMICalculation> BMICalculations { get; set; } = null!;
         public virtual DbSet<WaterIntake> WaterIntakes { get; set; } = null!;
 
@@ -39,7 +41,9 @@ namespace HealthifyApp.Data
             modelBilder.ApplyConfiguration(new WorkoutConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new ExerciseConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new ProgressLogConfiguration(_seedData));
-            modelBilder.ApplyConfiguration(new NutritionPlanConfiguration(_seedData));
+            modelBilder.ApplyConfiguration(new NutritionIntakeConfiguration(_seedData));
+            modelBilder.ApplyConfiguration(new GoalConfiguration(_seedData));
+            modelBilder.ApplyConfiguration(new TargetNutritionConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new WaterIntakeConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new BMICalculationConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new WorkoutExerciseConfiguration(_seedData));

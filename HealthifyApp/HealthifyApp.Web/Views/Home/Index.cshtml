@@ -1,77 +1,77 @@
-﻿@{
+﻿
+@model HealthifyApp.Web.ViewModels.Home.HomeIndexViewModel
+
+@{
     ViewData["Title"] = "Home";
 }
 
 <div class="container mt-5">
-    <!-- Hero Section with Greeting and Motivation -->
-    <div class="jumbotron text-center bg-light p-5 mb-5">
-        <h1 class="display-4">Welcome to Healthify, @User.Identity.Name!</h1>
-        <p class="lead">"Your health journey starts with small steps. Keep moving forward!"</p>
-        <a href="/UserProfile" class="btn btn-primary btn-lg">Get Started</a>
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <!-- Content for Logged-in Users -->
+        <div class="jumbotron text-center bg-light p-5 mb-5">
+            <h1 class="display-4">Welcome Back, @User.Identity.Name!</h1>
+            <p class="lead">Your health journey continues. Keep moving forward!</p>
+        </div>
 
-    <!-- Quick Access Widgets -->
-    <div class="row mb-4">
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Workout Summary</h5>
-                    <p>Last workout: <strong>45 mins of Cardio</strong></p>
-                    <a href="/Workout" class="btn btn-outline-success">Start a New Workout</a>
+        <!-- Quick Access Widgets -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Workout Summary</h5>
+                        <p>Last workout: <strong>@Model.LastWorkout</strong></p>
+                        <a href="/Workout" class="btn btn-outline-success">Start a New Workout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Progress Log</h5>
+                        <p>Weight: <strong>@Model.CurrentWeight</strong> | Goal: <strong>@Model.GoalWeight</strong></p>
+                        <a href="/ProgressLog" class="btn btn-outline-primary">Update Progress</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Daily Goals</h5>
+                        <ul>
+                            <li>Water Intake: <span class="text-success">@Model.WaterIntakeStatus</span></li>
+                            <li>Calories: <span class="text-warning">@Model.CalorieStatus</span></li>
+                        </ul>
+                        <a href="/NutritionPlan" class="btn btn-outline-warning">View Goals</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Progress Log</h5>
-                    <p>Weight: <strong>72 kg</strong> | Goal: <strong>70 kg</strong></p>
-                    <a href="/ProgressLog" class="btn btn-outline-primary">Update Progress</a>
+
+        <!-- Health Calculators -->
+        <div class="my-4">
+            <h2>Health Calculators</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <a href="/Calculators/BMI" class="btn btn-lg btn-outline-info w-100">BMI Calculator</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="/Calculators/CalorieIntake" class="btn btn-lg btn-outline-info w-100">Calorie Intake Calculator</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="/Calculators/WaterIntake" class="btn btn-lg btn-outline-info w-100">Water Intake Calculator</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Daily Goals</h5>
-                    <ul>
-                        <li>Water Intake: <span class="text-success">Completed</span></li>
-                        <li>Calories: <span class="text-warning">In Progress</span></li>
-                    </ul>
-                    <a href="/NutritionPlan" class="btn btn-outline-warning">View Goals</a>
-                </div>
-            </div>
+    }
+    else
+    {
+        <!-- Content for Anonymous Users -->
+        <div class="jumbotron text-center bg-light p-5 mb-5">
+            <h1 class="display-4">Welcome to Healthify!</h1>
+            <p class="lead">Track your workouts, log your progress, and achieve your health goals.</p>
+            <a href="/Account/Login" class="btn btn-primary btn-lg">Log In</a>
+            <a href="/Account/Register" class="btn btn-outline-primary btn-lg">Register</a>
         </div>
-    </div>
-
-    <!-- Calculators Section -->
-    <div class="my-4">
-        <h2>Health Calculators</h2>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <a href="/Calculators/BMI" class="btn btn-lg btn-outline-info w-100">BMI Calculator</a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <a href="/Calculators/CalorieIntake" class="btn btn-lg btn-outline-info w-100">Calorie Intake Calculator</a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <a href="/Calculators/WaterIntake" class="btn btn-lg btn-outline-info w-100">Water Intake Calculator</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Featured Articles Section -->
-    <!-- This will be add if i create Articles table
-    <div class="my-4">
-        <h2>Featured Articles</h2>
-        <div class="list-group">
-            <a href="/Articles/1" class="list-group-item list-group-item-action">
-                5 Easy Ways to Increase Your Daily Water Intake
-            </a>
-            <a href="/Articles/2" class="list-group-item list-group-item-action">
-                Understanding the Basics of BMI
-            </a>
-        </div>
-    </div>
-    -->
+    }
 </div>

@@ -25,6 +25,8 @@
     <ProjectReference Include="..\HealthifyApp.Common\HealthifyApp.Common.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data\HealthifyApp.Data.csproj" />
+    <ProjectReference Include="..\HealthifyApp.Web.Infrastructure\HealthifyApp.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\HealthifyApp.Web.ViewModels\HealthifyApp.Web.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -25,9 +25,10 @@ namespace HealthifyApp.Data.Models
         [Comment("The date of the progress log.")]
         public DateTime Date { get; set; }
 
-        [Comment("The weight of the user.")]
+        [Required]
+        [Comment("The user's weight as of today.")]
         [Column(TypeName = "decimal(18,2)")]
-        public float Weight { get; set; }
+        public float CurrentWeight { get; set; }
 
         [Comment("The waist of the user.")]
         [Column(TypeName = "decimal(18,2)")]
