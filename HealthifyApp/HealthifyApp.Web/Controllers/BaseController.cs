@@ -12,7 +12,7 @@ namespace HealthifyApp.Web.Controllers
                 return false;
             }
 
-            // Invalid parameter in the URL
+            // Invalid parameter in the URL 
             bool isGuidValid = Guid.TryParse(id, out parsedGuidId);
             if (!isGuidValid)
             {
