@@ -22,9 +22,9 @@ builder.Services
         ConfigureIdentityOptions(builder, options);
     })
     .AddEntityFrameworkStores<HealthifyDbContext>()
-    .AddDefaultTokenProviders();
-//.AddSignInManager<SignInManager<ApplicationUser>>()
-//.AddUserManager<UserManager<ApplicationUser>>();
+    .AddDefaultTokenProviders()
+    .AddSignInManager<SignInManager<ApplicationUser>>()
+    .AddUserManager<UserManager<ApplicationUser>>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
