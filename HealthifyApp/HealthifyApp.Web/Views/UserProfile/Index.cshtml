@@ -1,0 +1,53 @@
+﻿@using HealthifyApp.Web.ViewModels.UserProfile
+@model UserProfileFormModel
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">User Profile</h2>
+
+    @if (Model.IsExistingProfile)
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Property</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <td>@Model.FirstName</td>
+                    </tr>
+                    <tr>
+                        <th>Last Name</th>
+                        <td>@Model.LastName</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>@Model.Age</td>
+                    </tr>
+                    <tr>
+                        <th>Height</th>
+                        <td>@Model.Height cm</td>
+                    </tr>
+                    <tr>
+                        <th>Starting Weight</th>
+                        <td>@Model.StartingWeight kg</td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>@Model.Gender</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                <i class="bi bi-pencil-square"></i> Edit Profile
+            </a>
+        </div>
+    }
+
+</div>

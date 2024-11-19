@@ -18,6 +18,7 @@ namespace HealthifyApp.Web.Controllers
             _context = healthifyDbContext;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             if (User.Identity == null || !User.Identity.IsAuthenticated)
@@ -40,7 +41,7 @@ namespace HealthifyApp.Web.Controllers
             if (userProfile == null)
             {
                 // Handle case where user profile is not found
-                return NotFound("User profile not found.");
+                return RedirectToAction("Create", "UserProfile");
             }
 
             // Populate the view model with data

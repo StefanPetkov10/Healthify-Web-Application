@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace HealthifyApp.Web.Areas.Identity.Pages.Account
 {
@@ -109,6 +110,22 @@ namespace HealthifyApp.Web.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    using (var scope = HttpContext.RequestServices.CreateScope())
+                    {
+                        var dbContext = scope.ServiceProvider.GetRequiredService<HealthifyDbContext>();
+
+                        bool hasProfile = await dbContext.UserProfiles
+                            .AnyAsync(up => up.ApplicationUserProfiles
+                                .Any(a => a.ApplicationUserId == user.Id));
+
+                        if (!hasProfile)
+                        {
+                            // Redirect to profile creation form
+                            return RedirectToAction("Create", "UserProfile");
+                        }
+                    }
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

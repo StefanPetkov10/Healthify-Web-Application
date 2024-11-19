@@ -6,6 +6,7 @@
 }
 
 <div class="container mt-5">
+
     @if (User.Identity.IsAuthenticated)
     {
         <!-- Content for Logged-in Users -->
@@ -70,8 +71,8 @@
         <div class="jumbotron text-center bg-light p-5 mb-5">
             <h1 class="display-4">Welcome to Healthify!</h1>
             <p class="lead">Track your workouts, log your progress, and achieve your health goals.</p>
-            <a href="/Account/Login" class="btn btn-primary btn-lg">Log In</a>
-            <a href="/Account/Register" class="btn btn-outline-primary btn-lg">Register</a>
+            <a href="/Identity/Account/Login" class="btn btn-primary btn-lg">Log In</a>
+            <a href="/Identity/Account/Register" class="btn btn-outline-primary btn-lg">Register</a>
         </div>
     }
 </div>

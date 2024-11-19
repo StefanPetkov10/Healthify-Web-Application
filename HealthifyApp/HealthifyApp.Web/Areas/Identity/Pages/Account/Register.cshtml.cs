@@ -6,6 +6,7 @@ using HealthifyApp.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace HealthifyApp.Web.Areas.Identity.Pages.Account
 {
@@ -87,6 +88,7 @@ namespace HealthifyApp.Web.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
 #pragma warning restore CS1998
         {
+
             ReturnUrl = returnUrl;
         }
 
@@ -106,6 +108,21 @@ namespace HealthifyApp.Web.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);
+
+                    using (var scope = HttpContext.RequestServices.CreateScope())
+                    {
+                        var dbContext = scope.ServiceProvider.GetRequiredService<HealthifyDbContext>();
+
+                        bool hasProfile = await dbContext.UserProfiles
+                            .AnyAsync(up => up.ApplicationUserProfiles
+                                .Any(a => a.ApplicationUserId == Guid.Parse(userId)));
+
+                        if (!hasProfile)
+                        {
+                            // Redirect to profile creation form if no profile is found
+                            return RedirectToAction("Create", "UserProfile");
+                        }
+                    }
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);
