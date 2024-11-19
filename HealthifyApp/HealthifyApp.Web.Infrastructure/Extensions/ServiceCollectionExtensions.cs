@@ -14,7 +14,8 @@ namespace HealthifyApp.Web.Infrastructure.Extensions
             Type[] modelTypes = modelsAssembly
                 .GetTypes()
                 .Where(t => !t.IsAbstract && !t.IsInterface &&
-                            !t.Name.ToLower().EndsWith("attribute"))
+                !t.IsEnum &&
+                !t.Name.ToLower().EndsWith("attribute"))
                 .ToArray();
 
             foreach (Type type in modelTypes)

@@ -1,3 +1,4 @@
+using CinemaApp.Services.Data.Interfaces;
 using HealthifyApp.Data;
 using HealthifyApp.Data.Configuration;
 using HealthifyApp.Web.Infrastructure.Extensions;
@@ -30,6 +31,10 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Identity/Account/Login";
 });
+
+builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
+builder.Services.RegisterUserDefinedServices(typeof(IBaseService).Assembly);
+
 
 // Add Authentication, Authorization, ControllersWithViews, and RazorPages
 builder.Services.AddAuthentication();
