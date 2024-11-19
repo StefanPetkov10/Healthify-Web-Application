@@ -1,25 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CinemaApp.Services.Data.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HealthifyApp.Web.Controllers
 {
     public class BaseController : Controller
     {
-        protected bool IsGuidIdValid(string? id, ref Guid parsedGuidId)
+        private readonly IBaseService _baseService;
+
+        public BaseController(IBaseService baseService)
         {
-            // Non-existing parameter in the URL
-            if (string.IsNullOrEmpty(id))
-            {
-                return false;
-            }
+            this._baseService = baseService;
+        }
 
-            // Invalid parameter in the URL 
-            bool isGuidValid = Guid.TryParse(id, out parsedGuidId);
-            if (!isGuidValid)
-            {
-                return false;
-            }
-
-            return true;
+        protected bool IsGuidValid(string? id, out Guid parsedGuidId)
+        {
+            parsedGuidId = Guid.Empty;
+            return _baseService.IsGuidIdValid(id, ref parsedGuidId);
         }
     }
 }
