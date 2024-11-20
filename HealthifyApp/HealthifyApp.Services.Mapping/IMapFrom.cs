@@ -1,6 +1,6 @@
 ﻿namespace HealthifyApp.Services.Mapping
 {
-    internal interface IMapTo<T>
+    public interface IMapFrom<T>
     {
     }
 }
