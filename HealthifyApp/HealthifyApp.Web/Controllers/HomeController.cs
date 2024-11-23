@@ -23,10 +23,10 @@ namespace HealthifyApp.Web.Controllers
         {
             if (User.Identity == null || !User.Identity.IsAuthenticated)
             {
-                // If the user is not logged in, show default content
-                return View(new HomeIndexViewModel());
+                return View(new HomeIndexViewModel { HasProfile = false });
             }
 
+            var userName = User.Identity.Name;
             // Fetch user profile for the authenticated user
             var userProfile = await _context.UserProfiles
                 .Include(up => up.Workouts)
@@ -40,13 +40,17 @@ namespace HealthifyApp.Web.Controllers
 
             if (userProfile == null)
             {
-                // Handle case where user profile is not found
-                return RedirectToAction("Create", "UserProfile");
+                return View(new HomeIndexViewModel
+                {
+                    HasProfile = false,
+                    UserName = userName!
+                });
             }
 
             // Populate the view model with data
             var model = new HomeIndexViewModel
             {
+                HasProfile = true,
                 LastWorkout = userProfile.Workouts?
                     .OrderByDescending(w => w.ScheduleDateTime)
                     .FirstOrDefault()?.Name ?? "No workouts yet",

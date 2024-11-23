@@ -1,5 +1,4 @@
-﻿
-@model HealthifyApp.Web.ViewModels.Home.HomeIndexViewModel
+﻿@model HealthifyApp.Web.ViewModels.Home.HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Home";
@@ -9,62 +8,77 @@
 
     @if (User.Identity.IsAuthenticated)
     {
-        <!-- Content for Logged-in Users -->
-        <div class="jumbotron text-center bg-light p-5 mb-5">
-            <h1 class="display-4">Welcome Back, @User.Identity.Name!</h1>
-            <p class="lead">Your health journey continues. Keep moving forward!</p>
-        </div>
+        if (!Model.HasProfile)
+        {
+            <div class="alert alert-warning text-center" role="alert">
+                <h4 class="alert-heading">Welcome, @Model.UserName!</h4>
+                <p>You don't have a profile yet. To fully utilize the application, please create your profile first.</p>
+                <hr />
+                <a asp-controller="UserProfile" asp-action="Create" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Create Profile
+                </a>
+            </div>
+        }
+        else
+        {
+            <!-- Content for Logged-in Users -->
+            <div class="jumbotron text-center bg-light p-5 mb-5">
+                <h1 class="display-4">Welcome Back, @User.Identity.Name!</h1>
+                <p class="lead">Your health journey continues. Keep moving forward!</p>
+            </div>
 
-        <!-- Quick Access Widgets -->
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Workout Summary</h5>
-                        <p>Last workout: <strong>@Model.LastWorkout</strong></p>
-                        <a href="/Workout" class="btn btn-outline-success">Start a New Workout</a>
+            <!-- Quick Access Widgets -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Workout Summary</h5>
+                            <p>Last workout: <strong>@Model.LastWorkout</strong></p>
+                            <a href="/Workout" class="btn btn-outline-success">Start a New Workout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Progress Log</h5>
+                            <p>Weight: <strong>@Model.CurrentWeight</strong> | Goal: <strong>@Model.GoalWeight</strong></p>
+                            <a href="/ProgressLog" class="btn btn-outline-primary">Update Progress</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Daily Goals</h5>
+                            <ul>
+                                <li>Water Intake: <span class="text-success">@Model.WaterIntakeStatus</span></li>
+                                <li>Calories: <span class="text-warning">@Model.CalorieStatus</span></li>
+                            </ul>
+                            <a href="/NutritionPlan" class="btn btn-outline-warning">View Goals</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Progress Log</h5>
-                        <p>Weight: <strong>@Model.CurrentWeight</strong> | Goal: <strong>@Model.GoalWeight</strong></p>
-                        <a href="/ProgressLog" class="btn btn-outline-primary">Update Progress</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Daily Goals</h5>
-                        <ul>
-                            <li>Water Intake: <span class="text-success">@Model.WaterIntakeStatus</span></li>
-                            <li>Calories: <span class="text-warning">@Model.CalorieStatus</span></li>
-                        </ul>
-                        <a href="/NutritionPlan" class="btn btn-outline-warning">View Goals</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Health Calculators -->
-        <div class="my-4">
-            <h2>Health Calculators</h2>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <a href="/Calculators/BMI" class="btn btn-lg btn-outline-info w-100">BMI Calculator</a>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <a href="/Calculators/CalorieIntake" class="btn btn-lg btn-outline-info w-100">Calorie Intake Calculator</a>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <a href="/Calculators/WaterIntake" class="btn btn-lg btn-outline-info w-100">Water Intake Calculator</a>
+            <!-- Health Calculators -->
+            <div class="my-4">
+                <h2>Health Calculators</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <a href="/Calculators/BMI" class="btn btn-lg btn-outline-info w-100">BMI Calculator</a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="/Calculators/CalorieIntake" class="btn btn-lg btn-outline-info w-100">Calorie Intake Calculator</a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="/Calculators/WaterIntake" class="btn btn-lg btn-outline-info w-100">Water Intake Calculator</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     }
+
     else
     {
         <!-- Content for Anonymous Users -->
