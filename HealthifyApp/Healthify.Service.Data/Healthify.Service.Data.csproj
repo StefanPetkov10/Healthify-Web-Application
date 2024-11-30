@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HealthifyApp.Data\HealthifyApp.Data.csproj" />
+    <ProjectReference Include="..\HealthifyApp.Services.Mapping\HealthifyApp.Services.Mapping.csproj" />
+    <ProjectReference Include="..\HealthifyApp.Web.ViewModels\HealthifyApp.Web.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

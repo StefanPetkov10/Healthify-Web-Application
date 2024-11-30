@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Healthify.Service.Data\Healthify.Service.Data.csproj" />
-    <ProjectReference Include="..\HealthifyApp.Common\HealthifyApp.Common.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data\HealthifyApp.Data.csproj" />
     <ProjectReference Include="..\HealthifyApp.Web.Infrastructure\HealthifyApp.Web.Infrastructure.csproj" />

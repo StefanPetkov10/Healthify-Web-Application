@@ -2,9 +2,8 @@
 {
     public class HomeIndexViewModel
     {
-        public bool HasProfile { get; set; }
         public string UserName { get; set; } = null!;
-
+        public bool HasProfile { get; set; }
 
         public string LastWorkout { get; set; } = null!;
         public string CurrentWeight { get; set; } = null!;

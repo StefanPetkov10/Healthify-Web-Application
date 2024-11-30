@@ -117,14 +117,17 @@ namespace HealthifyApp.Web.Areas.Identity.Pages.Account
                             .AnyAsync(up => up.ApplicationUserProfiles
                                 .Any(a => a.ApplicationUserId == Guid.Parse(userId)));
 
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+
                         if (!hasProfile)
                         {
                             // Redirect to profile creation form if no profile is found
                             return RedirectToAction("Create", "UserProfile");
                         }
+
                     }
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+
                     return LocalRedirect(returnUrl);
                 }
                 foreach (var error in result.Errors)

@@ -58,6 +58,10 @@ namespace HealthifyApp.Data.Models
         [Comment("The creation of the user account.")]
         public DateTime CreatedOn { get; set; }
 
+        [Required]
+        [Comment("indicates whether the profile is active")]
+        public bool IsActiveProfile { get; set; }
+
         public virtual ICollection<ApplicationUserProfile> ApplicationUserProfiles { get; set; }
 
         public virtual ICollection<Workout> Workouts { get; set; }

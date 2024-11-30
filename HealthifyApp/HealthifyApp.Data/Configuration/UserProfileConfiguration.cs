@@ -15,6 +15,10 @@ namespace HealthifyApp.Data.Configuration
 
         public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
+            builder
+                .Property(p => p.IsActiveProfile)
+                .HasDefaultValue(false);
+
             builder.HasData(
                 _seedData.UserProfile1,
                 _seedData.UserProfile2

@@ -64,6 +64,7 @@ namespace HealthifyApp.Web.Controllers
                     .Sum(w => w.Consumed ?? 0) ?? 0} / {userProfile.WaterIntakes?
                     .FirstOrDefault()?.DailyGoal ?? 0} liters",
                 CalorieStatus = $"{userProfile.NutritionIntake?
+                    .Where(n => n.Date.Date == DateTime.Today)
                     .Sum(c => c.Calories) ?? 0} / {userProfile.TargetNutritional?
                     .FirstOrDefault()?.TargetCalories ?? 0} kca"
             };

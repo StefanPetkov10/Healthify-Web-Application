@@ -28,6 +28,7 @@ namespace HealthifyApp.Web.Controllers
 
             var userProfile = _dbContext.UserProfiles
                 .Include(up => up.ApplicationUserProfiles)
+                .Where(up => up.IsActiveProfile == true)
                 .FirstOrDefault(up => up.ApplicationUserProfiles
                 .Any(a => a.ApplicationUserId.ToString() == userId));
 
@@ -36,7 +37,7 @@ namespace HealthifyApp.Web.Controllers
                 return RedirectToAction(nameof(Create));
             }
 
-            var viewModel = new UserProfileFormModel
+            var viewModel = new UserProfileViewModel
             {
                 Id = userProfile.Id,
                 FirstName = userProfile.FirstName,
@@ -45,7 +46,6 @@ namespace HealthifyApp.Web.Controllers
                 Height = userProfile.Height,
                 StartingWeight = userProfile.StartingWeight,
                 Gender = userProfile.Gender.ToString(),
-                IsExistingProfile = true
             };
 
             return View(viewModel);
@@ -75,7 +75,8 @@ namespace HealthifyApp.Web.Controllers
                 Height = model.Height,
                 StartingWeight = model.StartingWeight,
                 Gender = Enum.Parse<Gender>(model.Gender),
-                CreatedOn = DateTime.UtcNow
+                CreatedOn = DateTime.UtcNow,
+                IsActiveProfile = true
             };
 
             var applicationUserProfile = new ApplicationUserProfile

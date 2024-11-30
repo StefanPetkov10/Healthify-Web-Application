@@ -1,6 +1,6 @@
 ﻿namespace HealthifyApp.Web.ViewModels.UserProfile
 {
-    public class UserProfileFormModel
+    public class UserProfileViewModel
     {
         public Guid Id { get; set; }
 
@@ -20,6 +20,5 @@
 
         public string Gender { get; set; } = null!;
 
-        public bool IsExistingProfile { get; set; }
     }
 }

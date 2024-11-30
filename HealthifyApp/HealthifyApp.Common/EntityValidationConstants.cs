@@ -19,9 +19,6 @@
             public const byte WeightMinValue = 30;
             public const short WeightMaxValue = 300;
 
-            public const byte GoalsMinLength = 10;
-            public const byte GoalsMaxLength = 254;
-
             public const string JoinDateTimeFormat = "dd-MM-yyyy";
         }
 
