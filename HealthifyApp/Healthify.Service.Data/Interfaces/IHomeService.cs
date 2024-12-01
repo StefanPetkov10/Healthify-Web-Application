@@ -1,11 +1,9 @@
-﻿using HealthifyApp.Data.Models;
+﻿using HealthifyApp.Web.ViewModels.Home;
 
 namespace Healthify.Service.Data.Interfaces
 {
     public interface IHomeService
     {
-        Task<UserProfile?> GetActiveUserProfileNameAsync(string userName);
-
-        Task<bool>(HomeIndexViewModel formModel);
+        Task<HomeIndexViewModel> GetHomeIndexViewModelAsync(string userName);
     }
 }
