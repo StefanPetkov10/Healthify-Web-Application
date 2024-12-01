@@ -1,23 +1,24 @@
 ﻿using CinemaApp.Services.Data.Interfaces;
+using Healthify.Service.Data.Interfaces;
 using HealthifyApp.Data;
-using HealthifyApp.Data.Models;
-using HealthifyApp.Data.Models.Enums;
 using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.UserProfile;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using static HealthifyApp.Common.ErrorMessages.UserProfile;
 
 namespace HealthifyApp.Web.Controllers
 {
     public class UserProfileController : BaseController
     {
+        private readonly IUserProfileService userProfileService;
         private readonly HealthifyDbContext _dbContext;
 
-        public UserProfileController(IBaseService baseService, HealthifyDbContext dbContext)
+        public UserProfileController(IBaseService baseService, HealthifyDbContext dbContext, IUserProfileService userProfileService)
             : base(baseService)
         {
             this._dbContext = dbContext;
+            this.userProfileService = userProfileService;
         }
 
         [HttpGet]
@@ -26,39 +27,26 @@ namespace HealthifyApp.Web.Controllers
         {
             var userId = User.GetUserId();
 
-            var userProfile = _dbContext.UserProfiles
-                .Include(up => up.ApplicationUserProfiles)
-                .Where(up => up.IsActiveProfile == true)
-                .FirstOrDefault(up => up.ApplicationUserProfiles
-                .Any(a => a.ApplicationUserId.ToString() == userId));
+            var viewModel = await this.userProfileService.GetUserProfileAsync(new Guid(userId));
 
-            if (userProfile == null)
+            if (viewModel == null)
             {
                 return RedirectToAction(nameof(Create));
             }
-
-            var viewModel = new UserProfileViewModel
-            {
-                Id = userProfile.Id,
-                FirstName = userProfile.FirstName,
-                LastName = userProfile.LastName,
-                Age = userProfile.Age,
-                Height = userProfile.Height,
-                StartingWeight = userProfile.StartingWeight,
-                Gender = userProfile.Gender.ToString(),
-            };
 
             return View(viewModel);
         }
 
         [HttpGet]
-        public IActionResult Create()
+        [Authorize]
+        public async Task<IActionResult> Create()
         {
             return View(new CreateUserProfileFormModel());
         }
 
         [HttpPost]
-        public IActionResult Create(CreateUserProfileFormModel model)
+        [Authorize]
+        public async Task<IActionResult> Create(CreateUserProfileFormModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -67,29 +55,96 @@ namespace HealthifyApp.Web.Controllers
 
             var userId = User.GetUserId();
 
-            var userProfile = new UserProfile
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Age = model.Age,
-                Height = model.Height,
-                StartingWeight = model.StartingWeight,
-                Gender = Enum.Parse<Gender>(model.Gender),
-                CreatedOn = DateTime.UtcNow,
-                IsActiveProfile = true
-            };
-
-            var applicationUserProfile = new ApplicationUserProfile
-            {
-                ApplicationUserId = new Guid(userId!),
-                UserProfile = userProfile
-            };
-
-            _dbContext.ApplicationUserProfiles.Add(applicationUserProfile);
-            _dbContext.UserProfiles.Add(userProfile);
-            _dbContext.SaveChanges();
+            await this.userProfileService.CreateUserProfileAsync(model, new Guid(userId!));
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Edit(string? id)
+        {
+            Guid userGuid = Guid.Empty;
+            bool isIdValid = this.IsGuidValid(id, out userGuid);
+            if (!isIdValid)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            EditUserProfileFormModel? formModel = await this.userProfileService
+                .GetEditUserProfileAsync(userGuid);
+
+            if (formModel == null)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            return View(formModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit(EditUserProfileFormModel formModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(formModel);
+            }
+
+            bool isUpdated = await this.userProfileService.EditUserProfileAsync(formModel);
+
+            if (!isUpdated)
+            {
+                ModelState.AddModelError(string.Empty, UserProfileUpdateError);
+                return this.View(formModel);
+            }
+
+            return this.RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Delete(string? id)
+        {
+            Guid cinemaGuid = Guid.Empty;
+            if (!this.IsGuidValid(id, out cinemaGuid))
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            DeleteUserProfileViewModel? userProfileToDeleteViewModel =
+                await this.userProfileService.GetUserProfileForDeleteByIdAsync(cinemaGuid);
+            if (userProfileToDeleteViewModel == null)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            return this.View(userProfileToDeleteViewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> SoftDeleteConfirmed(DeleteUserProfileViewModel userProfile)
+        {
+            Guid userGuid = Guid.Empty;
+            bool isIdValid = this.IsGuidValid(userProfile.Id, out userGuid);
+            if (!isIdValid)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
+
+            bool isDeleted = await this.userProfileService.SoftDeleteUserProfileAsync(userGuid);
+
+            if (!isDeleted)
+            {
+                TempData["ErrorMessage"] = UserProfileDeleteError;
+                return this.RedirectToAction(nameof(Delete), new { id = userProfile.Id });
+            }
+
+            return this.RedirectToAction(nameof(Index));
+        }
+
     }
 }
+
+

@@ -1,15 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using AutoMapper;
+using HealthifyApp.Services.Mapping;
+
 using static HealthifyApp.Common.EntityValidationConstants.UserProfile;
 using static HealthifyApp.Common.EntityValidationMessages.UserProfile;
 
 namespace HealthifyApp.Web.ViewModels.UserProfile
 {
-    using AutoMapper;
     using HealthifyApp.Data.Models;
-    using HealthifyApp.Services.Mapping;
-
-    public class CreateUserProfileFormModel : IMapTo<UserProfile>, IHaveCustomMappings
+    public class EditUserProfileFormModel : IMapFrom<UserProfile>, IMapTo<UserProfile>, IHaveCustomMappings
     {
+        [Required]
+        public string Id { get; set; } = null!;
+
         [Required(ErrorMessage = FirstNameRequiredMessage)]
         [MinLength(FirstNameMinLength)]
         [MaxLength(FirstNameMaxLength)]
@@ -35,15 +38,16 @@ namespace HealthifyApp.Web.ViewModels.UserProfile
         [Required(ErrorMessage = GenderRequiredMessage)]
         public string Gender { get; set; } = null!;
 
-        public bool IsActiveProfile { get; set; }
-
         public void CreateMappings(IProfileExpression configurate)
         {
-            configurate.CreateMap<CreateUserProfileFormModel, UserProfile>()
+            configurate.CreateMap<UserProfile, EditUserProfileFormModel>()
                 .ForMember(up => up.Gender, opt =>
                     opt.Ignore());
-            configurate.CreateMap<CreateUserProfileFormModel, UserProfile>()
-                .ForMember(up => up.IsActiveProfile, opt =>
+
+            configurate.CreateMap<EditUserProfileFormModel, UserProfile>()
+                .ForMember(up => up.Gender, opt =>
+                    opt.Ignore())
+                .ForMember(up => up.Id, opt =>
                     opt.Ignore());
         }
     }

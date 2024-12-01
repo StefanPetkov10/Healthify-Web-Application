@@ -1,6 +1,9 @@
-﻿namespace HealthifyApp.Web.ViewModels.UserProfile
+﻿using HealthifyApp.Services.Mapping;
+
+namespace HealthifyApp.Web.ViewModels.UserProfile
 {
-    public class UserProfileViewModel
+    using HealthifyApp.Data.Models;
+    public class UserProfileViewModel : IMapFrom<UserProfile>
     {
         public Guid Id { get; set; }
 
@@ -8,17 +11,15 @@
 
         public string LastName { get; set; } = null!;
 
-
         public int Age { get; set; }
-
 
         public float Height { get; set; }
 
-
         public float StartingWeight { get; set; }
 
-
         public string Gender { get; set; } = null!;
+
+        public bool IsActiveProfile { get; set; }
 
     }
 }

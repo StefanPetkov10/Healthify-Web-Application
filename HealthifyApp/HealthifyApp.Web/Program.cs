@@ -1,7 +1,9 @@
-using CinemaApp.Services.Data.Interfaces;
+using Healthify.Service.Data.Interfaces;
 using HealthifyApp.Data;
 using HealthifyApp.Data.Configuration;
+using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.Infrastructure.Extensions;
+using HealthifyApp.Web.ViewModels.UserProfile;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,7 +35,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
-builder.Services.RegisterUserDefinedServices(typeof(IBaseService).Assembly);
+builder.Services.RegisterUserDefinedServices(typeof(IUserProfileService).Assembly);
 
 
 // Add Authentication, Authorization, ControllersWithViews, and RazorPages
@@ -43,6 +45,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
 WebApplication app = builder.Build();
+
+//AutoMapperConfig.RegisterMappings(
+//    typeof(UserProfileViewModel).Assembly, // ViewModels
+//    typeof(UserProfile).Assembly); // Models
+
+AutoMapperConfig.RegisterMappings(typeof(UserProfileViewModel).Assembly);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
