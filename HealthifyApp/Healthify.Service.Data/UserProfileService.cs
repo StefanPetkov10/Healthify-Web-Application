@@ -90,20 +90,27 @@ namespace Healthify.Service.Data
 
         public async Task<bool> EditUserProfileAsync(EditUserProfileFormModel formModel)
         {
+
+
             Guid userProfileGuid = Guid.Empty;
             if (!this.IsGuidIdValid(formModel.Id, ref userProfileGuid))
             {
                 return false;
             }
 
-            UserProfile userProfile = AutoMapperConfig.MapperInstance.Map<UserProfile>(formModel);
-            userProfile.Id = userProfileGuid;
-            userProfile.Gender = Enum.Parse<Gender>(formModel.Gender);
-
+            UserProfile userProfile = await userProfileRepository.GetByIdAsync(userProfileGuid);
             if (userProfile == null)
             {
                 return false;
             }
+
+            var originalCreatedOn = userProfile.CreatedOn;
+
+            // Update the existing entity instead of creating a new one
+            userProfile = AutoMapperConfig.MapperInstance.Map(formModel, userProfile);
+            userProfile.CreatedOn = originalCreatedOn;
+            userProfile.IsActiveProfile = true;
+            userProfile.Gender = Enum.Parse<Gender>(formModel.Gender);
 
             return await userProfileRepository.UpdateAsync(userProfile);
         }

@@ -21,10 +21,6 @@ namespace HealthifyApp.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            if (User.Identity == null || !User.Identity.IsAuthenticated)
-            {
-                return View(new HomeIndexViewModel { HasProfile = false });
-            }
 
             var userName = User.Identity.Name;
             // Fetch user profile for the authenticated user
@@ -35,8 +31,10 @@ namespace HealthifyApp.Web.Controllers
                 .Include(up => up.WaterIntakes)
                 .Include(up => up.NutritionIntake)
                 .Include(up => up.TargetNutritional)
+                .Where(up => up.IsActiveProfile == true)
                 .FirstOrDefaultAsync(up => up.ApplicationUserProfiles
                     .Any(a => a.ApplicationUser.UserName == User.Identity.Name));
+
 
             if (userProfile == null)
             {
@@ -71,7 +69,6 @@ namespace HealthifyApp.Web.Controllers
 
             return View(model);
         }
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
