@@ -38,6 +38,28 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Workout" asp-action="Index">Workouts</a>
                         </li>
 
+                        <!-- Progress Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="progressDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Progress
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="progressDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Goal" asp-action="Index">Coals</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="ProgressLog" asp-action="Index">Progress Logs</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Nutrition Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="nutritionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Nutrition
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="nutritionDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="TargetNutritional" asp-action="Index">Target Nutrition</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="NutritionIntake" asp-action="Index">Nutrition Intake</a></li>
+                            </ul>
+                        </li>
+
                         <!-- Dropdown for Calculators -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="calculatorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

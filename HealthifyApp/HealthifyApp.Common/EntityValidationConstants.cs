@@ -22,6 +22,23 @@
             public const string JoinDateTimeFormat = "dd-MM-yyyy";
         }
 
+        public static class Goal
+        {
+            public const string StartDateTimeFormat = "dd-MM-yyyy";
+
+            public const byte WeightMinValue = 30;
+            public const short WeightMaxValue = 300;
+
+            public const byte WaistMinValue = 30;
+            public const byte WaistMaxValue = 254;
+
+            public const byte HipsMinValue = 30;
+            public const byte HipsMaxValue = 254;
+
+            public const byte ChestMinValue = 40;
+            public const byte ChestMaxValue = 254;
+        }
+
         public static class Workout
         {
             public const byte NameMinLength = 2;

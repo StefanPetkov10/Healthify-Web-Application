@@ -1,4 +1,4 @@
-﻿namespace CinemaApp.Services.Data.Interfaces
+﻿namespace HealthifyApp.Services.Data.Interfaces
 {
     public interface IBaseService
     {

@@ -134,7 +134,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("ApplicationUserProfiles");
+                    b.ToTable("ApplicationUserProfiles", (string)null);
                 });
 
             modelBuilder.Entity("HealthifyApp.Data.Models.BMICalculation", b =>
@@ -172,7 +172,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("BMICalculations");
+                    b.ToTable("BMICalculations", (string)null);
 
                     b.HasData(
                         new
@@ -227,7 +227,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Exercises");
+                    b.ToTable("Exercises", (string)null);
 
                     b.HasData(
                         new
@@ -288,7 +288,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("Goals");
+                    b.ToTable("Goals", (string)null);
 
                     b.HasData(
                         new
@@ -349,7 +349,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("NutritionIntake");
+                    b.ToTable("NutritionIntake", (string)null);
 
                     b.HasData(
                         new
@@ -409,7 +409,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("ProgressLogs");
+                    b.ToTable("ProgressLogs", (string)null);
 
                     b.HasData(
                         new
@@ -471,7 +471,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("TargetNutritional");
+                    b.ToTable("TargetNutritional", (string)null);
 
                     b.HasData(
                         new
@@ -545,7 +545,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("UserProfiles", (string)null);
 
                     b.HasData(
                         new
@@ -601,7 +601,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("WaterIntakes");
+                    b.ToTable("WaterIntakes", (string)null);
 
                     b.HasData(
                         new
@@ -657,7 +657,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("Workouts");
+                    b.ToTable("Workouts", (string)null);
 
                     b.HasData(
                         new
@@ -698,7 +698,7 @@ namespace HealthifyApp.Data.Migrations
 
                     b.HasIndex("ExerciseId");
 
-                    b.ToTable("WorkoutExercises");
+                    b.ToTable("WorkoutExercises", (string)null);
 
                     b.HasData(
                         new

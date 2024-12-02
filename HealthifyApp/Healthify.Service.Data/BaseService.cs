@@ -1,4 +1,4 @@
-﻿using CinemaApp.Services.Data.Interfaces;
+﻿using HealthifyApp.Services.Data.Interfaces;
 
 namespace CinemaApp.Services.Data
 {

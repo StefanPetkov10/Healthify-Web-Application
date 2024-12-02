@@ -1,0 +1,36 @@
+﻿@using HealthifyApp.Web.ViewModels.Goal
+@model IEnumerable<GoalViewModel>
+
+<h2>Your Goals</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Start Date</th>
+            <th>Goal Type</th>
+            <th>Activity Level</th>
+            <th>Goal Weight</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var goal in Model)
+        {
+            <tr>
+                <td>@goal.StartDate.ToString()</td>
+                <td>@goal.GoalType</td>
+                <td>@goal.Activity</td>
+                <td>@goal.GoalWeight</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = goal.Id })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", new { id = goal.Id })" class="btn btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@goal.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Goal</a>

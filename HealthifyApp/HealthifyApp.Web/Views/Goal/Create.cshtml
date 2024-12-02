@@ -1,0 +1,58 @@
+﻿@using HealthifyApp.Web.ViewModels.Goal
+@model CreateGoalFormModel
+
+@{
+    ViewData["Title"] = "Create Goal";
+}
+
+<h2>Create Goal</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="StartDate" class="form-label"></label>
+        <input asp-for="StartDate" class="form-control" placeholder="dd-MM-yyyy" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalType" class="form-label"></label>
+        <input asp-for="GoalType" class="form-control" />
+        <span asp-validation-for="GoalType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Activity" class="form-label"></label>
+        <input asp-for="Activity" class="form-control" />
+        <span asp-validation-for="Activity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalWeight" class="form-label"></label>
+        <input asp-for="GoalWeight" class="form-control" type="number" />
+        <span asp-validation-for="GoalWeight" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalWaist" class="form-label"></label>
+        <input asp-for="GoalWaist" class="form-control" type="number" />
+        <span asp-validation-for="GoalWaist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalHips" class="form-label"></label>
+        <input asp-for="GoalHips" class="form-control" type="number" />
+        <span asp-validation-for="GoalHips" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalChest" class="form-label"></label>
+        <input asp-for="GoalChest" class="form-control" type="number" />
+        <span asp-validation-for="GoalChest" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Goal</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

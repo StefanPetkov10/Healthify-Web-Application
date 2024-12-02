@@ -9,5 +9,10 @@
             public const string UserProfileUpdateError = "Unexpected error occurred while updating the Profile! Please contact administrator";
             public const string UserProfileDeleteError = "Unexpected error occurred while deleting the Profile! Please contact administrator";
         }
+
+        public static class Goal
+        {
+            public const string GoalNotFound = "Goal not found!";
+        }
     }
 }

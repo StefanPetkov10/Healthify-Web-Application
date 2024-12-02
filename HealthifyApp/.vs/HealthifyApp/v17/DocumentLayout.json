@@ -3,24 +3,96 @@
   "WorkspaceRootPath": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\goalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\goalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web.viewmodels\\goal\\creategoalformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|solutionrelative:healthifyapp.web.viewmodels\\goal\\creategoalformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\homeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\homeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\views\\goal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\views\\goal\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\views\\userprofile\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\views\\userprofile\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\views\\goal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\views\\goal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\interfaces\\igoalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\interfaces\\igoalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.common\\entityvalidationmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|solutionrelative:healthifyapp.common\\entityvalidationmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.common\\entityvalidationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|solutionrelative:healthifyapp.common\\entityvalidationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.common\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|solutionrelative:healthifyapp.common\\errormessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.common\\applicationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85533282-1B6D-49CD-BD08-824A3F24DADF}|HealthifyApp.Common\\HealthifyApp.Common.csproj|solutionrelative:healthifyapp.common\\applicationconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web.viewmodels\\userprofile\\deleteuserprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|solutionrelative:healthifyapp.web.viewmodels\\userprofile\\deleteuserprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\goalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\goalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\interfaces\\ihomeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\interfaces\\ihomeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\interfaces\\ihomeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\interfaces\\ihomeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web.viewmodels\\userprofile\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|solutionrelative:healthifyapp.web.viewmodels\\userprofile\\userprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web.viewmodels\\userprofile\\edituserprofileformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8ABE57-5440-4FD1-B02B-AD20F6CD0D09}|HealthifyApp.Web.ViewModels\\HealthifyApp.Web.ViewModels.csproj|solutionrelative:healthifyapp.web.viewmodels\\userprofile\\edituserprofileformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\interfaces\\iuserprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\interfaces\\iuserprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\homeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\homeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthify.service.data\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}|Healthify.Service.Data\\Healthify.Service.Data.csproj|solutionrelative:healthify.service.data\\baseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|d:\\github\\healthify-web-application\\healthifyapp\\healthifyapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD02AE23-65F6-4BDD-977D-8609F29D50D5}|HealthifyApp.Web\\HealthifyApp.Web.csproj|solutionrelative:healthifyapp.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,63 +102,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserProfileController.cs",
-              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\UserProfileController.cs",
-              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\UserProfileController.cs",
-              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\UserProfileController.cs",
-              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\UserProfileController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:41:44.743Z",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\UserProfile\\Create.cshtml",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Views\\UserProfile\\Create.cshtml",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\UserProfile\\Create.cshtml",
+              "RelativeToolTip": "HealthifyApp.Web\\Views\\UserProfile\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T19:21:34.739Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeService.cs",
-              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\HomeService.cs",
-              "RelativeDocumentMoniker": "Healthify.Service.Data\\HomeService.cs",
-              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\HomeService.cs",
-              "RelativeToolTip": "Healthify.Service.Data\\HomeService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:36:42.097Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Goal\\Create.cshtml",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Views\\Goal\\Create.cshtml",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Goal\\Create.cshtml",
+              "RelativeToolTip": "HealthifyApp.Web\\Views\\Goal\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T19:20:44.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserProfileService.cs",
-              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\UserProfileService.cs",
-              "RelativeDocumentMoniker": "Healthify.Service.Data\\UserProfileService.cs",
-              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\UserProfileService.cs",
-              "RelativeToolTip": "Healthify.Service.Data\\UserProfileService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CreateGoalFormModel.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\Goal\\CreateGoalFormModel.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web.ViewModels\\Goal\\CreateGoalFormModel.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\Goal\\CreateGoalFormModel.cs",
+              "RelativeToolTip": "HealthifyApp.Web.ViewModels\\Goal\\CreateGoalFormModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:32:04.968Z",
+              "WhenOpened": "2024-12-02T17:00:16.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IGoalService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\Interfaces\\IGoalService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\Interfaces\\IGoalService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\Interfaces\\IGoalService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\Interfaces\\IGoalService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:31:35.359Z",
+              "WhenOpened": "2024-12-02T16:48:57.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Goal\\Index.cshtml",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Views\\Goal\\Index.cshtml",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Goal\\Index.cshtml",
+              "RelativeToolTip": "HealthifyApp.Web\\Views\\Goal\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T17:17:44.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GoalService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\GoalService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\GoalService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\GoalService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\GoalService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAkwCgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:49:10.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EntityValidationMessages.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\EntityValidationMessages.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Common\\EntityValidationMessages.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\EntityValidationMessages.cs",
+              "RelativeToolTip": "HealthifyApp.Common\\EntityValidationMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:12:03.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EntityValidationConstants.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\EntityValidationConstants.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Common\\EntityValidationConstants.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\EntityValidationConstants.cs",
+              "RelativeToolTip": "HealthifyApp.Common\\EntityValidationConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:18:55.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ErrorMessages.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\ErrorMessages.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Common\\ErrorMessages.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\ErrorMessages.cs",
+              "RelativeToolTip": "HealthifyApp.Common\\ErrorMessages.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:18:51.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationConstants.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\ApplicationConstants.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Common\\ApplicationConstants.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Common\\ApplicationConstants.cs",
+              "RelativeToolTip": "HealthifyApp.Common\\ApplicationConstants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:18:54.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DeleteUserProfileViewModel.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\DeleteUserProfileViewModel.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web.ViewModels\\UserProfile\\DeleteUserProfileViewModel.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\DeleteUserProfileViewModel.cs",
+              "RelativeToolTip": "HealthifyApp.Web.ViewModels\\UserProfile\\DeleteUserProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T19:03:34.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GoalController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\GoalController.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\GoalController.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\GoalController.cs",
+              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\GoalController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAIwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:48:52.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "IHomeService.cs",
               "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\Interfaces\\IHomeService.cs",
               "RelativeDocumentMoniker": "Healthify.Service.Data\\Interfaces\\IHomeService.cs",
@@ -94,7 +270,137 @@
               "RelativeToolTip": "Healthify.Service.Data\\Interfaces\\IHomeService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T16:16:45.331Z",
+              "WhenOpened": "2024-12-02T16:56:47.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserProfileService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\UserProfileService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\UserProfileService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\UserProfileService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\UserProfileService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwDcAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:52:31.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserProfileController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\UserProfileController.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\UserProfileController.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\UserProfileController.cs",
+              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\UserProfileController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:52:12.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserProfileViewModel.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\UserProfileViewModel.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web.ViewModels\\UserProfile\\UserProfileViewModel.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\UserProfileViewModel.cs",
+              "RelativeToolTip": "HealthifyApp.Web.ViewModels\\UserProfile\\UserProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T18:56:41.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EditUserProfileFormModel.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\EditUserProfileFormModel.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web.ViewModels\\UserProfile\\EditUserProfileFormModel.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web.ViewModels\\UserProfile\\EditUserProfileFormModel.cs",
+              "RelativeToolTip": "HealthifyApp.Web.ViewModels\\UserProfile\\EditUserProfileFormModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T18:56:46.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IUserProfileService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\Interfaces\\IUserProfileService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\Interfaces\\IUserProfileService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\Interfaces\\IUserProfileService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\Interfaces\\IUserProfileService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:56:48.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HealthifyApp.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T16:50:18.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "HomeService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\HomeService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\HomeService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\HomeService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\HomeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T17:07:36.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:48:49.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "HealthifyApp.Web\\Controllers\\BaseController.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\HealthifyApp.Web\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "HealthifyApp.Web\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T17:08:49.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BaseService.cs",
+              "DocumentMoniker": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\BaseService.cs",
+              "RelativeDocumentMoniker": "Healthify.Service.Data\\BaseService.cs",
+              "ToolTip": "D:\\GitHub\\Healthify-Web-Application\\HealthifyApp\\Healthify.Service.Data\\BaseService.cs",
+              "RelativeToolTip": "Healthify.Service.Data\\BaseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T16:57:08.836Z",
               "EditorCaption": ""
             }
           ]

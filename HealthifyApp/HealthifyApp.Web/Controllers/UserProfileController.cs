@@ -1,6 +1,6 @@
-﻿using CinemaApp.Services.Data.Interfaces;
+﻿
 using Healthify.Service.Data.Interfaces;
-using HealthifyApp.Data;
+using HealthifyApp.Services.Data.Interfaces;
 using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.UserProfile;
 using Microsoft.AspNetCore.Authorization;
@@ -12,12 +12,10 @@ namespace HealthifyApp.Web.Controllers
     public class UserProfileController : BaseController
     {
         private readonly IUserProfileService userProfileService;
-        private readonly HealthifyDbContext _dbContext;
 
-        public UserProfileController(IBaseService baseService, HealthifyDbContext dbContext, IUserProfileService userProfileService)
+        public UserProfileController(IBaseService baseService, IUserProfileService userProfileService)
             : base(baseService)
         {
-            this._dbContext = dbContext;
             this.userProfileService = userProfileService;
         }
 
