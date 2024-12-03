@@ -23,10 +23,9 @@
                 <td>@goal.GoalWeight</td>
                 <td>
                     <a href="@Url.Action("Details", new { id = goal.Id })" class="btn btn-info">Details</a>
-                    <a href="@Url.Action("Edit", new { id = goal.Id })" class="btn btn-warning">Edit</a>
-                    <form asp-action="Delete" asp-route-id="@goal.Id" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <a asp-action="Delete" asp-route-id="@goal.Id" class="btn btn-danger">
+                        <i class="bi bi-pencil-square"></i> Delete Goal
+                    </a>
                 </td>
             </tr>
         }

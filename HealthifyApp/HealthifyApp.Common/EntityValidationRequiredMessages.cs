@@ -1,6 +1,6 @@
 ﻿namespace HealthifyApp.Common
 {
-    public static class EntityValidationMessages
+    public static class EntityValidationRequiredMessages
     {
         public static class UserProfile
         {

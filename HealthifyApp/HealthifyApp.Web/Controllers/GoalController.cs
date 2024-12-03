@@ -24,7 +24,7 @@ namespace HealthifyApp.Web.Controllers
         {
             var userId = User.GetUserId();
 
-            var viewModel = await this.goalService.GetGoalAsync(new Guid(userId!));
+            var viewModel = await this.goalService.IndexGetGoalAsync(new Guid(userId!));
 
             if (viewModel == null)
             {
@@ -49,11 +49,80 @@ namespace HealthifyApp.Web.Controllers
             {
                 return View(model);
             }
-
             var userId = User.GetUserId();
 
-            await this.goalService.CreateGoalAsync(model);
+            bool result = await this.goalService.CreateGoalAsync(model, new Guid(userId!));
 
+            if (!result)
+            {
+                return RedirectToAction(nameof(Create));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Details(string? id)
+        {
+            if (!this.IsGuidValid(id, out Guid goalId))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var viewModel = await this.goalService.GetCinemaDetailsByIdAsync(goalId);
+
+            if (viewModel == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (!this.IsGuidValid(id, out Guid goalId))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var viewModel = await this.goalService.DeleteGoalAsync(goalId);
+
+            if (viewModel == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(DeleteGoalViewModel model)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //}
+
+            bool result = await this.goalService.DeletePermanentlyGoalAsync(new Guid(model.Id));
+            if (!result)
+            {
+                return RedirectToAction(nameof(Index));
+            }
             return RedirectToAction(nameof(Index));
         }
     }

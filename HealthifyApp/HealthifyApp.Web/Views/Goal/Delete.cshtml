@@ -1,7 +1,7 @@
-﻿@using HealthifyApp.Web.ViewModels.UserProfile
-@model DeleteUserProfileViewModel
+﻿@using HealthifyApp.Web.ViewModels.Goal
+@model DeleteGoalViewModel
 
-<h2>Delete User Profile</h2>
+<h2>Delete Goal</h2>
 
 @if (TempData["ErrorMessage"] != null)
 {
@@ -10,9 +10,9 @@
     </div>
 }
 
-<p>Are you sure you want to delete the user profile: <strong>@Model.Name</strong>?</p>
+<p>Are you sure you want to delete the goal permanently: <strong>@Model.GoalType</strong>?</p>
 
-<form asp-action="SoftDeleteConfirmed" method="post">
+<form asp-action="Delete" method="post">
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Yes, Delete</button>

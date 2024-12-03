@@ -4,8 +4,14 @@ namespace Healthify.Service.Data.Interfaces
 {
     public interface IGoalService
     {
-        Task<IEnumerable<GoalViewModel?>> GetGoalAsync(Guid userId);
+        Task<IEnumerable<GoalViewModel?>> IndexGetGoalAsync(Guid userId);
 
-        Task CreateGoalAsync(CreateGoalFormModel model);
+        Task<bool> CreateGoalAsync(CreateGoalFormModel model, Guid userId);
+
+        Task<GoalDetailsViewModel?> GetCinemaDetailsByIdAsync(Guid id);
+
+        Task<DeleteGoalViewModel?> DeleteGoalAsync(Guid id);
+
+        Task<bool> DeletePermanentlyGoalAsync(Guid id);
     }
 }

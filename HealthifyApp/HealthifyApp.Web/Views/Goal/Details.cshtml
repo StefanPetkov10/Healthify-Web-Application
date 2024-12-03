@@ -1,0 +1,44 @@
+﻿@using HealthifyApp.Web.ViewModels.Goal
+@model GoalDetailsViewModel
+
+@{
+    ViewData["Title"] = "Goal Details";
+}
+
+<h2>Goal Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Details for Goal</h4>
+        <div class="mb-3">
+            <strong>Start Date:</strong> @Model.StartDate
+        </div>
+        <div class="mb-3">
+            <strong>Goal Type:</strong> @Model.GoalType
+        </div>
+        <div class="mb-3">
+            <strong>Activity Level:</strong> @Model.Activity
+        </div>
+        <div class="mb-3">
+            <strong>Goal Weight (kg):</strong> @Model.GoalWeight
+        </div>
+        @if (Model.GoalWaist.HasValue)
+        {
+            <div class="mb-3">
+                <strong>Goal Waist (cm):</strong> @Model.GoalWaist
+            </div>
+        }
+        @if (Model.GoalHips.HasValue)
+        {
+            <div class="mb-3">
+                <strong>Goal Hips (cm):</strong> @Model.GoalHips
+            </div>
+        }
+        @if (Model.GoalChest.HasValue)
+        {
+            <div class="mb-3">
+                <strong>Goal Chest (cm):</strong> @Model.GoalChest
+            </div>
+        }
+    </div>
+</div>

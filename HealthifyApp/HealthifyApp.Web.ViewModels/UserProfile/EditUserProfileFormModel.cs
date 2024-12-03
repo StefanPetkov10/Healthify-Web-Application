@@ -3,7 +3,7 @@ using AutoMapper;
 using HealthifyApp.Services.Mapping;
 
 using static HealthifyApp.Common.EntityValidationConstants.UserProfile;
-using static HealthifyApp.Common.EntityValidationMessages.UserProfile;
+using static HealthifyApp.Common.EntityValidationRequiredMessages.UserProfile;
 
 namespace HealthifyApp.Web.ViewModels.UserProfile
 {
