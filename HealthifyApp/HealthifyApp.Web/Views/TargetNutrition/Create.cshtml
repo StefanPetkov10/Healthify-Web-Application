@@ -1,0 +1,43 @@
+﻿<!-- Views/TargetNutrition/Create.cshtml -->
+@model HealthifyApp.Web.ViewModels.TargetNutrition.CreateTargetNutritionFormModel
+
+<h1>Create Target Nutrition</h1>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="goalId" value="@Model.GoalId" />
+
+    <div>
+        <label>Goal Name:</label>
+        <input asp-for="GoalName" class="form-control" readonly />
+    </div>
+    <div>
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TargetCalories"></label>
+        <input asp-for="TargetCalories" class="form-control" />
+        <span asp-validation-for="TargetCalories" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TargetProtein"></label>
+        <input asp-for="TargetProtein" class="form-control" />
+        <span asp-validation-for="TargetProtein" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TargetCarbohydrates"></label>
+        <input asp-for="TargetCarbohydrates" class="form-control" />
+        <span asp-validation-for="TargetCarbohydrates" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="TargetFats"></label>
+        <input asp-for="TargetFats" class="form-control" />
+        <span asp-validation-for="TargetFats" class="text-danger"></span>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Cancel</a>

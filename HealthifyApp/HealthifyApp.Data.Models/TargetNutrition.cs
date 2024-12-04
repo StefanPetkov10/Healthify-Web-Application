@@ -22,6 +22,10 @@ namespace HealthifyApp.Data.Models
         public virtual UserProfile UserProfile { get; set; } = null!;
 
         [Required]
+        [Comment("The goal ID.")]
+        public Guid GoalId { get; set; }
+
+        [Required]
         [Comment("The goal name.")]
         public string GoalName { get; set; } = null!;
 

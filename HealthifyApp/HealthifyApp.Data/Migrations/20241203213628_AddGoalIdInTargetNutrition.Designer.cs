@@ -4,6 +4,7 @@ using HealthifyApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthifyApp.Data.Migrations
 {
     [DbContext(typeof(HealthifyDbContext))]
-    partial class HealthifyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241203213628_AddGoalIdInTargetNutrition")]
+    partial class AddGoalIdInTargetNutrition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,33 +93,33 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0f2617b1-561e-4334-a60b-93180029696a"),
+                            Id = new Guid("657e3783-58d0-44a2-a99c-dbd1e6fd54a1"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "930642d0-6cf9-4c98-88a4-6e4c4459d94e",
+                            ConcurrencyStamp = "8b891dab-c575-43e7-a2d4-37e16bb9c5fd",
                             Email = "user1@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER1@EXAMPLE.COM",
                             NormalizedUserName = "USER1",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ+88wZsRLoh6PnApJ5SStbQsIRs9lUyKBz1Vt8VYdYAjlts7M39RvRaiBH/s8485A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJNuJ2KTeSefYzo2WtgoBzxh83hU1wBgRnwEQNY8gJlC+elhCG6HM12imlLtc/z2VQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68711986-3004-436f-8694-4c2f2c0ec89a",
+                            SecurityStamp = "66b6d378-cddb-4406-bb30-6a506c77f8c4",
                             TwoFactorEnabled = false,
                             UserName = "User1"
                         },
                         new
                         {
-                            Id = new Guid("f9cde5dc-32d6-4e50-bee3-53e789d7eab8"),
+                            Id = new Guid("cdfb71a0-f252-4f64-acc2-3d476a17e460"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7507be9e-952e-4356-a271-275e87262c17",
+                            ConcurrencyStamp = "eead023d-18a0-4861-8975-08845c389d91",
                             Email = "user2@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER2@EXAMPLE.COM",
                             NormalizedUserName = "USER2",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFutjqv/FgcU/hI17WkKCPAgGMKv9L7u/ibgI7aTBJ81Q8DBJlhXCwSyvcBSN5dbOA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEImTWP3nO2WJH8cMBehKDVF5loT9qmt//0pgyNHOfigDsf0ypiPy6T0LGe2Nmf/cvA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e774fc7-3ec3-4ded-b60d-0c61cab4ea86",
+                            SecurityStamp = "030fcf3c-eacd-4986-8f02-31ec05404beb",
                             TwoFactorEnabled = false,
                             UserName = "User2"
                         });
@@ -135,18 +138,6 @@ namespace HealthifyApp.Data.Migrations
                     b.HasIndex("UserProfileId");
 
                     b.ToTable("ApplicationUserProfiles");
-
-                    b.HasData(
-                        new
-                        {
-                            ApplicationUserId = new Guid("0f2617b1-561e-4334-a60b-93180029696a"),
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
-                        },
-                        new
-                        {
-                            ApplicationUserId = new Guid("f9cde5dc-32d6-4e50-bee3-53e789d7eab8"),
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
-                        });
                 });
 
             modelBuilder.Entity("HealthifyApp.Data.Models.BMICalculation", b =>
@@ -189,22 +180,22 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7e326d45-8270-4cbd-af83-201209ab804a"),
+                            Id = new Guid("bb43d38d-1193-46c0-abda-4541df2923d1"),
                             BMI = 24.7m,
                             Category = 2,
-                            Date = new DateTime(2024, 12, 3, 23, 43, 41, 86, DateTimeKind.Local).AddTicks(1540),
+                            Date = new DateTime(2024, 12, 3, 23, 36, 22, 720, DateTimeKind.Local).AddTicks(7462),
                             Height = 180m,
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404"),
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b"),
                             Weight = 80m
                         },
                         new
                         {
-                            Id = new Guid("9fbdf6af-2727-43c8-ad64-3792233f608e"),
+                            Id = new Guid("c01d1dd1-5140-4278-8dea-21a32f47f8e8"),
                             BMI = 22m,
                             Category = 2,
-                            Date = new DateTime(2024, 12, 3, 23, 43, 41, 86, DateTimeKind.Local).AddTicks(6193),
+                            Date = new DateTime(2024, 12, 3, 23, 36, 22, 721, DateTimeKind.Local).AddTicks(54),
                             Height = 165m,
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3"),
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be"),
                             Weight = 60.6m
                         });
                 });
@@ -244,7 +235,7 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("098b4b05-056a-4cef-acd0-ef8e4bb823e9"),
+                            Id = new Guid("730fb7ce-adb1-4570-a818-4f96be3522f8"),
                             Description = "A bodyweight exercise for upper body strength.",
                             Duration = 30,
                             ImageUrl = "https://anabolicaliens.com/cdn/shop/articles/199990_400x.png?v=1645089103",
@@ -252,7 +243,7 @@ namespace HealthifyApp.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("fdddfcd6-21c0-421e-a276-519f0368110b"),
+                            Id = new Guid("733c92ea-f43c-467f-a35c-d14f849efefa"),
                             Description = "A lower body exercise for strength and endurance.",
                             Duration = 40,
                             ImageUrl = "https://weighttraining.guide/wp-content/uploads/2016/10/barbell-squat-resized-FIXED-2.png",
@@ -305,24 +296,24 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fd2256e1-d47e-48f4-a6ee-ea2d1ee39c34"),
+                            Id = new Guid("2a4a22a7-6eb3-451b-8903-42d693a6504e"),
                             Activity = 3,
                             GoalChest = 95f,
                             GoalType = 1,
                             GoalWaist = 85f,
                             GoalWeight = 75m,
                             StartDate = new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Local),
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b")
                         },
                         new
                         {
-                            Id = new Guid("a9752608-0b7b-4215-acd3-2c98a83cfba0"),
+                            Id = new Guid("b8137ebe-2911-43b4-823c-5082c85696a7"),
                             Activity = 4,
                             GoalHips = 97f,
                             GoalType = 2,
                             GoalWeight = 67m,
                             StartDate = new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Local),
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         });
                 });
 
@@ -366,23 +357,23 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1dfd129e-1c1c-41ec-bf42-1cbcf656f012"),
+                            Id = new Guid("706f97b3-4b54-47e2-9dd0-ab3f3eda5be4"),
                             Calories = 1800,
                             Carbohydrates = 90,
                             Date = new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             Fats = 45,
                             Protein = 140,
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b")
                         },
                         new
                         {
-                            Id = new Guid("60c3c090-ddd7-432c-9c8d-0286d208e658"),
+                            Id = new Guid("fb207434-670b-44de-9125-81a1310085a0"),
                             Calories = 2600,
                             Carbohydrates = 220,
                             Date = new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             Fats = 63,
                             Protein = 210,
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         });
                 });
 
@@ -426,20 +417,20 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3a86c4e-970b-4c28-8bd1-872ec3955f96"),
+                            Id = new Guid("54e7fe86-4b0a-4e44-94f3-8ea4f621b93c"),
                             Chest = 100m,
                             CurrentWeight = 79.5m,
                             Date = new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local),
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404"),
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b"),
                             Waist = 90m
                         },
                         new
                         {
-                            Id = new Guid("3f47ce38-8366-4813-bab6-c5fcd2034b6a"),
+                            Id = new Guid("af1f7a9b-8c6e-4e4d-a0df-73045edbfa98"),
                             CurrentWeight = 60.5m,
                             Date = new DateTime(2024, 12, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             Hips = 95m,
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         });
                 });
 
@@ -492,7 +483,7 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0979eb07-667c-44ae-bac4-f7d0ae8733b0"),
+                            Id = new Guid("d8536f53-5f12-4dec-9727-a0540531f88c"),
                             GoalId = new Guid("00000000-0000-0000-0000-000000000000"),
                             GoalName = "Lose weight",
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -500,11 +491,11 @@ namespace HealthifyApp.Data.Migrations
                             TargetCarbohydrates = 100,
                             TargetFats = 50,
                             TargetProtein = 150,
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b")
                         },
                         new
                         {
-                            Id = new Guid("642ead46-a237-4070-a6ef-126fd4f04093"),
+                            Id = new Guid("bb551cdf-3cb4-40fd-823b-a9396914987e"),
                             GoalId = new Guid("00000000-0000-0000-0000-000000000000"),
                             GoalName = "Gain muscle",
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -512,7 +503,7 @@ namespace HealthifyApp.Data.Migrations
                             TargetCarbohydrates = 200,
                             TargetFats = 60,
                             TargetProtein = 200,
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         });
                 });
 
@@ -568,9 +559,9 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404"),
+                            Id = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b"),
                             Age = 30,
-                            CreatedOn = new DateTime(2024, 12, 3, 23, 43, 41, 81, DateTimeKind.Local).AddTicks(1703),
+                            CreatedOn = new DateTime(2024, 12, 3, 23, 36, 22, 714, DateTimeKind.Local).AddTicks(5609),
                             FirstName = "John",
                             Gender = 1,
                             Height = 180m,
@@ -580,9 +571,9 @@ namespace HealthifyApp.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3"),
+                            Id = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be"),
                             Age = 25,
-                            CreatedOn = new DateTime(2024, 12, 3, 23, 43, 41, 84, DateTimeKind.Local).AddTicks(4790),
+                            CreatedOn = new DateTime(2024, 12, 3, 23, 36, 22, 719, DateTimeKind.Local).AddTicks(9826),
                             FirstName = "Jane",
                             Gender = 2,
                             Height = 165m,
@@ -624,19 +615,19 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2db471e2-a0e4-4aac-94ed-4e5064201bf7"),
+                            Id = new Guid("c635853e-30b0-4c8e-8cf2-3ffa9c2d8ad1"),
                             Consumed = 2f,
                             DailyGoal = 2.5f,
                             Date = new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Local),
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b")
                         },
                         new
                         {
-                            Id = new Guid("0e5876ca-ac1a-434d-9f3b-ec32ed501803"),
+                            Id = new Guid("04783557-a686-48cd-82ab-63a8780e13c0"),
                             Consumed = 2.8f,
                             DailyGoal = 3f,
                             Date = new DateTime(2024, 12, 3, 0, 0, 0, 0, DateTimeKind.Local),
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         });
                 });
 
@@ -680,21 +671,21 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e86d3c82-6e9c-4d43-94f4-f2c00a737a71"),
+                            Id = new Guid("8b98786a-766f-4afa-a99c-7e82e18df2a9"),
                             Description = "A full-body workout to start the day.",
                             Duration = 60,
                             Name = "Morning Strength",
-                            ScheduleDateTime = new DateTime(2024, 12, 4, 0, 43, 41, 90, DateTimeKind.Local).AddTicks(696),
-                            UserProfileId = new Guid("a6d9f08f-bd55-4b2c-8561-bfc4178266a3")
+                            ScheduleDateTime = new DateTime(2024, 12, 4, 0, 36, 22, 725, DateTimeKind.Local).AddTicks(2412),
+                            UserProfileId = new Guid("1b4d438a-2db6-4214-8f78-5e532f1907be")
                         },
                         new
                         {
-                            Id = new Guid("e78e4913-4dc7-4463-9d92-0bd3eacb7cbd"),
+                            Id = new Guid("46f11e13-a190-4cbd-afd3-bd4c9f8cfed3"),
                             Description = "High-intensity cardio for fat burn.",
                             Duration = 45,
                             Name = "Evening Cardio",
-                            ScheduleDateTime = new DateTime(2024, 12, 4, 2, 43, 41, 89, DateTimeKind.Local).AddTicks(9708),
-                            UserProfileId = new Guid("1639e91a-60b1-4308-88c7-e6203eba4404")
+                            ScheduleDateTime = new DateTime(2024, 12, 4, 2, 36, 22, 725, DateTimeKind.Local).AddTicks(1421),
+                            UserProfileId = new Guid("9ebd1101-f550-4c12-bdb5-7e1c76271d2b")
                         });
                 });
 
@@ -721,15 +712,15 @@ namespace HealthifyApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            WorkoutId = new Guid("e86d3c82-6e9c-4d43-94f4-f2c00a737a71"),
-                            ExerciseId = new Guid("098b4b05-056a-4cef-acd0-ef8e4bb823e9"),
+                            WorkoutId = new Guid("8b98786a-766f-4afa-a99c-7e82e18df2a9"),
+                            ExerciseId = new Guid("730fb7ce-adb1-4570-a818-4f96be3522f8"),
                             Reps = 10,
                             Sets = 3
                         },
                         new
                         {
-                            WorkoutId = new Guid("e78e4913-4dc7-4463-9d92-0bd3eacb7cbd"),
-                            ExerciseId = new Guid("fdddfcd6-21c0-421e-a276-519f0368110b"),
+                            WorkoutId = new Guid("46f11e13-a190-4cbd-afd3-bd4c9f8cfed3"),
+                            ExerciseId = new Guid("733c92ea-f43c-467f-a35c-d14f849efefa"),
                             Reps = 15,
                             Sets = 4
                         });

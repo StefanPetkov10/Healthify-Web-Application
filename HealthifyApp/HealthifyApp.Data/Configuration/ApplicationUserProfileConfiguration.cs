@@ -6,6 +6,13 @@ namespace HealthifyApp.Data.Configuration
 {
     public class ApplicationUserProfileConfiguration : IEntityTypeConfiguration<ApplicationUserProfile>
     {
+        private readonly SeedData _seedData;
+
+        public ApplicationUserProfileConfiguration(SeedData seedData)
+        {
+            _seedData = seedData;
+        }
+
         public void Configure(EntityTypeBuilder<ApplicationUserProfile> builder)
         {
             builder
@@ -20,6 +27,12 @@ namespace HealthifyApp.Data.Configuration
                 .HasOne(um => um.UserProfile)
                 .WithMany(m => m.ApplicationUserProfiles)
                 .HasForeignKey(um => um.UserProfileId);
+
+            builder
+                .HasData(
+                    _seedData.ApplicationUserProfile1,
+                    _seedData.ApplicationUserProfile2
+                );
         }
     }
 }

@@ -39,6 +39,23 @@
             public const byte ChestMaxValue = 254;
         }
 
+        public static class TargetNutrition
+        {
+            public const byte TargetCaloriesMinValue = 100;
+            public const short TargetCaloriesMaxValue = 20000;
+
+            public const byte TargetProteinMinValue = 1;
+            public const short TargetProteinMaxValue = 1300;
+
+            public const byte TargetCarbohydratesMinValue = 1;
+            public const short TargetCarbohydratesMaxValue = 2500;
+
+            public const byte TargetFatsMinValue = 1;
+            public const short TargetFatsMaxValue = 550;
+
+            public const string StartDateTimeFormat = "dd-MM-yyyy";
+        }
+
         public static class Workout
         {
             public const byte NameMinLength = 2;

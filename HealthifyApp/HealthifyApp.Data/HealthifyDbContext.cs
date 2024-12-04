@@ -35,7 +35,7 @@ namespace HealthifyApp.Data
         {
             base.OnModelCreating(modelBilder);
 
-            modelBilder.ApplyConfiguration(new ApplicationUserProfileConfiguration());
+            modelBilder.ApplyConfiguration(new ApplicationUserProfileConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new ApplicationUserConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new UserProfileConfiguration(_seedData));
             modelBilder.ApplyConfiguration(new WorkoutConfiguration(_seedData));

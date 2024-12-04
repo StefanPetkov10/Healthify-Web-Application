@@ -1,4 +1,5 @@
-﻿using HealthifyApp.Web.ViewModels.Goal;
+﻿using HealthifyApp.Data.Models;
+using HealthifyApp.Web.ViewModels.Goal;
 
 namespace Healthify.Service.Data.Interfaces
 {
@@ -13,5 +14,7 @@ namespace Healthify.Service.Data.Interfaces
         Task<DeleteGoalViewModel?> DeleteGoalAsync(Guid id);
 
         Task<bool> DeletePermanentlyGoalAsync(Guid id);
+
+        Task<Goal> GetGoalByIdAsync(Guid id);
     }
 }

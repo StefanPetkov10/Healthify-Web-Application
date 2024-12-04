@@ -26,6 +26,7 @@
                     <a asp-action="Delete" asp-route-id="@goal.Id" class="btn btn-danger">
                         <i class="bi bi-pencil-square"></i> Delete Goal
                     </a>
+                    <a asp-controller="TargetNutrition" asp-action="Create" asp-route-goalId="@goal.Id" class="btn btn-success">Create Target Nutrition</a>
                 </td>
             </tr>
         }

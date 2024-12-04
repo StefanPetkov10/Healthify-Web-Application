@@ -16,7 +16,7 @@ namespace Healthify.Service.Data
 
         public UserProfileService(IRepository<UserProfile, Guid> userProfileRepository,
                                         IRepository<ApplicationUserProfile, object> applicationUserProfile)
-
+            : base(userProfileRepository)
         {
             this.userProfileRepository = userProfileRepository;
             this.applicationUserProfileRepository = applicationUserProfile;

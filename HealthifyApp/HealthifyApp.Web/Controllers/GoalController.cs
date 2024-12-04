@@ -11,11 +11,13 @@ namespace HealthifyApp.Web.Controllers
     public class GoalController : BaseController
     {
         private readonly IGoalService goalService;
+        private readonly INutritionCalculatorService nutritionCalculatorService;
 
-        public GoalController(IGoalService goalService, IBaseService baseService)
+        public GoalController(IGoalService goalService, IBaseService baseService, INutritionCalculatorService nutritionCalculatorService)
             : base(baseService)
         {
             this.goalService = goalService;
+            this.nutritionCalculatorService = nutritionCalculatorService;
         }
 
         [HttpGet]
@@ -125,5 +127,7 @@ namespace HealthifyApp.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }

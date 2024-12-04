@@ -10,6 +10,8 @@ namespace HealthifyApp.Data.Configuration
         public ApplicationUser User2 { get; set; }
         public UserProfile UserProfile1 { get; set; }
         public UserProfile UserProfile2 { get; set; }
+        public ApplicationUserProfile ApplicationUserProfile1 { get; set; }
+        public ApplicationUserProfile ApplicationUserProfile2 { get; set; }
         public BMICalculation BMICalculation1 { get; set; }
         public BMICalculation BMICalculation2 { get; set; }
         public TargetNutrition TargetNutrition1 { get; set; }
@@ -32,10 +34,10 @@ namespace HealthifyApp.Data.Configuration
         public SeedData()
         {
             SeedUsersAndProfiles();
+            SeedGoals();
             SeedBMICalculations();
             SeedTargetNutrition();
             SeedNutritionIntakes();
-            SeedGoals();
             SeedProgressLogs();
             SeedWaterIntake();
             SeedWorkouts();
@@ -94,6 +96,18 @@ namespace HealthifyApp.Data.Configuration
                 Gender = Gender.Female,
                 CreatedOn = DateTime.Now
             };
+
+            ApplicationUserProfile1 = new ApplicationUserProfile()
+            {
+                UserProfileId = UserProfile1.Id,
+                ApplicationUserId = User1.Id
+            };
+
+            ApplicationUserProfile2 = new ApplicationUserProfile()
+            {
+                UserProfileId = UserProfile2.Id,
+                ApplicationUserId = User2.Id
+            };
         }
 
         private void SeedBMICalculations()
@@ -125,6 +139,7 @@ namespace HealthifyApp.Data.Configuration
             TargetNutrition1 = new TargetNutrition()
             {
                 UserProfileId = UserProfile1.Id,
+                //GoalId = Goal1.Id,
                 GoalName = "Lose weight",
                 TargetCalories = 2000,
                 TargetProtein = 150,
@@ -135,6 +150,7 @@ namespace HealthifyApp.Data.Configuration
             TargetNutrition2 = new TargetNutrition()
             {
                 UserProfileId = UserProfile2.Id,
+                //GoalId = Goal2.Id,
                 GoalName = "Gain muscle",
                 TargetCalories = 2500,
                 TargetProtein = 200,

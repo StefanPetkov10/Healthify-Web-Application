@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using CinemaApp.Services.Data;
 using Healthify.Service.Data.Interfaces;
 using HealthifyApp.Data.Models;
 using HealthifyApp.Data.Models.Enums;
@@ -11,12 +12,14 @@ using static HealthifyApp.Common.EntityValidationConstants.Goal;
 
 namespace Healthify.Service.Data
 {
-    public class GoalService : IGoalService
+    public class GoalService : BaseService, IGoalService
     {
         private readonly IRepository<Goal, Guid> goalRepository;
         private readonly IRepository<UserProfile, Guid> userProfileRepository;
 
-        public GoalService(IRepository<Goal, Guid> goalRepository, IRepository<UserProfile, Guid> userProfileRepository)
+        public GoalService(IRepository<Goal, Guid> goalRepository,
+                              IRepository<UserProfile, Guid> userProfileRepository)
+            : base(userProfileRepository)
         {
             this.goalRepository = goalRepository;
             this.userProfileRepository = userProfileRepository;
@@ -90,13 +93,9 @@ namespace Healthify.Service.Data
             return true;
         }
 
-        private async Task<UserProfile> GetUserProfileAsync(Guid userId)
+        public async Task<Goal> GetGoalByIdAsync(Guid id)
         {
-            return await userProfileRepository
-                            .FirstOrDefaultAsync(up =>
-                                up.IsActiveProfile == true &&
-                                up.ApplicationUserProfiles.Any(a => a.ApplicationUserId == userId));
+            return await goalRepository.GetByIdAsync(id);
         }
-
     }
 }
