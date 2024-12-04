@@ -1,0 +1,40 @@
+﻿@using HealthifyApp.Web.ViewModels.TargetNutrition
+@model IEnumerable<TargetNutritionListViewModel>
+
+@{
+    ViewData["Title"] = "Target Nutrition Goals";
+}
+
+<h1>Target Nutrition Goals</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Goal Name</th>
+            <th>Start Date</th>
+            <th>Calories</th>
+            <th>Protein (g)</th>
+            <th>Carbohydrates (g)</th>
+            <th>Fats (g)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GoalName</td>
+                <td>@item.StartDate.ToString()</td>
+                <td>@item.TargetCalories</td>
+                <td>@item.TargetProtein</td>
+                <td>@item.TargetCarbohydrates</td>
+                <td>@item.TargetFats</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-success">Add New Goal</a>

@@ -7,7 +7,8 @@ namespace HealthifyApp.Service.Data.Interfaces
     {
         Task<CreateTargetNutritionFormModel> CreateTargetNutritionAsync(TargetNutrition calculatedNutrition, Guid goalId);
         Task<bool> CreateTargetNutritionAsync(CreateTargetNutritionFormModel model, Guid userId);
-        //Task<IEnumerable<TargetNutritionListViewModel>> GetAllTargetsByUserAsync(Guid userId);
+
+        Task<IEnumerable<TargetNutritionListViewModel>> IndexGetTargetNutritionAsync(Guid userId);
         //Task<TargetNutritionDetailsViewModel?> GetTargetNutritionDetailsAsync(Guid id);
     }
 }

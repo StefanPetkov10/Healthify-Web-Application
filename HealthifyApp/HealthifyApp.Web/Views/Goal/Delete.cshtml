@@ -10,7 +10,7 @@
     </div>
 }
 
-<p>Are you sure you want to delete the goal permanently: <strong>@Model.GoalType</strong>?</p>
+<p>Are you sure you want to delete the goal permanently. If you delete a goal, you will also delete Target Nutrition(if any): <strong>@Model.GoalType</strong>?</p>
 
 <form asp-action="Delete" method="post">
     @Html.AntiForgeryToken()

@@ -6,6 +6,8 @@ using HealthifyApp.Web.ViewModels.TargetNutrition;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using static HealthifyApp.Common.ErrorMessages.TargetNutrition;
+
 namespace HealthifyApp.Web.Controllers
 {
     public class TargetNutritionController : BaseController
@@ -23,6 +25,19 @@ namespace HealthifyApp.Web.Controllers
             this.nutritionCalculatorService = nutritionCalculatorService;
             this.targetNutritionService = targetNutritionService;
             this.goalService = goalService;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Index()
+        {
+            var userId = User.GetUserId();
+            var viewModel = await this.targetNutritionService.IndexGetTargetNutritionAsync(new Guid(userId!));
+            if (viewModel == null)
+            {
+                return RedirectToAction("Index", "Goal");
+            }
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -48,8 +63,7 @@ namespace HealthifyApp.Web.Controllers
 
             if (viewModel == null)
             {
-                TempData["ErrorMessage"] =
-                     "Already has a target nutrition";
+                TempData["ErrorMessage"] = TargetNutritionAlreadyExist;
                 return RedirectToAction("Index", "Goal");
             }
 

@@ -13,6 +13,14 @@
         public static class Goal
         {
             public const string GoalNotFound = "Goal not found!";
+            public const string GoalDeleteError = "Unexpected error occurred while trying to delete the goal(maybe a Target also)! " +
+                "Please contact system administrator!";
         }
+
+        public static class TargetNutrition
+        {
+            public const string TargetNutritionAlreadyExist = "Already has a target nutrition";
+        }
+
     }
 }

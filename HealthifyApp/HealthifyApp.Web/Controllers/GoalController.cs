@@ -122,7 +122,9 @@ namespace HealthifyApp.Web.Controllers
             bool result = await this.goalService.DeletePermanentlyGoalAsync(new Guid(model.Id));
             if (!result)
             {
-                return RedirectToAction(nameof(Index));
+                TempData["ErrorMessage"] =
+                    "Unexpected error occurred while trying to delete the goal(maybe a Target also)! Please contact system administrator!";
+                return this.RedirectToAction(nameof(Delete), new { id = model.Id });
             }
             return RedirectToAction(nameof(Index));
         }

@@ -7,7 +7,7 @@ namespace HealthifyApp.Web.ViewModels.Goal
     using AutoMapper;
     using HealthifyApp.Data.Models;
 
-    public class GoalViewModel : IMapFrom<Goal>, IHaveCustomMappings
+    public class GoalListViewModel : IMapFrom<Goal>, IHaveCustomMappings
     {
         public string Id { get; set; } = null!;
 
@@ -21,7 +21,7 @@ namespace HealthifyApp.Web.ViewModels.Goal
 
         public void CreateMappings(IProfileExpression configurate)
         {
-            configurate.CreateMap<Goal, GoalViewModel>()
+            configurate.CreateMap<Goal, GoalListViewModel>()
                 .ForMember(x => x.StartDate, opt =>
                     opt.MapFrom(x => x.StartDate.ToString(StartDateTimeFormat)));
         }

@@ -15,17 +15,20 @@ namespace Healthify.Service.Data
     public class GoalService : BaseService, IGoalService
     {
         private readonly IRepository<Goal, Guid> goalRepository;
+        private readonly IRepository<TargetNutrition, Guid> targetNutritionRepository;
         private readonly IRepository<UserProfile, Guid> userProfileRepository;
 
         public GoalService(IRepository<Goal, Guid> goalRepository,
-                              IRepository<UserProfile, Guid> userProfileRepository)
+                             IRepository<TargetNutrition, Guid> targetNutritionRepository,
+                               IRepository<UserProfile, Guid> userProfileRepository)
             : base(userProfileRepository)
         {
             this.goalRepository = goalRepository;
+            this.targetNutritionRepository = targetNutritionRepository;
             this.userProfileRepository = userProfileRepository;
         }
 
-        public async Task<IEnumerable<GoalViewModel?>> IndexGetGoalAsync(Guid userId)
+        public async Task<IEnumerable<GoalListViewModel?>> IndexGetGoalAsync(Guid userId)
         {
             UserProfile userProfile = await GetUserProfileAsync(userId);
 
@@ -33,7 +36,7 @@ namespace Healthify.Service.Data
             return await this.goalRepository
                 .GetAllAttached()
                 .Where(i => i.UserProfileId == userProfile.Id)  // Filtering by valid userProfile ID
-                .To<GoalViewModel>()  // Ensure that To<GoalViewModel> is correctly mapping entities
+                .To<GoalListViewModel>()  // Ensure that To<GoalViewModel> is correctly mapping entities
                 .ToArrayAsync();
         }
 
@@ -85,11 +88,23 @@ namespace Healthify.Service.Data
         public async Task<bool> DeletePermanentlyGoalAsync(Guid id)
         {
             Goal goal = await goalRepository.GetByIdAsync(id);
-            if (goal == null)
+            TargetNutrition targetNutrition = await targetNutritionRepository
+                .FirstOrDefaultAsync(x => x.GoalId == goal.Id);
+
+            if (goal != null)
+            {
+                goalRepository.Delete(goal);
+            }
+            else
             {
                 return false;
             }
-            goalRepository.Delete(goal);
+
+            if (targetNutrition != null)
+            {
+                targetNutritionRepository.Delete(targetNutrition);
+            }
+
             return true;
         }
 

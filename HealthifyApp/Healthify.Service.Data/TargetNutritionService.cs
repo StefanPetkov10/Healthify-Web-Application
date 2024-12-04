@@ -5,7 +5,7 @@ using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Data;
 using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.TargetNutrition;
-
+using Microsoft.EntityFrameworkCore;
 using static HealthifyApp.Common.EntityValidationConstants.TargetNutrition;
 
 namespace Healthify.Service.Data
@@ -22,7 +22,16 @@ namespace Healthify.Service.Data
             this.goalRepository = goalRepository;
             this.targetNutritionRepository = targetNutritionRepository;
         }
+        public async Task<IEnumerable<TargetNutritionListViewModel>> IndexGetTargetNutritionAsync(Guid userId)
+        {
+            UserProfile userProfile = await GetUserProfileAsync(userId);
 
+            return await this.targetNutritionRepository
+                .GetAllAttached()
+                .Where(i => i.UserProfileId == userProfile.Id)
+                .To<TargetNutritionListViewModel>()
+                .ToArrayAsync();
+        }
 
         public async Task<CreateTargetNutritionFormModel> CreateTargetNutritionAsync(TargetNutrition calculatedNutrition, Guid goalId)
         {
@@ -45,11 +54,8 @@ namespace Healthify.Service.Data
                     TargetCarbohydrates = calculatedNutrition.TargetCarbohydrates,
                     TargetFats = calculatedNutrition.TargetFats
                 };
-
                 return viewModel;
             }
-
-
         }
 
         public async Task<bool> CreateTargetNutritionAsync(CreateTargetNutritionFormModel inputModel, Guid userId)
