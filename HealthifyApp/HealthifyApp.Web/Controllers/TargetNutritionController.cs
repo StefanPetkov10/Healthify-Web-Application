@@ -1,5 +1,5 @@
-﻿using Healthify.Service.Data.Interfaces;
-using HealthifyApp.Data.Models;
+﻿using HealthifyApp.Data.Models;
+using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Data.Interfaces;
 using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.TargetNutrition;

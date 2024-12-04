@@ -1,6 +1,6 @@
 ﻿using HealthifyApp.Web.ViewModels.Home;
 
-namespace Healthify.Service.Data.Interfaces
+namespace HealthifyApp.Service.Data.Interfaces
 {
     public interface IHomeService
     {

@@ -1,10 +1,10 @@
 ﻿using HealthifyApp.Web.ViewModels.UserProfile;
 
-namespace Healthify.Service.Data.Interfaces
+namespace HealthifyApp.Service.Data.Interfaces
 {
     public interface IUserProfileService
     {
-        Task<UserProfileViewModel?> GetUserProfileAsync(Guid userId);
+        Task<UserProfileViewModel?> IndexGetUserProfileAsync(Guid userId);
 
         Task<bool> CreateUserProfileAsync(CreateUserProfileFormModel model, Guid userId);
 

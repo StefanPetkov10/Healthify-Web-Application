@@ -1,6 +1,6 @@
-﻿using Healthify.Service.Data.Interfaces;
-using HealthifyApp.Data.Models;
+﻿using HealthifyApp.Data.Models;
 using HealthifyApp.Data.Models.Enums;
+using HealthifyApp.Service.Data.Interfaces;
 
 namespace Healthify.Service.Data
 {

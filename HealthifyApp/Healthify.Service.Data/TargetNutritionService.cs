@@ -1,8 +1,8 @@
 ﻿using System.Globalization;
-using CinemaApp.Services.Data;
-using Healthify.Service.Data.Interfaces;
 using HealthifyApp.Data.Models;
 using HealthifyApp.Data.Repository.Interfaces;
+using HealthifyApp.Service.Data.Interfaces;
+using HealthifyApp.Services.Data;
 using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.TargetNutrition;
 

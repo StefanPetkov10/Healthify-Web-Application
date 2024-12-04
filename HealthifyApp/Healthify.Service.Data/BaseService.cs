@@ -2,7 +2,7 @@
 using HealthifyApp.Data.Repository.Interfaces;
 using HealthifyApp.Services.Data.Interfaces;
 
-namespace CinemaApp.Services.Data
+namespace HealthifyApp.Services.Data
 {
     public class BaseService : IBaseService
     {
@@ -37,6 +37,20 @@ namespace CinemaApp.Services.Data
                             .FirstOrDefaultAsync(up =>
                                 up.IsActiveProfile == true &&
                                 up.ApplicationUserProfiles.Any(a => a.ApplicationUserId == userId));
+        }
+
+        public async Task<bool> IsUserProfileValid(string? userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return false;
+            }
+
+            var userProfile = await userProfileRepository.FirstOrDefaultAsync(up =>
+                up.IsActiveProfile &&
+                up.ApplicationUserProfiles.Any(a => a.ApplicationUserId.ToString() == userId));
+
+            return userProfile != null;
         }
     }
 }

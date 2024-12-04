@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Web.ViewModels
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Web.Infrastructure", "HealthifyApp.Web.Infrastructure\HealthifyApp.Web.Infrastructure.csproj", "{2EC1970E-C9B6-4117-B54B-5A105E24329C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Healthify.Service.Data", "Healthify.Service.Data\Healthify.Service.Data.csproj", "{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Service.Data", "Healthify.Service.Data\HealthifyApp.Service.Data.csproj", "{0970C7B9-18AC-43CA-9753-99A5DA7FECCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Services.Mapping", "HealthifyApp.Services.Mapping\HealthifyApp.Services.Mapping.csproj", "{74D04056-C834-4A29-B5DD-41F25FAF07F8}"
 EndProject

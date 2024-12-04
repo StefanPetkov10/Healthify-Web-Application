@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using Healthify.Service.Data.Interfaces;
+using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 

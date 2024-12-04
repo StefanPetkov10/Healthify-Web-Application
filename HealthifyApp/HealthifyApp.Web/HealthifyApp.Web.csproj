@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Healthify.Service.Data\Healthify.Service.Data.csproj" />
+    <ProjectReference Include="..\Healthify.Service.Data\HealthifyApp.Service.Data.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data.Models\HealthifyApp.Data.Models.csproj" />
     <ProjectReference Include="..\HealthifyApp.Data\HealthifyApp.Data.csproj" />
     <ProjectReference Include="..\HealthifyApp.Web.Infrastructure\HealthifyApp.Web.Infrastructure.csproj" />

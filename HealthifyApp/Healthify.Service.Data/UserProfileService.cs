@@ -1,8 +1,8 @@
-﻿using CinemaApp.Services.Data;
-using Healthify.Service.Data.Interfaces;
-using HealthifyApp.Data.Models;
+﻿using HealthifyApp.Data.Models;
 using HealthifyApp.Data.Models.Enums;
 using HealthifyApp.Data.Repository.Interfaces;
+using HealthifyApp.Service.Data.Interfaces;
+using HealthifyApp.Services.Data;
 using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.UserProfile;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +22,7 @@ namespace Healthify.Service.Data
             this.applicationUserProfileRepository = applicationUserProfile;
         }
 
-        public async Task<UserProfileViewModel?> GetUserProfileAsync(Guid userId)
+        public async Task<UserProfileViewModel?> IndexGetUserProfileAsync(Guid userId)
         {
             var userProfile = await userProfileRepository.FirstOrDefaultAsync(up =>
             up.IsActiveProfile == true &&

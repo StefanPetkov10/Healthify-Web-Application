@@ -1,5 +1,5 @@
-﻿using Healthify.Service.Data.Interfaces;
-using HealthifyApp.Data;
+﻿using HealthifyApp.Data;
+using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Web.ViewModels.Home;
 using Microsoft.EntityFrameworkCore;
 

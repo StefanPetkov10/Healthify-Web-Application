@@ -1,7 +1,7 @@
 ﻿using HealthifyApp.Data.Models;
 using HealthifyApp.Web.ViewModels.Goal;
 
-namespace Healthify.Service.Data.Interfaces
+namespace HealthifyApp.Service.Data.Interfaces
 {
     public interface IGoalService
     {

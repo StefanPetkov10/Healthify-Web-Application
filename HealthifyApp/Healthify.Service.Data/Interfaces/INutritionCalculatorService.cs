@@ -1,6 +1,6 @@
 ﻿using HealthifyApp.Data.Models;
 
-namespace Healthify.Service.Data.Interfaces
+namespace HealthifyApp.Service.Data.Interfaces
 {
     public interface INutritionCalculatorService
     {

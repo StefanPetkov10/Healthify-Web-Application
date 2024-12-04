@@ -1,5 +1,4 @@
-﻿
-using Healthify.Service.Data.Interfaces;
+﻿using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Data.Interfaces;
 using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.UserProfile;
@@ -25,7 +24,7 @@ namespace HealthifyApp.Web.Controllers
         {
             var userId = User.GetUserId();
 
-            var viewModel = await this.userProfileService.GetUserProfileAsync(new Guid(userId));
+            var viewModel = await this.userProfileService.IndexGetUserProfileAsync(new Guid(userId));
 
             if (viewModel == null)
             {

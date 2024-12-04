@@ -1,5 +1,7 @@
 ﻿@using static CinemaApp.Common.ApplicationConstants
-
+@using HealthifyApp.Services.Data.Interfaces
+@using HealthifyApp.Web.Infrastructure.Extensions
+@inject IBaseService baseService
 
 @{
     int currentYear = DateTime.Now.Year;
@@ -35,6 +37,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="UserProfile" asp-action="Index">Profile</a>
                         </li>
+                        @if(await baseService.IsUserProfileValid(User.GetUserId()))
+                        {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Workout" asp-action="Index">Workouts</a>
                         </li>
@@ -72,7 +76,7 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Calculators" asp-action="WaterIntake">Water Intake Calculator</a></li>
                             </ul>
                         </li>
-
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

@@ -1,6 +1,6 @@
-using Healthify.Service.Data.Interfaces;
 using HealthifyApp.Data;
 using HealthifyApp.Data.Configuration;
+using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.UserProfile;
