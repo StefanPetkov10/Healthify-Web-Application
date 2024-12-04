@@ -44,12 +44,14 @@ namespace HealthifyApp.Web.Controllers
 
             TargetNutrition calculatedNutrition = this.nutritionCalculatorService.CalculateTargetNutrition(goal);
 
-            if (calculatedNutrition == null)
+            var viewModel = await this.targetNutritionService.CreateTargetNutritionAsync(calculatedNutrition, goalGuid);
+
+            if (viewModel == null)
             {
+                TempData["ErrorMessage"] =
+                     "Already has a target nutrition";
                 return RedirectToAction("Index", "Goal");
             }
-
-            var viewModel = await this.targetNutritionService.CreateTargetNutritionAsync(calculatedNutrition, goalGuid);
 
             return View(viewModel);
         }

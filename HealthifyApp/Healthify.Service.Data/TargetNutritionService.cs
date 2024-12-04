@@ -29,18 +29,27 @@ namespace Healthify.Service.Data
             Goal goal = await goalRepository
                 .GetByIdAsync(goalId);
 
-            CreateTargetNutritionFormModel viewModel = new CreateTargetNutritionFormModel
+            if (await targetNutritionRepository.FirstOrDefaultAsync(x => x.GoalId == goal.Id) != null)
             {
-                GoalId = goal.Id.ToString(),
-                GoalName = goal.GoalType.ToString(),
-                StartDate = DateTime.Now.ToString(StartDateTimeFormat),
-                TargetCalories = calculatedNutrition.TargetCalories,
-                TargetProtein = calculatedNutrition.TargetProtein,
-                TargetCarbohydrates = calculatedNutrition.TargetCarbohydrates,
-                TargetFats = calculatedNutrition.TargetFats
-            };
+                return null;
+            }
+            else
+            {
+                CreateTargetNutritionFormModel viewModel = new CreateTargetNutritionFormModel
+                {
+                    GoalId = goal.Id.ToString(),
+                    GoalName = goal.GoalType.ToString(),
+                    StartDate = DateTime.Now.ToString(StartDateTimeFormat),
+                    TargetCalories = calculatedNutrition.TargetCalories,
+                    TargetProtein = calculatedNutrition.TargetProtein,
+                    TargetCarbohydrates = calculatedNutrition.TargetCarbohydrates,
+                    TargetFats = calculatedNutrition.TargetFats
+                };
 
-            return viewModel;
+                return viewModel;
+            }
+
+
         }
 
         public async Task<bool> CreateTargetNutritionAsync(CreateTargetNutritionFormModel inputModel, Guid userId)
@@ -57,7 +66,6 @@ namespace Healthify.Service.Data
             {
                 return false;
             }
-
 
             TargetNutrition targetNutrition = new TargetNutrition();
             AutoMapperConfig.MapperInstance.Map(inputModel, targetNutrition);
