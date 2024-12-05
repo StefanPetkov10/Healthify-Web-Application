@@ -2,6 +2,7 @@
 using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Data.Interfaces;
 using HealthifyApp.Web.Infrastructure.Extensions;
+using HealthifyApp.Web.ViewModels.Goal;
 using HealthifyApp.Web.ViewModels.TargetNutrition;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -96,8 +97,45 @@ namespace HealthifyApp.Web.Controllers
                 return RedirectToAction("Create", new { goalId = formModel.GoalId });
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (!this.IsGuidValid(id, out Guid targetNutritionId))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var viewModel = await this.targetNutritionService.DeleteTargetNutritionAsync(targetNutritionId);
+
+            if (viewModel == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(DeleteGoalViewModel model)
+        {
+            bool result = await this.targetNutritionService.DeletePermanentlyTargetNutritionAsync(new Guid(model.Id));
+            if (!result)
+            {
+                TempData["ErrorMessage"] = TargetNutritionDeleteError;
+
+                return this.RedirectToAction(nameof(Delete), new { id = model.Id });
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

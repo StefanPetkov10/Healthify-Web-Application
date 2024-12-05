@@ -83,15 +83,34 @@ namespace Healthify.Service.Data
             return true;
         }
 
+        public async Task<DeleteTargetNutritionViewModel?> DeleteTargetNutritionAsync(Guid id)
+        {
+            DeleteTargetNutritionViewModel? targetNutritionDelete = await targetNutritionRepository
+                .GetAllAttached()
+                .To<DeleteTargetNutritionViewModel>()
+                .FirstOrDefaultAsync(tn => tn.Id.ToLower() == id.ToString().ToLower());
 
-        //public Task<IEnumerable<TargetNutritionViewModel>> GetAllTargetsByUserAsync(Guid userId)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            return targetNutritionDelete;
+        }
 
-        //public Task<TargetNutritionDetailsViewModel?> GetTargetNutritionDetailsAsync(Guid id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<bool> DeletePermanentlyTargetNutritionAsync(Guid id)
+        {
+            TargetNutrition targetNutrition = await targetNutritionRepository
+                .GetByIdAsync(id);
+            Goal goal = await goalRepository.
+                FirstOrDefaultAsync(tn => tn.Id == targetNutrition.GoalId);
+
+            if (targetNutrition != null)
+            {
+                targetNutritionRepository.Delete(targetNutrition);
+            }
+
+            if (goal != null)
+            {
+                goalRepository.Delete(goal);
+            }
+
+            return true;
+        }
     }
 }

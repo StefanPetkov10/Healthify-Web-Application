@@ -5,6 +5,8 @@ using HealthifyApp.Web.ViewModels.Goal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using static HealthifyApp.Common.ErrorMessages.Goal;
+
 namespace HealthifyApp.Web.Controllers
 {
     public class GoalController : BaseController
@@ -95,11 +97,6 @@ namespace HealthifyApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction(nameof(Index));
-            }
-
             var viewModel = await this.goalService.DeleteGoalAsync(goalId);
 
             if (viewModel == null)
@@ -114,16 +111,11 @@ namespace HealthifyApp.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(DeleteGoalViewModel model)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return RedirectToAction(nameof(Index));
-            //}
-
             bool result = await this.goalService.DeletePermanentlyGoalAsync(new Guid(model.Id));
             if (!result)
             {
-                TempData["ErrorMessage"] =
-                    "Unexpected error occurred while trying to delete the goal(maybe a Target also)! Please contact system administrator!";
+                TempData["ErrorMessage"] = GoalDeleteError;
+
                 return this.RedirectToAction(nameof(Delete), new { id = model.Id });
             }
             return RedirectToAction(nameof(Index));
