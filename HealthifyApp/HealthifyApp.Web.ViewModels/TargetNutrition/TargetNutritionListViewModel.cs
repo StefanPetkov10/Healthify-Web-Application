@@ -1,12 +1,13 @@
 ﻿using HealthifyApp.Services.Mapping;
 
 using static HealthifyApp.Common.EntityValidationConstants.TargetNutrition;
+
 namespace HealthifyApp.Web.ViewModels.TargetNutrition
 {
     using AutoMapper;
     using HealthifyApp.Data.Models;
 
-    public class TargetNutritionListViewModel : IMapTo<TargetNutrition>, IHaveCustomMappings
+    public class TargetNutritionListViewModel : IMapFrom<ProgressLog>, IHaveCustomMappings
     {
         public string Id { get; set; } = null!;
 

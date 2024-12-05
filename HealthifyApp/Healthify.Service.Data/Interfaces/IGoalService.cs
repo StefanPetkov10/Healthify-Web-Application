@@ -7,7 +7,7 @@ namespace HealthifyApp.Service.Data.Interfaces
     {
         Task<IEnumerable<GoalListViewModel?>> IndexGetGoalAsync(Guid userId);
 
-        Task<bool> CreateGoalAsync(CreateGoalFormModel model, Guid userId);
+        Task<bool> CreateGoalAsync(CreateGoalFormModel inputModel, Guid userId);
 
         Task<GoalDetailsViewModel?> GetCinemaDetailsByIdAsync(Guid id);
 

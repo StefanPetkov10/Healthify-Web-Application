@@ -18,7 +18,12 @@
             public const string GoalTypeRequiredMessage = "The goal type is required!";
             public const string GoalActivityRequiredMessage = "The activity is required!";
             public const string GoalWeightRequiredMessage = "The goal weight is required!";
+        }
 
+        public static class ProgressLog
+        {
+            public const string ProgressLogDateRequiredMessage = "The progress log date is required!";
+            public const string ProgressLogWeightRequiredMessage = "The progress log weight is required!";
         }
     }
 }

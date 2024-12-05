@@ -7,6 +7,7 @@ namespace HealthifyApp.Web.ViewModels.TargetNutrition
 
     public class CreateTargetNutritionFormModel : IMapTo<TargetNutrition>, IHaveCustomMappings
     {
+        //todo add validation
         public string GoalId { get; set; } = null!;
         public string GoalName { get; set; } = null!;
         public string StartDate { get; set; } = null!;

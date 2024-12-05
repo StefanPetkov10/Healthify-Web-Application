@@ -1,0 +1,37 @@
+﻿@model HealthifyApp.Web.ViewModels.ProgressLog.IndexProgressLogViewModel
+
+@{
+    ViewData["Title"] = "Progress Log";
+}
+
+<h1>Your Progress Log</h1>
+
+<div class="mb-4">
+    <h3>Target Weight: <span class="text-primary">@Model.GoalWeight kg</span></h3>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Weight (kg)</th>
+            <th>Waist (cm)</th>
+            <th>Hips (cm)</th>
+            <th>Chest (cm)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model.ProgressLogs)
+        {
+            <tr>
+                <td>@log.Date</td>
+                <td>@log.CurrentWeight</td>
+                <td>@(log.Waist.HasValue ? log.Waist.Value.ToString("F1") : "N/A")</td>
+                <td>@(log.Hips.HasValue ? log.Hips.Value.ToString("F1") : "N/A")</td>
+                <td>@(log.Chest.HasValue ? log.Chest.Value.ToString("F1") : "N/A")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="AddProgress" asp-controller="ProgressLog" class="btn btn-primary">Add New Progress for this day</a>

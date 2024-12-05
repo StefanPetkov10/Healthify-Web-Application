@@ -83,7 +83,8 @@ namespace HealthifyApp.Data.Configuration
                 Height = 180,
                 StartingWeight = 80,
                 Gender = Gender.Male,
-                CreatedOn = DateTime.Now
+                CreatedOn = DateTime.Now,
+                IsActiveProfile = true
             };
 
             UserProfile2 = new UserProfile()
@@ -94,7 +95,8 @@ namespace HealthifyApp.Data.Configuration
                 Height = 165,
                 StartingWeight = 60,
                 Gender = Gender.Female,
-                CreatedOn = DateTime.Now
+                CreatedOn = DateTime.Now,
+                IsActiveProfile = true
             };
 
             ApplicationUserProfile1 = new ApplicationUserProfile()

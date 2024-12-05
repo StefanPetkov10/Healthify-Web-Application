@@ -34,6 +34,7 @@ namespace HealthifyApp.Web.Controllers
         {
             var userId = User.GetUserId();
             var viewModel = await this.targetNutritionService.IndexGetTargetNutritionAsync(new Guid(userId!));
+
             if (viewModel == null)
             {
                 return RedirectToAction("Index", "Goal");

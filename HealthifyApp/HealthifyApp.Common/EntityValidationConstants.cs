@@ -56,6 +56,23 @@
             public const string StartDateTimeFormat = "dd-MM-yyyy";
         }
 
+        public static class ProgressLog
+        {
+            public const byte CurrentWeightMinValue = 30;
+            public const short CurrentWeightMaxValue = 300;
+
+            public const byte WaistMinValue = 30;
+            public const byte WaistMaxValue = 254;
+
+            public const byte HipsMinValue = 30;
+            public const byte HipsMaxValue = 254;
+
+            public const byte ChestMinValue = 40;
+            public const byte ChestMaxValue = 254;
+
+            public const string DateInAddingProgress = "dd-MM-yyyy";
+        }
+
         public static class Workout
         {
             public const byte NameMinLength = 2;

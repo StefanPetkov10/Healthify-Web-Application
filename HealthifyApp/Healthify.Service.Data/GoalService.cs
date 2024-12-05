@@ -32,6 +32,11 @@ namespace Healthify.Service.Data
         {
             UserProfile userProfile = await GetUserProfileAsync(userId);
 
+            if (userProfile == null || userProfile.IsActiveProfile == false)
+            {
+                return null;
+            }
+
             // Fetch goals filtered by the user profile ID
             return await this.goalRepository
                 .GetAllAttached()
@@ -40,9 +45,9 @@ namespace Healthify.Service.Data
                 .ToArrayAsync();
         }
 
-        public async Task<bool> CreateGoalAsync(CreateGoalFormModel formModel, Guid userId)
+        public async Task<bool> CreateGoalAsync(CreateGoalFormModel inputModel, Guid userId)
         {
-            bool isStartDate = DateTime.TryParseExact(formModel.StartDate, StartDateTimeFormat,
+            bool isStartDate = DateTime.TryParseExact(inputModel.StartDate, StartDateTimeFormat,
                 CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime releaseDate);
             if (!isStartDate)
             {
@@ -50,12 +55,18 @@ namespace Healthify.Service.Data
             }
 
             Goal goal = new Goal();
+
             UserProfile userProfile = await GetUserProfileAsync(userId);
-            AutoMapperConfig.MapperInstance.Map(formModel, goal);
+            if (userProfile == null || !userProfile.IsActiveProfile)
+            {
+                return false;
+            }
+
+            AutoMapperConfig.MapperInstance.Map(inputModel, goal);
             goal.UserProfileId = userProfile.Id;
             goal.StartDate = releaseDate;
-            goal.GoalType = Enum.Parse<Goals>(formModel.GoalType);
-            goal.Activity = Enum.Parse<Activity>(formModel.Activity);
+            goal.GoalType = Enum.Parse<Goals>(inputModel.GoalType);
+            goal.Activity = Enum.Parse<Activity>(inputModel.Activity);
 
             await this.goalRepository.AddAsync(goal);
 

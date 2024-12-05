@@ -26,6 +26,11 @@ namespace Healthify.Service.Data
         {
             UserProfile userProfile = await GetUserProfileAsync(userId);
 
+            if (userProfile == null || userProfile.IsActiveProfile == false)
+            {
+                return null;
+            }
+
             return await this.targetNutritionRepository
                 .GetAllAttached()
                 .Where(i => i.UserProfileId == userProfile.Id)

@@ -24,9 +24,11 @@ namespace Healthify.Service.Data
 
         public async Task<UserProfileViewModel?> IndexGetUserProfileAsync(Guid userId)
         {
-            var userProfile = await userProfileRepository.FirstOrDefaultAsync(up =>
-            up.IsActiveProfile == true &&
-            up.ApplicationUserProfiles.Any(a => a.ApplicationUserId.ToString() == userId.ToString()));
+            UserProfile userProfile = await GetUserProfileAsync(userId);
+
+            //    userProfileRepository.FirstOrDefaultAsync(up =>
+            //up.IsActiveProfile == true &&
+            //up.ApplicationUserProfiles.Any(a => a.ApplicationUserId.ToString() == userId.ToString()));
 
             if (userProfile == null)
             {

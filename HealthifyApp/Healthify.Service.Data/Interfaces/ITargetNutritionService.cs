@@ -5,11 +5,11 @@ namespace HealthifyApp.Service.Data.Interfaces
 {
     public interface ITargetNutritionService
     {
+        Task<IEnumerable<TargetNutritionListViewModel>> IndexGetTargetNutritionAsync(Guid userId);
+
         Task<CreateTargetNutritionFormModel> CreateTargetNutritionAsync(TargetNutrition calculatedNutrition, Guid goalId);
 
-        Task<bool> CreateTargetNutritionAsync(CreateTargetNutritionFormModel model, Guid userId);
-
-        Task<IEnumerable<TargetNutritionListViewModel>> IndexGetTargetNutritionAsync(Guid userId);
+        Task<bool> CreateTargetNutritionAsync(CreateTargetNutritionFormModel inputModel, Guid userId);
 
         Task<DeleteTargetNutritionViewModel?> DeleteTargetNutritionAsync(Guid id);
 
