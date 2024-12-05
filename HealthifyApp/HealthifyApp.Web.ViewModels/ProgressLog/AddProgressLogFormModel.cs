@@ -10,7 +10,7 @@ namespace HealthifyApp.Web.ViewModels.ProgressLog
     public class AddProgressLogFormModel : IMapTo<ProgressLog>
     {
         [Required(ErrorMessage = ProgressLogDateRequiredMessage)]
-        public DateTime Date { get; set; } = DateTime.Now;
+        public string Date { get; set; } = DateTime.Now.ToString(DateInAddingProgress);
 
         [Required(ErrorMessage = ProgressLogWeightRequiredMessage)]
         [Display(Name = "Goal Weight (kg)")]
@@ -28,5 +28,6 @@ namespace HealthifyApp.Web.ViewModels.ProgressLog
         [Display(Name = "Goal Chest (optional)")]
         [Range(ChestMinValue, ChestMaxValue)]
         public float? GoalChest { get; set; }
+
     }
 }

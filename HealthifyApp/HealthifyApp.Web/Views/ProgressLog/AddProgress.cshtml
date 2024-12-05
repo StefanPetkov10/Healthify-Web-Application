@@ -1,0 +1,42 @@
+﻿@using HealthifyApp.Web.ViewModels.ProgressLog
+@model AddProgressLogFormModel
+
+@{
+    ViewData["Title"] = "Add New Progress";
+}
+
+<h1>Add New Progress</h1>
+
+<form asp-action="AddProgress" asp-controller="ProgressLog" method="post">
+    <div class="form-group">
+        <label asp-for="Date" class="form-label"></label>
+        <input asp-for="Date" class="form-control" readonly />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CurrentWeight" class="form-label"></label>
+        <input asp-for="CurrentWeight" class="form-control" step="0.1" />
+        <span asp-validation-for="CurrentWeight" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalWaist" class="form-label"></label>
+        <input asp-for="GoalWaist" class="form-control" step="0.1" />
+        <span asp-validation-for="GoalWaist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalHips" class="form-label"></label>
+        <input asp-for="GoalHips" class="form-control" step="0.1" />
+        <span asp-validation-for="GoalHips" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GoalChest" class="form-label"></label>
+        <input asp-for="GoalChest" class="form-control" step="0.1" />
+        <span asp-validation-for="GoalChest" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
