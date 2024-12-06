@@ -24,5 +24,11 @@
                 " Please contact system administrator!";
         }
 
+        public static class ProgressLog
+        {
+            public const string ProgressLogNotContainGoal = "You don't have a set goal";
+            public const string ProgressLogAlreadyExist = "You already log progress for this day";
+        }
+
     }
 }

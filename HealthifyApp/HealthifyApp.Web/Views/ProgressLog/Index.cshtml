@@ -1,7 +1,15 @@
-﻿@model HealthifyApp.Web.ViewModels.ProgressLog.IndexProgressLogViewModel
+﻿@using HealthifyApp.Web.ViewModels.ProgressLog
+@model IndexProgressLogViewModel
 
 @{
     ViewData["Title"] = "Progress Log";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
 }
 
 <h1>Your Progress Log</h1>
@@ -34,4 +42,5 @@
     </tbody>
 </table>
 
-<a asp-action="AddProgress" asp-controller="ProgressLog" class="btn btn-primary">Add New Progress for this day</a>
+<a asp-action="AddProgress" asp-controller="ProgressLog" class="btn btn-primary">Add New Progress</a>
+

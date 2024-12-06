@@ -1,6 +1,10 @@
 ﻿@using HealthifyApp.Web.ViewModels.UserProfile
 @model UserProfileViewModel
 
+@{
+    ViewData["Title"] = "UserProfile";
+}
+
 @if (Model.IsActiveProfile == true)
 {
     <div class="container mt-5">

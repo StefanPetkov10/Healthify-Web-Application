@@ -4,6 +4,8 @@ using HealthifyApp.Web.Infrastructure.Extensions;
 using HealthifyApp.Web.ViewModels.ProgressLog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static HealthifyApp.Common.ErrorMessages.ProgressLog;
+
 
 namespace HealthifyApp.Web.Controllers
 {
@@ -27,6 +29,7 @@ namespace HealthifyApp.Web.Controllers
 
             if (viewModel == null)
             {
+                TempData["ErrorMessage"] = ProgressLogNotContainGoal;
                 return RedirectToAction("Index", "Goal");
             }
 
@@ -35,9 +38,19 @@ namespace HealthifyApp.Web.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> AddProgress()
+        public async Task<IActionResult> AddProgress(string progressLogId)
         {
-            return View(new AddProgressLogFormModel());
+            AddProgressLogFormModel? formModel = new AddProgressLogFormModel();
+
+            formModel = await this.progressLogService.AddProgressLogAsync();
+
+            if (formModel == null)
+            {
+                TempData["ErrorMessage"] = ProgressLogAlreadyExist;
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(formModel);
         }
 
         [HttpPost]
@@ -53,10 +66,11 @@ namespace HealthifyApp.Web.Controllers
 
             var viewModel = await this.progressLogService.AddProgressLogAsync(formModel, new Guid(userId!));
 
-            if (viewModel == null)
+            if (viewModel == false)
             {
-                return RedirectToAction("Index", "Goal");
+                return RedirectToAction(nameof(Index));
             }
+
             return RedirectToAction(nameof(Index));
         }
     }

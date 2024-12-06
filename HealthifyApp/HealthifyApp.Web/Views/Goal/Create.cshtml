@@ -5,6 +5,13 @@
     ViewData["Title"] = "Create Goal";
 }
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 <h2>Create Goal</h2>
 
 <form asp-action="Create" method="post">

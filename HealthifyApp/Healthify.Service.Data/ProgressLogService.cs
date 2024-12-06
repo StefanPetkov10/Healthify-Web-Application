@@ -6,6 +6,8 @@ using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.ProgressLog;
 using Microsoft.EntityFrameworkCore;
 
+using static HealthifyApp.Common.EntityValidationConstants.ProgressLog;
+
 namespace HealthifyApp.Service.Data
 {
     public class ProgressLogService : BaseService, IProgressLogService
@@ -39,6 +41,12 @@ namespace HealthifyApp.Service.Data
                 .Where(g => g.UserProfileId == userProfile.Id)
                 .FirstOrDefaultAsync();
 
+
+            if (goal == null)
+            {
+                return null;
+            }
+
             ProgressLogListViewModel[] progressLogs = await this.progressLogRepository
                 .GetAllAttached()
                 .Where(i => i.UserProfileId == userProfile.Id)  // Filtering by valid userProfile ID
@@ -53,6 +61,27 @@ namespace HealthifyApp.Service.Data
 
             return viewModel;
         }
+
+        public async Task<AddProgressLogFormModel?> AddProgressLogAsync()
+        {
+            var progressLogs = await progressLogRepository.GetAllAsync();
+
+            string date = progressLogs
+                .Select(p => p.Date)
+                .FirstOrDefault()
+                .ToString(DateInAddingProgress);
+
+            if (date == DateTime.Now.ToString(DateInAddingProgress))
+            {
+                return null;
+            }
+
+            return await progressLogRepository
+                .GetAllAttached()
+                .To<AddProgressLogFormModel>()
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<bool> AddProgressLogAsync(AddProgressLogFormModel inputModel, Guid userId)
         {
             UserProfile userProfile = await GetUserProfileAsync(userId);
@@ -70,5 +99,6 @@ namespace HealthifyApp.Service.Data
 
             return true;
         }
+
     }
 }

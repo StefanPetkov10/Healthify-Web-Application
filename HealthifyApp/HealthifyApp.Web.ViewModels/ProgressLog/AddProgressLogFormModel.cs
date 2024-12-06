@@ -5,12 +5,13 @@ using static HealthifyApp.Common.EntityValidationRequiredMessages.ProgressLog;
 namespace HealthifyApp.Web.ViewModels.ProgressLog
 {
     using System.ComponentModel.DataAnnotations;
+    using AutoMapper;
     using HealthifyApp.Data.Models;
 
-    public class AddProgressLogFormModel : IMapTo<ProgressLog>
+    public class AddProgressLogFormModel : IMapFrom<ProgressLog>, IMapTo<ProgressLog>, IHaveCustomMappings
     {
         [Required(ErrorMessage = ProgressLogDateRequiredMessage)]
-        public string Date { get; set; } = DateTime.Now.ToString(DateInAddingProgress);
+        public string Date { get; set; } = null!;
 
         [Required(ErrorMessage = ProgressLogWeightRequiredMessage)]
         [Display(Name = "Goal Weight (kg)")]
@@ -29,5 +30,11 @@ namespace HealthifyApp.Web.ViewModels.ProgressLog
         [Range(ChestMinValue, ChestMaxValue)]
         public float? GoalChest { get; set; }
 
+        public void CreateMappings(IProfileExpression configurate)
+        {
+            configurate.CreateMap<ProgressLog, AddProgressLogFormModel>()
+                .ForMember(x => x.Date, opt =>
+                    opt.MapFrom(x => DateTime.Now.ToString(DateInAddingProgress)));
+        }
     }
 }
