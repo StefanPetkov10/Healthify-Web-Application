@@ -101,5 +101,55 @@ namespace HealthifyApp.Service.Data
 
             return true;
         }
+
+        public async Task<AddTodayNutritionIntakeFormModel?> AddMoreNutritionIntakeAsync()
+        {
+            var nutritionIntake = await nutritionIntakeRepository.GetAllAsync();
+
+            string date = nutritionIntake
+                .Select(ni => ni.Date)
+                .FirstOrDefault()
+                .ToString(DateInAddingProgress);
+
+            if (date == DateTime.Now.ToString(DateInAddingProgress))
+            {
+                return null;
+            }
+
+            return new AddTodayNutritionIntakeFormModel
+            {
+                Date = DateTime.UtcNow.Date.ToString(DateInAddingProgress)
+            };
+        }
+
+        public async Task<bool> AddMoreNutritionIntakeAsync(AddTodayNutritionIntakeFormModel inputModel, Guid userId)
+        {
+            UserProfile userProfile = await GetUserProfileAsync(userId);
+
+            if (userProfile == null || !userProfile.IsActiveProfile)
+            {
+                return false;
+            }
+
+            var today = DateTime.UtcNow.Date;
+
+            var existingIntake = await nutritionIntakeRepository
+                .GetAllAttached()
+                .FirstOrDefaultAsync(ni => ni.Date == today && ni.UserProfileId == userProfile.Id);
+
+            if (existingIntake == null)
+            {
+                return false;
+            }
+
+            existingIntake.Calories += inputModel.Calories;
+            existingIntake.Protein += inputModel.Protein;
+            existingIntake.Carbohydrates += inputModel.Carbohydrates;
+            existingIntake.Fats += inputModel.Fats;
+
+            await nutritionIntakeRepository.UpdateAsync(existingIntake);
+
+            return true;
+        }
     }
 }

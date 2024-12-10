@@ -6,8 +6,12 @@ namespace HealthifyApp.Service.Data.Interfaces
     {
         Task<NutritionIntakeIndexViewModel> GetNutritionIntakeIndexAsync(Guid userId);
 
-        Task<AddTodayNutritionIntakeFormModel> AddNutritionIntakeAsync();
+        Task<AddTodayNutritionIntakeFormModel?> AddNutritionIntakeAsync();
 
-        Task<bool> AddNutritionIntakeAsync(AddTodayNutritionIntakeFormModel inpuyModel, Guid userId);
+        Task<bool> AddNutritionIntakeAsync(AddTodayNutritionIntakeFormModel inputModel, Guid userId);
+
+        Task<AddTodayNutritionIntakeFormModel?> AddMoreNutritionIntakeAsync();
+
+        Task<bool> AddMoreNutritionIntakeAsync(AddTodayNutritionIntakeFormModel inputModel, Guid userId);
     }
 }

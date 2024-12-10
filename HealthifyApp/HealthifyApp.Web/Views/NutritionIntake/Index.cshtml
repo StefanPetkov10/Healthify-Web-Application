@@ -42,4 +42,13 @@
     </tbody>
 </table>
 
-<a class="btn btn-primary" asp-action="AddIntake">Add Today's Intake</a>
+@if (Model.CurrentCalories < 0)
+{
+    <p>No intake logged for today.</p>
+    <a class="btn btn-primary" asp-action="AddIntake">Add Today's Intake</a>
+}
+else
+{
+    <a class="btn btn-primary" asp-action="AddMore">Add More Intake</a>
+}
+

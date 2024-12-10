@@ -40,7 +40,7 @@ namespace HealthifyApp.Web.Controllers
         [Authorize]
         public async Task<IActionResult> AddIntake()
         {
-            AddTodayNutritionIntakeFormModel formModel = await this.nutritionIntakeService.AddNutritionIntakeAsync();
+            AddTodayNutritionIntakeFormModel? formModel = await this.nutritionIntakeService.AddNutritionIntakeAsync();
 
             if (formModel == null)
             {
@@ -62,6 +62,41 @@ namespace HealthifyApp.Web.Controllers
             var userId = User.GetUserId();
 
             var result = await this.nutritionIntakeService.AddNutritionIntakeAsync(formModel, new Guid(userId!));
+            if (result == null)
+            {
+                TempData["ErrorMessage"] = NutritionIntakeAlreadyExist;
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> AddMore()
+        {
+            AddTodayNutritionIntakeFormModel? formModel = await this.nutritionIntakeService.AddMoreNutritionIntakeAsync();
+
+            if (formModel == null)
+            {
+                TempData["ErrorMessage"] = NutritionIntakeAlreadyExist;
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(formModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> AddMore(AddTodayNutritionIntakeFormModel formModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(formModel);
+            }
+            var userId = User.GetUserId();
+
+            var result = await this.nutritionIntakeService.AddMoreNutritionIntakeAsync(formModel, new Guid(userId!));
             if (result == null)
             {
                 TempData["ErrorMessage"] = NutritionIntakeAlreadyExist;
