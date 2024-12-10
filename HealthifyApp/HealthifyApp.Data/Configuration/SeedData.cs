@@ -141,7 +141,6 @@ namespace HealthifyApp.Data.Configuration
             TargetNutrition1 = new TargetNutrition()
             {
                 UserProfileId = UserProfile1.Id,
-                //GoalId = Goal1.Id,
                 GoalName = "Lose weight",
                 TargetCalories = 2000,
                 TargetProtein = 150,
@@ -152,7 +151,6 @@ namespace HealthifyApp.Data.Configuration
             TargetNutrition2 = new TargetNutrition()
             {
                 UserProfileId = UserProfile2.Id,
-                //GoalId = Goal2.Id,
                 GoalName = "Gain muscle",
                 TargetCalories = 2500,
                 TargetProtein = 200,
@@ -233,17 +231,13 @@ namespace HealthifyApp.Data.Configuration
             WaterIntake1 = new WaterIntake()
             {
                 UserProfileId = UserProfile1.Id,
-                Date = DateTime.Today,
                 DailyGoal = 2.5f,
-                Consumed = 2.0f
             };
 
             WaterIntake2 = new WaterIntake()
             {
                 UserProfileId = UserProfile2.Id,
-                Date = DateTime.Today,
                 DailyGoal = 3.0f,
-                Consumed = 2.8f
             };
         }
 

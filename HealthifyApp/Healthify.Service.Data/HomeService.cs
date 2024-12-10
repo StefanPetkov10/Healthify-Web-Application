@@ -49,8 +49,6 @@ namespace Healthify.Service.Data
                 GoalWeight = userProfile.Goals?
                     .FirstOrDefault()?.GoalWeight.ToString("F2") ?? "No goal weight set",
                 WaterIntakeStatus = $"{userProfile.WaterIntakes?
-                    .Where(w => w.Date.Date == DateTime.Today)
-                    .Sum(w => w.Consumed ?? 0) ?? 0} / {userProfile.WaterIntakes?
                     .FirstOrDefault()?.DailyGoal ?? 0} liters",
                 CalorieStatus = $"{userProfile.NutritionIntake?
                     .Where(n => n.Date.Date == DateTime.Today)

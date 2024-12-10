@@ -22,14 +22,7 @@ namespace HealthifyApp.Data.Models
         public virtual UserProfile UserProfile { get; set; } = null!;
 
         [Required]
-        [Comment("The date of the water intake.")]
-        public DateTime Date { get; set; }
-
-        [Required]
         [Comment("The daily goal of the water intake.")]
         public float DailyGoal { get; set; }
-
-        [Comment("The consumed water of the user.")]
-        public float? Consumed { get; set; }
     }
 }
