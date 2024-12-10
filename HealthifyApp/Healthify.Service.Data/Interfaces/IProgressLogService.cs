@@ -8,6 +8,6 @@ namespace HealthifyApp.Service.Data.Interfaces
 
         Task<AddProgressLogFormModel?> AddProgressLogAsync();
 
-        Task<bool> AddProgressLogAsync(AddProgressLogFormModel formModel, Guid userId);
+        Task<bool> AddProgressLogAsync(AddProgressLogFormModel imputModel, Guid userId);
     }
 }

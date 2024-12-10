@@ -51,6 +51,24 @@ namespace HealthifyApp.Web.Controllers
             return View(formModel);
         }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> AddIntake(AddTodayNutritionIntakeFormModel formModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(formModel);
+            }
+            var userId = User.GetUserId();
 
+            var result = await this.nutritionIntakeService.AddNutritionIntakeAsync(formModel, new Guid(userId!));
+            if (result == null)
+            {
+                TempData["ErrorMessage"] = NutritionIntakeAlreadyExist;
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

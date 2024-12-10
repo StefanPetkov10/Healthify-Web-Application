@@ -58,8 +58,14 @@
         <span asp-validation-for="GoalChest" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Create Goal</button>
+    <div>
+        <button type="submit" class="btn btn-primary">Create Goal</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+   
 </form>
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

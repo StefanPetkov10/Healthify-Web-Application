@@ -2,6 +2,7 @@
 using HealthifyApp.Data.Repository.Interfaces;
 using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Data;
+using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.NutritionIntake;
 using Microsoft.EntityFrameworkCore;
 
@@ -81,6 +82,24 @@ namespace HealthifyApp.Service.Data
             {
                 Date = DateTime.UtcNow.Date.ToString(DateInAddingProgress)
             };
+        }
+
+        public async Task<bool> AddNutritionIntakeAsync(AddTodayNutritionIntakeFormModel inputModel, Guid userId)
+        {
+            UserProfile userProfile = await GetUserProfileAsync(userId);
+
+            if (userProfile == null || !userProfile.IsActiveProfile)
+            {
+                return false;
+            }
+
+            NutritionIntake nutritionIntake = new NutritionIntake();
+            AutoMapperConfig.MapperInstance.Map(inputModel, nutritionIntake);
+            nutritionIntake.UserProfileId = userProfile.Id;
+
+            await nutritionIntakeRepository.AddAsync(nutritionIntake);
+
+            return true;
         }
     }
 }

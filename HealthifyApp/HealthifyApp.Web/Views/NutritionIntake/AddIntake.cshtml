@@ -32,5 +32,9 @@
         <input asp-for="Fats" class="form-control" autocomplete="off" />
         <span asp-validation-for="Fats" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>

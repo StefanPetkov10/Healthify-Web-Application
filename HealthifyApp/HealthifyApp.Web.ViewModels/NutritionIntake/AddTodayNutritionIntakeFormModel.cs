@@ -8,7 +8,7 @@ namespace HealthifyApp.Web.ViewModels.NutritionIntake
     using AutoMapper;
     using HealthifyApp.Data.Models;
 
-    public class AddTodayNutritionIntakeFormModel : IMapFrom<NutritionIntake>, IHaveCustomMappings
+    public class AddTodayNutritionIntakeFormModel : IMapTo<NutritionIntake>, IHaveCustomMappings
     {
         [Required(ErrorMessage = NutritionIntakeDateRequiredMessage)]
         public string Date { get; set; } = null!;
