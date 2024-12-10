@@ -25,5 +25,14 @@
             public const string ProgressLogDateRequiredMessage = "The progress log date is required!";
             public const string ProgressLogWeightRequiredMessage = "The progress log weight is required!";
         }
+
+        public static class NutritionIntake
+        {
+            public const string NutritionIntakeDateRequiredMessage = "The nutrition intake date is required!";
+            public const string NutritionIntakeCaloriesRequiredMessage = "The calories intake is required!";
+            public const string NutritionIntakeProteinRequiredMessage = "The protein intake is required!";
+            public const string NutritionIntakeCarbohydratesRequiredMessage = "The carbohydrates intake is required!";
+            public const string NutritionIntakeFatsRequiredMessage = "The fats intake is required!";
+        }
     }
 }

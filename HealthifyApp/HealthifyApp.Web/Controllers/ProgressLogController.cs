@@ -38,7 +38,7 @@ namespace HealthifyApp.Web.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> AddProgress(string progressLogId)
+        public async Task<IActionResult> AddProgress()
         {
             AddProgressLogFormModel? formModel = new AddProgressLogFormModel();
 

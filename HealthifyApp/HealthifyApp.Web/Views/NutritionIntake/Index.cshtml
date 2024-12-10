@@ -1,0 +1,45 @@
+﻿@using HealthifyApp.Web.ViewModels.NutritionIntake
+@model NutritionIntakeIndexViewModel
+
+<h2>Daily Nutrition Tracker</h2>
+
+<p><strong>Date:</strong> @DateTime.UtcNow.Date.ToShortDateString()</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nutrient</th>
+            <th>Target</th>
+            <th>Current</th>
+            <th>Remaining</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Calories</td>
+            <td>@Model.TargetCalories</td>
+            <td>@Model.CurrentCalories</td>
+            <td>@Model.RemainingCalories</td>
+        </tr>
+        <tr>
+            <td>Protein (g)</td>
+            <td>@Model.TargetProtein</td>
+            <td>@Model.CurrentProtein</td>
+            <td>@Model.RemainingProtein</td>
+        </tr>
+        <tr>
+            <td>Carbohydrates (g)</td>
+            <td>@Model.TargetCarbohydrates</td>
+            <td>@Model.CurrentCarbohydrates</td>
+            <td>@Model.RemainingCarbohydrates</td>
+        </tr>
+        <tr>
+            <td>Fats (g)</td>
+            <td>@Model.TargetFats</td>
+            <td>@Model.CurrentFats</td>
+            <td>@Model.RemainingFats</td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" asp-action="AddIntake">Add Today's Intake</a>

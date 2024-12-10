@@ -73,6 +73,19 @@
             public const string DateInAddingProgress = "dd-MM-yyyy";
         }
 
+        public static class NutritionIntake
+        {
+            public const byte CaloriesMinValue = 100;
+            public const short CaloriesMaxValue = 20000;
+            public const byte ProteinMinValue = 1;
+            public const short ProteinMaxValue = 1300;
+            public const byte CarbohydratesMinValue = 1;
+            public const short CarbohydratesMaxValue = 2500;
+            public const byte FatsMinValue = 1;
+            public const short FatsMaxValue = 550;
+            public const string DateInAddingProgress = "dd-MM-yyyy";
+        }
+
         public static class Workout
         {
             public const byte NameMinLength = 2;

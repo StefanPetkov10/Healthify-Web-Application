@@ -30,5 +30,10 @@
             public const string ProgressLogAlreadyExist = "You already log progress for this day";
         }
 
+        public static class NutritionIntake
+        {
+            public const string NutritionIntakeNotFound = "Nutrition Intake not found!";
+            public const string NutritionIntakeAlreadyExist = "You already log nutrition intake for this day";
+        }
     }
 }
