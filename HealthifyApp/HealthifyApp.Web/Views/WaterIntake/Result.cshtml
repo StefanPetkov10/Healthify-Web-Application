@@ -1,0 +1,10 @@
+﻿@using HealthifyApp.Web.ViewModels.WaterIntake
+@model WaterIntakeViewModel
+
+
+<h2>Water Intake Goal</h2>
+<p>Your daily water intake goal is: <strong>@Model.RecommendedWaterIntake liters</strong></p>
+<div class="alert alert-success">
+    @Model.Message
+</div>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

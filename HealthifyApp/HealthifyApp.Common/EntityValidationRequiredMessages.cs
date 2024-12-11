@@ -34,5 +34,11 @@
             public const string NutritionIntakeCarbohydratesRequiredMessage = "The carbohydrates intake is required!";
             public const string NutritionIntakeFatsRequiredMessage = "The fats intake is required!";
         }
+
+        public static class WaterIntake
+        {
+            public const string WaterIntakeWeightRequiredMessage = "The weight is required!";
+            public const string WaterIntakeActivityRequiredMessage = "The activity is required!";
+        }
     }
 }

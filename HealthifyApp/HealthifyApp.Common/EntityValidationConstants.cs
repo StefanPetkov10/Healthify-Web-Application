@@ -121,6 +121,11 @@
             public const byte RepsMaxValue = 25;
         }
 
+        public static class WaterIntake
+        {
+            public const byte WeightMinValue = 30;
+            public const short WeightMaxValue = 300;
+        }
 
     }
 }

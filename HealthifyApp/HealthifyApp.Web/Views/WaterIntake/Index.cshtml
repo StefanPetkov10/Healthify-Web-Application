@@ -1,5 +1,23 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using HealthifyApp.Web.ViewModels.WaterIntake
+@using HealthifyApp.Data.Models.Enums
+@model WaterIntakeInputModel
+
+<h2>Water Intake Calculator</h2>
+
+<form asp-action="UpdateWaterIntake" method="post">
+    <div class="form-group">
+        <label for="Weight">Your Weight (kg)</label>
+        <input asp-for="Weight" type="number" class="form-control" required />
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ActivityLevel">Activity Level</label>
+        <select asp-for="ActivityLevel" asp-items="Html.GetEnumSelectList<Activity>()" class="form-control">
+            <option value="">-- Select Activity Level --</option>
+        </select>
+        <span asp-validation-for="ActivityLevel" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Calculate</button>
+</form>

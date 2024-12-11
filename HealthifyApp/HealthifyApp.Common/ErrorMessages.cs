@@ -35,5 +35,10 @@
             public const string NutritionIntakeNotFound = "Nutrition Intake not found!";
             public const string NutritionIntakeAlreadyExist = "You already log nutrition intake for this day";
         }
+
+        public static class WaterIntake
+        {
+            public const string WaterIntakeUpdateFailed = "Failed to update water intake. Please try again.";
+        }
     }
 }
