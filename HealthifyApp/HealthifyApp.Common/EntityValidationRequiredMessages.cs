@@ -40,5 +40,11 @@
             public const string WaterIntakeWeightRequiredMessage = "The weight is required!";
             public const string WaterIntakeActivityRequiredMessage = "The activity is required!";
         }
+
+        public static class BMICalculation
+        {
+            public const string WeightRequiredMessage = "The weight is required!";
+            public const string HeightRequiredMessage = "The height is required!";
+        }
     }
 }

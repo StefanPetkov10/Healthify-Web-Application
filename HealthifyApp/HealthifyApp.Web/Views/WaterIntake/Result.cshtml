@@ -3,6 +3,12 @@
 
 
 <h2>Water Intake Goal</h2>
+
+@{
+    ViewData["Title"] = "Water Intake Calculator";
+}
+
+
 <p>Your daily water intake goal is: <strong>@Model.RecommendedWaterIntake liters</strong></p>
 <div class="alert alert-success">
     @Model.Message

@@ -13,7 +13,7 @@
             public const byte AgeMinValue = 10;
             public const byte AgeMaxValue = 117;
 
-            public const byte HeightMinValue = 50;
+            public const byte HeightMinValue = 30;
             public const byte HeightMaxValue = 254;
 
             public const byte WeightMinValue = 30;
@@ -86,6 +86,20 @@
             public const string DateInAddingProgress = "dd-MM-yyyy";
         }
 
+        public static class WaterIntake
+        {
+            public const byte WeightMinValue = 30;
+            public const short WeightMaxValue = 300;
+        }
+
+        public static class BMICalculation
+        {
+            public const byte WeightMinValue = 30;
+            public const short WeightMaxValue = 300;
+            public const byte HeightMinValue = 30;
+            public const byte HeightMaxValue = 254;
+        }
+
         public static class Workout
         {
             public const byte NameMinLength = 2;
@@ -120,12 +134,5 @@
             public const byte RepsMinValue = 1;
             public const byte RepsMaxValue = 25;
         }
-
-        public static class WaterIntake
-        {
-            public const byte WeightMinValue = 30;
-            public const short WeightMaxValue = 300;
-        }
-
     }
 }

@@ -118,9 +118,6 @@ namespace HealthifyApp.Data.Configuration
             {
 
                 UserProfileId = UserProfile1.Id,
-                Date = DateTime.Now,
-                Height = 180,
-                Weight = 80,
                 BMI = 24.7f,
                 Category = BMICategory.NormalWeight
             };
@@ -128,9 +125,6 @@ namespace HealthifyApp.Data.Configuration
             BMICalculation2 = new BMICalculation()
             {
                 UserProfileId = UserProfile2.Id,
-                Date = DateTime.Now,
-                Height = 165,
-                Weight = 60.6f,
                 BMI = 22.0f,
                 Category = BMICategory.NormalWeight
             };

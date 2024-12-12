@@ -1,0 +1,16 @@
+﻿@using HealthifyApp.Web.ViewModels.BMI
+@model BMICalculationViewModel
+
+<h2>BMI Result</h2>
+
+@{
+    ViewData["Title"] = "BMI Calculator";
+}
+
+<div>
+    <p><strong>Your BMI:</strong> @Model.BMI</p>
+    <p><strong>Category:</strong> @Model.Category</p>
+    <p>@Model.Message</p>
+</div>
+
+<a asp-action="Calculate" class="btn btn-secondary">Calculate Again</a>

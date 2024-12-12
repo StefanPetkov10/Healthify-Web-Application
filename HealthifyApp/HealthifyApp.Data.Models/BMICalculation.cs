@@ -23,20 +23,6 @@ namespace HealthifyApp.Data.Models
         public virtual UserProfile UserProfile { get; set; } = null!;
 
         [Required]
-        [Comment("The date of the BMI calculation.")]
-        public DateTime Date { get; set; }
-
-        [Required]
-        [Comment("The height of the user.")]
-        [Column(TypeName = "decimal(18,2)")]
-        public float Height { get; set; }
-
-        [Required]
-        [Comment("The weight of the user.")]
-        [Column(TypeName = "decimal(18,2)")]
-        public float Weight { get; set; }
-
-        [Required]
         [Comment("The BMI of the user.")]
         [Column(TypeName = "decimal(18,2)")]
         public float BMI { get; set; }
