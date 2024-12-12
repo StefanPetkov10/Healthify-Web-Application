@@ -111,7 +111,7 @@
             public const byte DurationMinValue = 5;
             public const byte DurationMaxValue = 240;
 
-            public const string ScheduleDateTimeFormat = "dd-MM-yyyy HH:mm";
+            public const string ScheduleDateTimeFormat = "dd-MM-yyyyTHH:mm";
         }
 
         public static class Exercise

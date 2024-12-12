@@ -1,0 +1,61 @@
+﻿@using HealthifyApp.Web.ViewModels.Workout
+@model IEnumerable<WorkoutViewModel>
+
+@{
+    ViewData["Title"] = "Workout List";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<h2>Workout List</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        <p>No workouts have been added yet.</p>
+    </div>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Duration (min)</th>
+                <th>Scheduled On</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var index = 1;
+            }
+            @foreach (var workout in Model)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@workout.Name</td>
+                    <td>@workout.Description</td>
+                    <td>@(workout.Duration.HasValue ? workout.Duration.Value : "N/A")</td>
+                    <td>@workout.ScheduleDateTime</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@workout.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@workout.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this workout?');">Delete</a>
+                    </td>
+                </tr>
+                index++;
+            }
+        </tbody>
+    </table>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Workout</a>
+</p>

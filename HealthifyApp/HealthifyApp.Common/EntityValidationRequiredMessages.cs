@@ -46,5 +46,12 @@
             public const string WeightRequiredMessage = "The weight is required!";
             public const string HeightRequiredMessage = "The height is required!";
         }
+
+        public static class Workout
+        {
+            public const string WorkoutNameRequiredMessage = "The workout name is required!";
+            public const string WorkoutDescriptionRequiredMessage = "The workout description is required!";
+            public const string WorkoutScheduleDateTimeRequiredMessage = "The workout schedule date and time is required!";
+        }
     }
 }

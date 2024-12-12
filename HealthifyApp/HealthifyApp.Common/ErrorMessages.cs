@@ -45,5 +45,12 @@
         {
             public const string BMICalculationFailed = "Failed to calculate BMI. Please try again.";
         }
+
+        public static class Workout
+        {
+            public const string WorkoutCantBeCreated = "Workout can't be created!";
+            public const string WorkoutNotFound = "Workout not found!";
+            public const string WorkoutDeleteError = "Unexpected error occurred while trying to delete the workout! Please contact system administrator!";
+        }
     }
 }
