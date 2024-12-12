@@ -31,7 +31,7 @@ namespace HealthifyApp.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Index", model);
+                return View(nameof(Index), model);
             }
 
             var userId = User.GetUserId();

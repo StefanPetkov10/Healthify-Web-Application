@@ -18,24 +18,59 @@ namespace HealthifyApp.Service.Data
             this.bmiCalculationRepository = bmiCalculationRepository;
         }
 
-        public Task<bool> CreateOrUpdateBMIAsync(Guid userId, float bmi, BMICategory category)
+        public async Task<bool> CreateOrUpdateBMIAsync(Guid userId, float bmi, BMICategory category)
         {
-            throw new NotImplementedException();
+            UserProfile userProfile = await GetUserProfileAsync(userId);
+
+            if (userProfile == null || userProfile.IsActiveProfile == false)
+            {
+                return false;
+            }
+
+            BMICalculation bmiCalculation = await bmiCalculationRepository
+                .FirstOrDefaultAsync(x => x.UserProfileId == userProfile.Id);
+
+            if (bmiCalculation == null)
+            {
+                bmiCalculation = new BMICalculation
+                {
+                    UserProfileId = userProfile.Id,
+                    BMI = bmi,
+                    Category = category
+                };
+                await bmiCalculationRepository.AddAsync(bmiCalculation);
+            }
+            else
+            {
+                bmiCalculation.BMI = bmi;
+                bmiCalculation.Category = category;
+                await bmiCalculationRepository.UpdateAsync(bmiCalculation);
+            }
+
+            return true;
         }
 
-        public Task<BMICalculationViewModel> GetBMIAsync(float bmi)
+        public async Task<BMICalculationViewModel> GetBMIAsync(float bmi)
         {
-            throw new NotImplementedException();
+            return new BMICalculationViewModel
+            {
+                BMI = (float)Math.Round(bmi, 2),
+                Category = DetermineBMICategory(bmi).ToString(),
+                Message = "Your BMI has been calculated successfully!"
+            };
         }
 
         public BMICategory DetermineBMICategory(float bmi)
         {
-            throw new NotImplementedException();
+            if (bmi < 18.5) return BMICategory.UnderWeight;
+            if (bmi < 24.9) return BMICategory.NormalWeight;
+            if (bmi < 29.9) return BMICategory.OverWeight;
+            return BMICategory.Obese;
         }
 
         public float CalculateBMI(float weight, float height)
         {
-            throw new NotImplementedException();
+            return weight / (height * height);
         }
     }
 }

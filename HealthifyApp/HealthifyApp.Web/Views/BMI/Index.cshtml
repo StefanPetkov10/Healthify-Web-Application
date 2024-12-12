@@ -1,22 +1,22 @@
 ﻿@using HealthifyApp.Web.ViewModels.BMI
 @model BMICalculationInputModel
 
-<h2>BMI Calculator</h2>
-
 @{
     ViewData["Title"] = "BMI Calculator";
 }
 
-<form asp-action="Calculate" method="post">
-    <div class="form-group">
-        <label asp-for="Weight"></label>
-        <input asp-for="Weight" class="form-control" />
+<h2 class="mb-4">BMI Calculator</h2>
+
+<form asp-action="CalculateBMI" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Weight" class="form-label">Your Weight (kg)</label>
+        <input asp-for="Weight" class="form-control" placeholder="Enter your weight in kilograms" min="1" step="0.1" />
         <span asp-validation-for="Weight" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Height"></label>
-        <input asp-for="Height" class="form-control" />
+    <div class="form-group mb-3">
+        <label asp-for="Height" class="form-label">Your Height (m) like 1.62</label>
+        <input asp-for="Height" class="form-control" placeholder="Enter your height in centimeters" min="1" step="0.1" />
         <span asp-validation-for="Height" class="text-danger"></span>
     </div>
 

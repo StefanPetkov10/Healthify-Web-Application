@@ -10,7 +10,9 @@
 <div>
     <p><strong>Your BMI:</strong> @Model.BMI</p>
     <p><strong>Category:</strong> @Model.Category</p>
-    <p>@Model.Message</p>
+    <div class="alert alert-success">
+        @Model.Message
+    </div>
 </div>
 
-<a asp-action="Calculate" class="btn btn-secondary">Calculate Again</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

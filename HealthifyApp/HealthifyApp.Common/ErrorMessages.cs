@@ -40,5 +40,10 @@
         {
             public const string WaterIntakeUpdateFailed = "Failed to update water intake. Please try again.";
         }
+
+        public static class BMI
+        {
+            public const string BMICalculationFailed = "Failed to calculate BMI. Please try again.";
+        }
     }
 }

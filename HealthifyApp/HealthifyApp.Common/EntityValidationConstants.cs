@@ -96,8 +96,8 @@
         {
             public const byte WeightMinValue = 30;
             public const short WeightMaxValue = 300;
-            public const byte HeightMinValue = 30;
-            public const byte HeightMaxValue = 254;
+            public const float HeightMinValue = 0.3F;
+            public const byte HeightMaxValue = 3;
         }
 
         public static class Workout
