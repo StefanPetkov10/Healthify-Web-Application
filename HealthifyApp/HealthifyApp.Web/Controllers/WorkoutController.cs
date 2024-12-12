@@ -59,5 +59,44 @@ namespace HealthifyApp.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Update(string? id)
+        {
+            if (!IsGuidValid(id, out Guid parsedGuidId))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var viewModel = await this.workoutService.GetUpdateWorkoutFormModelAsync(parsedGuidId);
+
+            if (viewModel == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Update(UpdateWorkoutFormModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var userId = User.GetUserId();
+
+            bool result = await this.workoutService.UpdateWorkoutAsync(model, new Guid(userId!));
+            if (!result)
+            {
+                TempData["ErrorMessage"] = WorkoutUpdateError;
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

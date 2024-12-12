@@ -46,7 +46,7 @@ else
                     <td>@(workout.Duration.HasValue ? workout.Duration.Value : "N/A")</td>
                     <td>@workout.ScheduleDateTime</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@workout.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-action="Update" asp-route-id="@workout.Id" class="btn btn-warning btn-sm">Update</a>
                         <a asp-action="Delete" asp-route-id="@workout.Id" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this workout?');">Delete</a>
                     </td>
                 </tr>

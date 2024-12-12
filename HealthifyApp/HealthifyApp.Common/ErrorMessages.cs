@@ -49,7 +49,7 @@
         public static class Workout
         {
             public const string WorkoutCantBeCreated = "Workout can't be created!";
-            public const string WorkoutNotFound = "Workout not found!";
+            public const string WorkoutUpdateError = "Unexpected error occurred while trying to update the workout! Please contact system administrator!";
             public const string WorkoutDeleteError = "Unexpected error occurred while trying to delete the workout! Please contact system administrator!";
         }
     }

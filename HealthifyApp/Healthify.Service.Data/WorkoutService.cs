@@ -64,5 +64,47 @@ namespace HealthifyApp.Service.Data
 
             return true;
         }
+
+        public async Task<UpdateWorkoutFormModel?> GetUpdateWorkoutFormModelAsync(Guid workoutId)
+        {
+            return await workoutRepository
+                .GetAllAttached()
+                .Where(w => w.Id == workoutId)
+                .To<UpdateWorkoutFormModel>()
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> UpdateWorkoutAsync(UpdateWorkoutFormModel model, Guid userId)
+        {
+            UserProfile userProfile = await GetUserProfileAsync(userId);
+
+            if (userProfile == null || userProfile.IsActiveProfile == false)
+            {
+                return false;
+            }
+
+            bool isScheduledDate = DateTime.TryParseExact(model.ScheduleDateTime, "yyyy-MM-ddTHH:mm",
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime scheduledDate);
+
+            if (!isScheduledDate)
+            {
+                return false;
+            }
+
+            Workout workout = await workoutRepository.GetByIdAsync(Guid.Parse(model.Id));
+
+            if (workout == null)
+            {
+                return false;
+            }
+
+            AutoMapperConfig.MapperInstance.Map(model, workout);
+            workout.ScheduleDateTime = scheduledDate;
+            workout.UserProfileId = userProfile.Id;
+
+            await workoutRepository.UpdateAsync(workout);
+
+            return true;
+        }
     }
 }

@@ -1,0 +1,36 @@
+﻿@using HealthifyApp.Web.ViewModels.Workout
+@model UpdateWorkoutFormModel
+
+@{
+    ViewData["Title"] = "Edit Workout";
+}
+
+<h2>Edit Workout</h2>
+
+<form asp-action="Update" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ScheduleDateTime"></label>
+        <input asp-for="ScheduleDateTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="ScheduleDateTime" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
