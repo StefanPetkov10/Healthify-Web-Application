@@ -106,5 +106,27 @@ namespace HealthifyApp.Service.Data
 
             return true;
         }
+
+        public async Task<DeleteWorkoutViewModel?> GetDeleteWorkoutViewModelAsync(Guid workoutId)
+        {
+            return await workoutRepository
+                .GetAllAttached()
+                .Where(w => w.Id == workoutId)
+                .To<DeleteWorkoutViewModel>()
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> DeleteWorkoutAsync(Guid workoutId)
+        {
+            Workout workout = await workoutRepository.GetByIdAsync(workoutId);
+
+            if (workout == null)
+            {
+                return false;
+            }
+
+            workoutRepository.Delete(workout);
+            return true;
+        }
     }
 }

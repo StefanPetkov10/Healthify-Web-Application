@@ -11,5 +11,9 @@ namespace HealthifyApp.Service.Data.Interfaces
         Task<UpdateWorkoutFormModel?> GetUpdateWorkoutFormModelAsync(Guid workoutId);
 
         Task<bool> UpdateWorkoutAsync(UpdateWorkoutFormModel model, Guid userId);
+
+        Task<DeleteWorkoutViewModel?> GetDeleteWorkoutViewModelAsync(Guid workoutId);
+
+        Task<bool> DeleteWorkoutAsync(Guid workoutId);
     }
 }

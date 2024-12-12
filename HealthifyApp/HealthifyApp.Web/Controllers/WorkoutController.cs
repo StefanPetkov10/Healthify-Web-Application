@@ -98,5 +98,38 @@ namespace HealthifyApp.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (!IsGuidValid(id, out Guid parsedGuidId))
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            var viewModel = await this.workoutService.GetDeleteWorkoutViewModelAsync(parsedGuidId);
+
+            if (viewModel == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Delete(DeleteWorkoutViewModel model)
+        {
+
+            bool result = await this.workoutService.DeleteWorkoutAsync(Guid.Parse(model.Id));
+
+            if (!result)
+            {
+                TempData["ErrorMessage"] = WorkoutDeleteError;
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
