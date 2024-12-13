@@ -8,6 +8,8 @@ using static HealthifyApp.Common.ErrorMessages.UserProfile;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
+
     public class UserProfileController : BaseController
     {
         private readonly IUserProfileService userProfileService;
@@ -19,7 +21,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -35,14 +36,12 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Create()
         {
             return View(new CreateUserProfileFormModel());
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateUserProfileFormModel model)
         {
             if (!ModelState.IsValid)
@@ -58,7 +57,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Edit(string? id)
         {
             Guid userGuid = Guid.Empty;
@@ -80,7 +78,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Edit(EditUserProfileFormModel formModel)
         {
             if (!ModelState.IsValid)
@@ -100,7 +97,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Delete(string? id)
         {
             Guid cinemaGuid = Guid.Empty;
@@ -120,7 +116,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> SoftDeleteConfirmed(DeleteUserProfileViewModel userProfile)
         {
             Guid userGuid = Guid.Empty;

@@ -9,6 +9,8 @@ using static HealthifyApp.Common.ErrorMessages.NutritionIntake;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
+
     public class NutritionIntakeController : BaseController
     {
         private readonly INutritionIntakeService nutritionIntakeService;
@@ -20,7 +22,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -37,7 +38,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> AddIntake()
         {
             AddTodayNutritionIntakeFormModel? formModel = await this.nutritionIntakeService.AddNutritionIntakeAsync();
@@ -52,7 +52,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddIntake(AddTodayNutritionIntakeFormModel formModel)
         {
             if (!ModelState.IsValid)
@@ -72,7 +71,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> AddMore()
         {
             AddTodayNutritionIntakeFormModel? formModel = await this.nutritionIntakeService.AddMoreNutritionIntakeAsync();
@@ -87,7 +85,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddMore(AddTodayNutritionIntakeFormModel formModel)
         {
             if (!ModelState.IsValid)

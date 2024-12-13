@@ -11,6 +11,7 @@ using static HealthifyApp.Common.ErrorMessages.TargetNutrition;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
     public class TargetNutritionController : BaseController
     {
         private readonly INutritionCalculatorService nutritionCalculatorService;
@@ -29,7 +30,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -43,7 +43,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Create(string goalId)
         {
             Guid goalGuid = Guid.Empty;
@@ -73,7 +72,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateTargetNutritionFormModel formModel)
         {
             Guid goalGuid = Guid.Empty;
@@ -102,7 +100,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Delete(string? id)
         {
             if (!this.IsGuidValid(id, out Guid targetNutritionId))
@@ -126,7 +123,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(DeleteGoalViewModel model)
         {
             bool result = await this.targetNutritionService.DeletePermanentlyTargetNutritionAsync(new Guid(model.Id));

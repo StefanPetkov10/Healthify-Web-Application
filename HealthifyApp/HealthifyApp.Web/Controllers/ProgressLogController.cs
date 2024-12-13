@@ -9,6 +9,8 @@ using static HealthifyApp.Common.ErrorMessages.ProgressLog;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
+
     public class ProgressLogController : BaseController
     {
         private readonly IProgressLogService progressLogService;
@@ -20,7 +22,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -37,7 +38,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> AddProgress()
         {
             AddProgressLogFormModel? formModel = new AddProgressLogFormModel();
@@ -54,7 +54,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddProgress(AddProgressLogFormModel formModel)
         {
             if (!ModelState.IsValid)

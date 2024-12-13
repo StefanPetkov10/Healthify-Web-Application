@@ -1,8 +1,11 @@
 ﻿using HealthifyApp.Service.Data.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
+
     public class HomeController : Controller
     {
         private readonly IHomeService homeService;
@@ -39,10 +42,10 @@ namespace HealthifyApp.Web.Controllers
             return View("Error500");
         }
 
-        [Route("simulate-error")]
-        public IActionResult SimulateError()
-        {
-            throw new Exception("This is a simulated 500 Internal Server Error.");
-        }
+        //[Route("simulate-error")]
+        //public IActionResult SimulateError()
+        //{
+        //    throw new Exception("This is a simulated 500 Internal Server Error.");
+        //}
     }
 }

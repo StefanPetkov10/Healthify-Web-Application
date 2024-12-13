@@ -10,6 +10,7 @@ using static HealthifyApp.Common.ErrorMessages.BMI;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
     public class BMIController : BaseController
     {
         private readonly IBMIService bmiService;
@@ -22,14 +23,12 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(new BMICalculationInputModel());
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> CalculateBMI(BMICalculationInputModel model)
         {
             if (!ModelState.IsValid)

@@ -9,6 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.Goal;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
     public class GoalController : BaseController
     {
         private readonly IGoalService goalService;
@@ -22,7 +23,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -38,14 +38,12 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Create()
         {
             return View(new CreateGoalFormModel());
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateGoalFormModel model)
         {
             if (!ModelState.IsValid)
@@ -65,7 +63,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Details(string? id)
         {
             if (!this.IsGuidValid(id, out Guid goalId))
@@ -89,7 +86,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Delete(string? id)
         {
             if (!this.IsGuidValid(id, out Guid goalId))
@@ -108,7 +104,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(DeleteGoalViewModel model)
         {
             bool result = await this.goalService.DeletePermanentlyGoalAsync(new Guid(model.Id));

@@ -9,6 +9,8 @@ using static HealthifyApp.Common.ErrorMessages.Workout;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
+
     public class WorkoutController : BaseController
     {
         private readonly IWorkoutService workoutService;
@@ -19,7 +21,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var userId = User.GetUserId();
@@ -34,14 +35,12 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Create()
         {
             return View(new CreateWorkoutFormModel());
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Create(CreateWorkoutFormModel model)
         {
             if (!ModelState.IsValid)
@@ -61,7 +60,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Update(string? id)
         {
             if (!IsGuidValid(id, out Guid parsedGuidId))
@@ -80,7 +78,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Update(UpdateWorkoutFormModel model)
         {
             if (!ModelState.IsValid)
@@ -100,7 +97,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Delete(string? id)
         {
             if (!IsGuidValid(id, out Guid parsedGuidId))
@@ -118,7 +114,6 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> Delete(DeleteWorkoutViewModel model)
         {
             bool result = await this.workoutService.DeleteWorkoutAsync(Guid.Parse(model.Id));

@@ -9,6 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.WaterIntake;
 
 namespace HealthifyApp.Web.Controllers
 {
+    [Authorize(Roles = "UserRole")]
     public class WaterIntakeController : BaseController
     {
         private readonly IWaterIntakeService waterIntakeService;
@@ -19,14 +20,12 @@ namespace HealthifyApp.Web.Controllers
             this.waterIntakeService = waterIntakeService;
         }
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(new WaterIntakeInputModel());
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> UpdateWaterIntake(WaterIntakeInputModel model)
         {
             if (!ModelState.IsValid)
