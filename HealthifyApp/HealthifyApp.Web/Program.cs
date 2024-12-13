@@ -52,6 +52,14 @@ WebApplication app = builder.Build();
 
 AutoMapperConfig.RegisterMappings(typeof(UserProfileViewModel).Assembly);
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    RolesSeeder.SeedRoles(services);
+    RolesSeeder.AssignAdminRole(services);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -76,6 +84,9 @@ app.UseAuthorization();
 
 app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
+app.MapControllerRoute(
+    name: "Areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "Errors",
     pattern: "{controller=Home}/{action=Index}/{statusCode?}");
