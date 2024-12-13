@@ -1,4 +1,4 @@
-using HealthifyApp.Service.Data.Interfaces;
+﻿using HealthifyApp.Service.Data.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthifyApp.Web.Controllers
@@ -22,25 +22,27 @@ namespace HealthifyApp.Web.Controllers
 
         }
 
-
         public IActionResult Error(int? statusCode = null)
         {
-            // TODO: Add other pages
-            if (!statusCode.HasValue)
+            if (statusCode.HasValue)
             {
-                return this.View();
+                if (statusCode == 404)
+                {
+                    return View("Error404");
+                }
+                else if (statusCode == 500)
+                {
+                    return View("Error500");
+                }
             }
 
-            if (statusCode == 404)
-            {
-                return this.View("Error404");
-            }
-            else if (statusCode == 401 || statusCode == 403)
-            {
-                return this.View("Error403");
-            }
+            return View("Error500");
+        }
 
-            return this.View("Error500");
+        [Route("simulate-error")]
+        public IActionResult SimulateError()
+        {
+            throw new Exception("This is a simulated 500 Internal Server Error.");
         }
     }
 }
