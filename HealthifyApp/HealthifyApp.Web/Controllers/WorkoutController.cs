@@ -121,7 +121,6 @@ namespace HealthifyApp.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(DeleteWorkoutViewModel model)
         {
-
             bool result = await this.workoutService.DeleteWorkoutAsync(Guid.Parse(model.Id));
 
             if (!result)

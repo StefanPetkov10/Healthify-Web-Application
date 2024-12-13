@@ -1,6 +1,4 @@
-using System.Diagnostics;
 using HealthifyApp.Service.Data.Interfaces;
-using HealthifyApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthifyApp.Web.Controllers
@@ -25,10 +23,24 @@ namespace HealthifyApp.Web.Controllers
         }
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(int? statusCode = null)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            // TODO: Add other pages
+            if (!statusCode.HasValue)
+            {
+                return this.View();
+            }
+
+            if (statusCode == 404)
+            {
+                return this.View("Error404");
+            }
+            else if (statusCode == 401 || statusCode == 403)
+            {
+                return this.View("Error403");
+            }
+
+            return this.View("Error500");
         }
     }
 }
