@@ -2,8 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using static HealthifyApp.Common.ApplicationConstants;
-
 namespace HealthifyApp.Data.Configuration
 {
     public static class RolesSeeder
@@ -12,18 +10,13 @@ namespace HealthifyApp.Data.Configuration
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
 
-            string[] roles = { AdminRole, UserRole };
+            var roles = new[] { "Admin", "User" };
 
             foreach (var role in roles)
             {
-                var roleExist = roleManager.RoleExistsAsync(role).GetAwaiter().GetResult();
-                if (!roleExist)
+                if (!roleManager.RoleExistsAsync(role).Result)
                 {
-                    var result = roleManager.CreateAsync(new IdentityRole<Guid> { Name = role }).GetAwaiter().GetResult();
-                    if (!result.Succeeded)
-                    {
-                        throw new Exception($"Failed to create role: {role}");
-                    }
+                    roleManager.CreateAsync(new IdentityRole<Guid>(role)).Wait();
                 }
             }
         }
@@ -33,28 +26,32 @@ namespace HealthifyApp.Data.Configuration
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
 
-            string adminEmail = configuration["AdminSettings:Username"];
-            string adminPassword = configuration["AdminSettings:Password"];
+            var adminEmail = configuration["Admin:Email"];
+            var adminPassword = configuration["Admin:Password"];
 
-            var existingAdmin = userManager.FindByEmailAsync(adminEmail!).GetAwaiter().GetResult();
+            var adminUser = userManager.FindByEmailAsync(adminEmail).Result;
 
-            if (existingAdmin == null)
+            if (adminUser == null)
             {
-                var adminUser = new ApplicationUser
+                adminUser = new ApplicationUser
                 {
                     UserName = adminEmail,
-                    Email = adminEmail
+                    Email = adminEmail,
+                    EmailConfirmed = true
                 };
 
-                var result = userManager.CreateAsync(adminUser, adminPassword!).GetAwaiter().GetResult();
+                var result = userManager.CreateAsync(adminUser, adminPassword).Result;
 
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult();
+                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();
                 }
-                else
+            }
+            else
+            {
+                if (!userManager.IsInRoleAsync(adminUser, "Admin").Result)
                 {
-                    throw new Exception("Failed to create admin user");
+                    userManager.AddToRoleAsync(adminUser, "Admin").Wait();
                 }
             }
         }

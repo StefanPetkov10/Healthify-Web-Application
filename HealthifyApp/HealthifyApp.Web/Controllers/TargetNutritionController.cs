@@ -11,7 +11,7 @@ using static HealthifyApp.Common.ErrorMessages.TargetNutrition;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
+    [Authorize]
     public class TargetNutritionController : BaseController
     {
         private readonly INutritionCalculatorService nutritionCalculatorService;

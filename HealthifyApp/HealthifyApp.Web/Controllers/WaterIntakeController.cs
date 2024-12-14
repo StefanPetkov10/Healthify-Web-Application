@@ -9,7 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.WaterIntake;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
+    [Authorize]
     public class WaterIntakeController : BaseController
     {
         private readonly IWaterIntakeService waterIntakeService;

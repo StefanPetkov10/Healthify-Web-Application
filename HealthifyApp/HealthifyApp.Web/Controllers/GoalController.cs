@@ -9,7 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.Goal;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
+    [Authorize]
     public class GoalController : BaseController
     {
         private readonly IGoalService goalService;

@@ -9,8 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.NutritionIntake;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
-
+    [Authorize]
     public class NutritionIntakeController : BaseController
     {
         private readonly INutritionIntakeService nutritionIntakeService;

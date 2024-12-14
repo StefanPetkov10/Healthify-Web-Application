@@ -9,8 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.ProgressLog;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
-
+    [Authorize]
     public class ProgressLogController : BaseController
     {
         private readonly IProgressLogService progressLogService;

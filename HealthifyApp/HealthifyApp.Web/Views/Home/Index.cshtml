@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Progress Log</h5>
                             <p>Weight: <strong>@Model.CurrentWeight</strong> | Goal: <strong>@Model.GoalWeight</strong></p>
-                            <a href="/ProgressLog" class="btn btn-outline-primary">Add today Progress</a>
+                            <a href="/ProgressLog" class="btn btn-outline-primary">Add Today Progress</a>
                         </div>
                     </div>
                 </div>
@@ -73,9 +73,21 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Admin Section -->
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="my-5">
+                    <h3 class="text-center text-danger">Admin Dashboard</h3>
+                    <div class="text-center">
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="btn btn-lg btn-outline-danger">
+                            <i class="bi bi-gear-fill"></i> Manage Users
+                        </a>
+                    </div>
+                </div>
+            }
         }
     }
-
     else
     {
         <!-- Content for Anonymous Users -->

@@ -10,7 +10,7 @@ using static HealthifyApp.Common.ErrorMessages.BMI;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
+    [Authorize]
     public class BMIController : BaseController
     {
         private readonly IBMIService bmiService;

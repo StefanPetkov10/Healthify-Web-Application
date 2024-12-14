@@ -9,8 +9,7 @@ using static HealthifyApp.Common.ErrorMessages.Workout;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
-
+    [Authorize]
     public class WorkoutController : BaseController
     {
         private readonly IWorkoutService workoutService;

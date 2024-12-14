@@ -8,8 +8,7 @@ using static HealthifyApp.Common.ErrorMessages.UserProfile;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
-
+    [Authorize]
     public class UserProfileController : BaseController
     {
         private readonly IUserProfileService userProfileService;
@@ -97,6 +96,7 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string? id)
         {
             Guid cinemaGuid = Guid.Empty;
@@ -116,6 +116,7 @@ namespace HealthifyApp.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> SoftDeleteConfirmed(DeleteUserProfileViewModel userProfile)
         {
             Guid userGuid = Guid.Empty;

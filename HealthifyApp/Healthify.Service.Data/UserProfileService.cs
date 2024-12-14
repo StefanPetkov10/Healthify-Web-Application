@@ -140,6 +140,5 @@ namespace Healthify.Service.Data
             userProfile.IsActiveProfile = false;
             return await userProfileRepository.UpdateAsync(userProfile);
         }
-
     }
 }

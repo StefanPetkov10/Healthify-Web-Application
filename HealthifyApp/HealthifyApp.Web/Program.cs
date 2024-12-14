@@ -1,4 +1,4 @@
-using HealthifyApp.Data;
+﻿using HealthifyApp.Data;
 using HealthifyApp.Data.Configuration;
 using HealthifyApp.Service.Data.Interfaces;
 using HealthifyApp.Services.Mapping;
@@ -32,6 +32,7 @@ builder.Services
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Identity/Account/Login";
+    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
 });
 
 builder.Services.RegisterRepositories(typeof(ApplicationUser).Assembly);
@@ -56,8 +57,15 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
-    RolesSeeder.SeedRoles(services);
-    RolesSeeder.AssignAdminRole(services);
+    try
+    {
+        RolesSeeder.SeedRoles(services);
+        RolesSeeder.AssignAdminRole(services);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error during seeding roles: {ex.Message}");
+    }
 }
 
 // Configure the HTTP request pipeline.
@@ -73,15 +81,16 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-// Add Authentication and Authorization middleware
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseAuthentication(); // Who am I?
+app.UseAuthorization(); // What can I do?
 
+// Configure status code pages
 app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
 
 app.MapControllerRoute(

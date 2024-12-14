@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HealthifyApp.Web.Controllers
 {
-    [Authorize(Roles = "UserRole")]
 
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IHomeService homeService;
