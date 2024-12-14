@@ -19,6 +19,7 @@ namespace HealthifyApp.Service.Data
             this.roleManager = roleManager;
         }
 
+
         public async Task<IEnumerable<AllUserViewModel>> GetAllUsersAsync()
         {
             IEnumerable<ApplicationUser> allUsers = await this.userManager.Users
@@ -38,6 +39,65 @@ namespace HealthifyApp.Service.Data
             }
 
             return allUsersViewModel;
+        }
+
+        public async Task<bool> UserExistsByIdAsync(Guid userId)
+        {
+            ApplicationUser? user = await this.userManager
+                .FindByIdAsync(userId.ToString());
+
+            return user != null;
+        }
+        public async Task<bool> AssignUserToRoleAsync(Guid userId, string roleName)
+        {
+            ApplicationUser? user = await userManager
+                .FindByIdAsync(userId.ToString());
+            bool roleExists = await this.roleManager.RoleExistsAsync(roleName);
+
+            if (user == null || !roleExists)
+            {
+                return false;
+            }
+
+            bool alreadyInRole = await this.userManager.IsInRoleAsync(user, roleName);
+            if (!alreadyInRole)
+            {
+                IdentityResult? result = await this.userManager
+                    .AddToRoleAsync(user, roleName);
+
+                if (!result.Succeeded)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public async Task<bool> RemoveUserRoleAsync(Guid userId, string roleName)
+        {
+            ApplicationUser? user = await userManager
+                .FindByIdAsync(userId.ToString());
+            bool roleExists = await this.roleManager.RoleExistsAsync(roleName);
+
+            if (user == null || !roleExists)
+            {
+                return false;
+            }
+
+            bool alreadyInRole = await this.userManager.IsInRoleAsync(user, roleName);
+            if (alreadyInRole)
+            {
+                IdentityResult? result = await this.userManager
+                    .RemoveFromRoleAsync(user, roleName);
+
+                if (!result.Succeeded)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

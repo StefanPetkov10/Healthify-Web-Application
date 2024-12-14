@@ -6,11 +6,11 @@ namespace HealthifyApp.Service.Data.Interfaces
     {
         Task<IEnumerable<AllUserViewModel>> GetAllUsersAsync();
 
-        //Task<bool> UserExistsByIdAsync(Guid userId);
+        Task<bool> UserExistsByIdAsync(Guid userId);
 
-        //Task<bool> AssignUserToRoleAsync(Guid userId, string roleName);
+        Task<bool> AssignUserToRoleAsync(Guid userId, string roleName);
 
-        //Task<bool> RemoveUserRoleAsync(Guid userId, string roleName);
+        Task<bool> RemoveUserRoleAsync(Guid userId, string roleName);
 
         //Task<bool> DeleteUserAsync(Guid userId);
     }
