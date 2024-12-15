@@ -79,31 +79,31 @@ namespace HealthifyApp.Web.Areas.Admin.Controllers
             return this.RedirectToAction(nameof(Index));
         }
 
-        //        [HttpPost]
-        //        public async Task<IActionResult> DeleteUser(string userId)
-        //        {
-        //            Guid userGuid = Guid.Empty;
-        //            if (!this.IsGuidIdValid(userId, ref userGuid))
-        //            {
-        //                return this.RedirectToAction(nameof(Index));
-        //            }
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            Guid userGuid = Guid.Empty;
+            if (!this.IsGuidValid(userId, out userGuid))
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
 
-        //            bool userExists = await this.userService
-        //                .UserExistsByIdAsync(userGuid);
-        //            if (!userExists)
-        //            {
-        //                return this.RedirectToAction(nameof(Index));
-        //            }
+            bool userExists = await this.userService
+                .UserExistsByIdAsync(userGuid);
+            if (!userExists)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
 
-        //            bool removeResult = await this.userService
-        //                .DeleteUserAsync(userGuid);
-        //            if (!removeResult)
-        //            {
-        //                return this.RedirectToAction(nameof(Index));
-        //            }
+            bool removeResult = await this.userService
+                .SoftDeleteUserAsync(userGuid);
+            if (!removeResult)
+            {
+                return this.RedirectToAction(nameof(Index));
+            }
 
-        //            return this.RedirectToAction(nameof(Index));
-        //        }
+            return this.RedirectToAction(nameof(Index));
+        }
     }
 }
 
