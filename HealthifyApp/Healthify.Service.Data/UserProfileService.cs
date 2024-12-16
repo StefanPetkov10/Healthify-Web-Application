@@ -52,6 +52,11 @@ namespace Healthify.Service.Data
             //    Gender = userProfile.Gender.ToString()
             //};
 
+            if (viewModel == null)
+            {
+                return null;
+            }
+
             return viewModel;
         }
 

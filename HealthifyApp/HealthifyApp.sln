@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthifyApp.Service.Data",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Services.Mapping", "HealthifyApp.Services.Mapping\HealthifyApp.Services.Mapping.csproj", "{74D04056-C834-4A29-B5DD-41F25FAF07F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AC2525BA-6969-4090-B511-61CA47BBA3DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthifyApp.Services.Tests", "HealthifyApp.Services.Tests\HealthifyApp.Services.Tests.csproj", "{C637BFC2-57FD-4FEB-9A09-79974FCBC810}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{74D04056-C834-4A29-B5DD-41F25FAF07F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74D04056-C834-4A29-B5DD-41F25FAF07F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74D04056-C834-4A29-B5DD-41F25FAF07F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C637BFC2-57FD-4FEB-9A09-79974FCBC810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C637BFC2-57FD-4FEB-9A09-79974FCBC810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C637BFC2-57FD-4FEB-9A09-79974FCBC810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C637BFC2-57FD-4FEB-9A09-79974FCBC810}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +83,7 @@ Global
 		{2EC1970E-C9B6-4117-B54B-5A105E24329C} = {9D857C2C-056F-4EBC-B5AA-6F2788F7D11C}
 		{0970C7B9-18AC-43CA-9753-99A5DA7FECCA} = {85A9F396-6366-4BDB-96BD-7ABDA5C71458}
 		{74D04056-C834-4A29-B5DD-41F25FAF07F8} = {85A9F396-6366-4BDB-96BD-7ABDA5C71458}
+		{C637BFC2-57FD-4FEB-9A09-79974FCBC810} = {AC2525BA-6969-4090-B511-61CA47BBA3DD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32BC7D33-36CD-4974-9535-9834D73693A7}
