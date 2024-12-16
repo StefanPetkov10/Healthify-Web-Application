@@ -9,7 +9,7 @@ namespace HealthifyApp.Service.Data.Interfaces
 
         Task<bool> CreateGoalAsync(CreateGoalFormModel inputModel, Guid userId);
 
-        Task<GoalDetailsViewModel?> GetCinemaDetailsByIdAsync(Guid id);
+        Task<GoalDetailsViewModel?> GetGoalDetailsByIdAsync(Guid id);
 
         Task<DeleteGoalViewModel?> DeleteGoalAsync(Guid id);
 

@@ -72,7 +72,7 @@ namespace Healthify.Service.Data
 
             return true;
         }
-        public async Task<GoalDetailsViewModel?> GetCinemaDetailsByIdAsync(Guid id)
+        public async Task<GoalDetailsViewModel?> GetGoalDetailsByIdAsync(Guid id)
         {
             Goal goal = await goalRepository
                 .GetByIdAsync(id);

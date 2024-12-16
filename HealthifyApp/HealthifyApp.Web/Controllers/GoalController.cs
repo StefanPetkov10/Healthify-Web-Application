@@ -75,7 +75,7 @@ namespace HealthifyApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var viewModel = await this.goalService.GetCinemaDetailsByIdAsync(goalId);
+            var viewModel = await this.goalService.GetGoalDetailsByIdAsync(goalId);
 
             if (viewModel == null)
             {
