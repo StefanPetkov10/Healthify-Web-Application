@@ -66,14 +66,15 @@ namespace HealthifyApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var viewModel = await this.workoutService.GetUpdateWorkoutFormModelAsync(parsedGuidId);
+            UpdateWorkoutFormModel? formModel = await this.workoutService
+                .GetUpdateWorkoutFormModelAsync(parsedGuidId);
 
-            if (viewModel == null)
+            if (formModel == null)
             {
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(viewModel);
+            return View(formModel);
         }
 
         [HttpPost]

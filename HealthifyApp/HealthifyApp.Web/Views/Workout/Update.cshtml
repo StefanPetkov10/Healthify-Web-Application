@@ -8,6 +8,9 @@
 <h2>Edit Workout</h2>
 
 <form asp-action="Update" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
     <div class="form-group">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" />
