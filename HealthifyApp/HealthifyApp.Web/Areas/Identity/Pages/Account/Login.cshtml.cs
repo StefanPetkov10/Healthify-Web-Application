@@ -119,11 +119,11 @@ namespace HealthifyApp.Web.Areas.Identity.Pages.Account
                             .AnyAsync(up => up.ApplicationUserProfiles
                                 .Any(a => a.ApplicationUserId == user.Id));
 
-                        if (!hasProfile)
-                        {
-                            // Redirect to profile creation form
-                            return RedirectToAction("Create", "UserProfile");
-                        }
+                        //if (!hasProfile)
+                        //{
+                        //    // Redirect to profile creation form
+                        //    return RedirectToAction("Create", "UserProfile");
+                        //}
                     }
 
                     return LocalRedirect(returnUrl);

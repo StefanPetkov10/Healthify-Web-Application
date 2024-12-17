@@ -97,11 +97,9 @@ app.MapControllerRoute(
     name: "Areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
-    name: "Errors",
-    pattern: "{controller=Home}/{action=Index}/{statusCode?}");
-app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.MapRazorPages();
 
