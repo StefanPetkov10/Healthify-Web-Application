@@ -20,7 +20,7 @@
         public static class TargetNutrition
         {
             public const string TargetNutritionAlreadyExist = "Already has a target nutrition";
-            public const string TargetNutritionDeleteError = "Unexpected error occurred while trying to delete the goal(maybe a Target also)!" +
+            public const string TargetNutritionDeleteError = "Unexpected error occurred while trying to delete the target nutrition!" +
                 " Please contact system administrator!";
         }
 

@@ -102,17 +102,10 @@ namespace Healthify.Service.Data
         {
             TargetNutrition targetNutrition = await targetNutritionRepository
                 .GetByIdAsync(id);
-            Goal goal = await goalRepository.
-                FirstOrDefaultAsync(tn => tn.Id == targetNutrition.GoalId);
 
             if (targetNutrition != null)
             {
                 targetNutritionRepository.Delete(targetNutrition);
-            }
-
-            if (goal != null)
-            {
-                goalRepository.Delete(goal);
             }
 
             return true;

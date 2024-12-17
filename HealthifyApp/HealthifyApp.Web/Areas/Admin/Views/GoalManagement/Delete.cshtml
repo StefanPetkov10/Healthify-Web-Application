@@ -1,7 +1,7 @@
-﻿@using HealthifyApp.Web.ViewModels.TargetNutrition
-@model DeleteTargetNutritionViewModel
+﻿@using HealthifyApp.Web.ViewModels.Admin.Goal
+@model AdminDeleteGoalViewModel
 
-<h2>Delete Target Nutrition</h2>
+<h2>Delete Goal</h2>
 
 @{
     ViewData["Title"] = "Delete Goal";
@@ -14,7 +14,7 @@
     </div>
 }
 
-<p>Are you sure you want to delete the target nutrition permanently. : <strong>@Model.GoalName</strong>?</p>
+<p>Are you sure you want to delete the goal permanently. If you delete a goal, you will also delete Target Nutrition(if any): <strong>@Model.GoalType</strong>?</p>
 
 <form asp-action="Delete" method="post">
     @Html.AntiForgeryToken()

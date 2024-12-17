@@ -2,6 +2,7 @@
 using HealthifyApp.Data.Repository.Interfaces;
 using HealthifyApp.Service.Data.Interfaces.AdminInterfaces;
 using HealthifyApp.Services.Data;
+using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.Admin.Goal;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,14 +11,17 @@ namespace HealthifyApp.Service.Data.AdminServices
     public class GoalManagementService : BaseService, IGoalManagementService
     {
         private readonly IRepository<Goal, Guid> goalRepository;
+        private readonly IRepository<TargetNutrition, Guid> targetNutritionRepository;
         private readonly IRepository<UserProfile, Guid> userProfileRepository;
 
         public GoalManagementService(IRepository<Goal, Guid> goalRepository,
-                                    IRepository<UserProfile, Guid> userProfileRepository)
+                                    IRepository<UserProfile, Guid> userProfileRepository,
+                                    IRepository<TargetNutrition, Guid> targetNutritionRepository)
             : base(userProfileRepository)
         {
             this.goalRepository = goalRepository;
             this.userProfileRepository = userProfileRepository;
+            this.targetNutritionRepository = targetNutritionRepository;
         }
 
         public async Task<IEnumerable<UserGoalsViewModel>> GetAllGoalsAsync()
@@ -48,5 +52,39 @@ namespace HealthifyApp.Service.Data.AdminServices
                 })
                 .ToList();
         }
+
+        public async Task<AdminDeleteGoalViewModel?> AdminDeleteGoalAsync(Guid id)
+        {
+            AdminDeleteGoalViewModel? goalToDelete = await goalRepository
+                .GetAllAttached()
+                .To<AdminDeleteGoalViewModel>()
+                .FirstOrDefaultAsync(g => g.Id.ToLower() == id.ToString().ToLower());
+
+            return goalToDelete;
+        }
+
+        public async Task<bool> AdminDeletePermanentlyGoalAsync(Guid id)
+        {
+            Goal goal = await goalRepository.GetByIdAsync(id);
+            TargetNutrition targetNutrition = await targetNutritionRepository
+                .FirstOrDefaultAsync(x => x.GoalId == goal.Id);
+
+            if (goal != null)
+            {
+                goalRepository.Delete(goal);
+            }
+            else
+            {
+                return false;
+            }
+
+            if (targetNutrition != null)
+            {
+                targetNutritionRepository.Delete(targetNutrition);
+            }
+
+            return true;
+        }
+
     }
 }

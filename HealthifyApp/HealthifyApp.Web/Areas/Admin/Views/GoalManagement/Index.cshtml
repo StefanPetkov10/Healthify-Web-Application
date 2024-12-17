@@ -33,11 +33,9 @@
                                 <td>@goal.GoalType</td>
                                 <td>@goal.StartDate</td>
                                 <td>
-                                    <form method="post" asp-action="DeleteGoal" asp-route-goalId="@goal.GoalId" class="d-inline">
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this goal?');">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </button>
-                                    </form>
+                                    <a asp-action="Delete" asp-route-id="@goal.GoalId" class="btn btn-danger">
+                                        <i class="bi bi-pencil-square"></i> Delete Goal
+                                    </a>
                                 </td>
                             </tr>
                         }
