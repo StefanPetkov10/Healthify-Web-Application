@@ -4,6 +4,6 @@
     {
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
-        public List<GoalViewModel> Goals { get; set; }
+        public ICollection<GoalViewModel> Goals { get; set; } = new HashSet<GoalViewModel>();
     }
 }

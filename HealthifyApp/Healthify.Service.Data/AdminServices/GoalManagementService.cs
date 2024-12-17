@@ -6,6 +6,7 @@ using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.Admin.Goal;
 using Microsoft.EntityFrameworkCore;
 
+using static HealthifyApp.Common.EntityValidationConstants.Goal;
 namespace HealthifyApp.Service.Data.AdminServices
 {
     public class GoalManagementService : BaseService, IGoalManagementService
@@ -47,7 +48,7 @@ namespace HealthifyApp.Service.Data.AdminServices
                     {
                         GoalId = g.Id.ToString(),
                         GoalType = g.GoalType.ToString(),
-                        StartDate = g.StartDate.ToString("yyyy-MM-dd") // Format date for consistency
+                        StartDate = g.StartDate.ToString(StartDateTimeFormat) // Format date for consistency
                     }).ToList()
                 })
                 .ToList();

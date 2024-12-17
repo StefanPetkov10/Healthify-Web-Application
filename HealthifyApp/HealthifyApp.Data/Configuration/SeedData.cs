@@ -136,6 +136,7 @@ namespace HealthifyApp.Data.Configuration
             {
                 UserProfileId = UserProfile1.Id,
                 GoalName = "Lose weight",
+                StartDate = DateTime.Today,
                 TargetCalories = 2000,
                 TargetProtein = 150,
                 TargetCarbohydrates = 100,
@@ -146,6 +147,7 @@ namespace HealthifyApp.Data.Configuration
             {
                 UserProfileId = UserProfile2.Id,
                 GoalName = "Gain muscle",
+                StartDate = DateTime.Today,
                 TargetCalories = 2500,
                 TargetProtein = 200,
                 TargetCarbohydrates = 200,
