@@ -73,7 +73,7 @@ namespace HealthifyApp.Service.Data
                 .FirstOrDefault()
                 .ToString(DateInAddingProgress);
 
-            if (date != DateTime.Now.ToString(DateInAddingProgress))
+            if (date == DateTime.Now.ToString(DateInAddingProgress))
             {
                 return null;
             }
@@ -111,7 +111,7 @@ namespace HealthifyApp.Service.Data
                 .FirstOrDefault()
                 .ToString(DateInAddingProgress);
 
-            if (date != DateTime.Now.ToString(DateInAddingProgress))
+            if (date == DateTime.Now.ToString(DateInAddingProgress))
             {
                 return null;
             }

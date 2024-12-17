@@ -1,12 +1,12 @@
 ﻿using HealthifyApp.Data;
 using HealthifyApp.Data.Models;
 using HealthifyApp.Data.Repository.Interfaces;
-using HealthifyApp.Service.Data.Interfaces;
+using HealthifyApp.Service.Data.Interfaces.AdminInterfaces;
 using HealthifyApp.Web.ViewModels.Admin.UserManagement;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthifyApp.Service.Data
+namespace HealthifyApp.Service.Data.AdminServices
 {
     public class UserService : IUserService
     {
@@ -27,7 +27,7 @@ namespace HealthifyApp.Service.Data
 
         public async Task<IEnumerable<AllUserViewModel>> GetAllUsersAsync()
         {
-            IEnumerable<ApplicationUser> allUsers = await this.userManager.Users
+            IEnumerable<ApplicationUser> allUsers = await userManager.Users
             .Where(x => x.ApplicationUserProfiles.Any(p => p.UserProfile.IsActiveProfile == true))
             .ToArrayAsync();
 
@@ -35,7 +35,7 @@ namespace HealthifyApp.Service.Data
 
             foreach (ApplicationUser user in allUsers)
             {
-                IEnumerable<string> roles = await this.userManager.GetRolesAsync(user);
+                IEnumerable<string> roles = await userManager.GetRolesAsync(user);
 
                 allUsersViewModel.Add(new AllUserViewModel()
                 {
@@ -50,7 +50,7 @@ namespace HealthifyApp.Service.Data
 
         public async Task<bool> UserExistsByIdAsync(Guid userId)
         {
-            ApplicationUser? user = await this.userManager
+            ApplicationUser? user = await userManager
                 .FindByIdAsync(userId.ToString());
 
             return user != null;
@@ -59,17 +59,17 @@ namespace HealthifyApp.Service.Data
         {
             ApplicationUser? user = await userManager
                 .FindByIdAsync(userId.ToString());
-            bool roleExists = await this.roleManager.RoleExistsAsync(roleName);
+            bool roleExists = await roleManager.RoleExistsAsync(roleName);
 
             if (user == null || !roleExists)
             {
                 return false;
             }
 
-            bool alreadyInRole = await this.userManager.IsInRoleAsync(user, roleName);
+            bool alreadyInRole = await userManager.IsInRoleAsync(user, roleName);
             if (!alreadyInRole)
             {
-                IdentityResult? result = await this.userManager
+                IdentityResult? result = await userManager
                     .AddToRoleAsync(user, roleName);
 
                 if (!result.Succeeded)
@@ -85,17 +85,17 @@ namespace HealthifyApp.Service.Data
         {
             ApplicationUser? user = await userManager
                 .FindByIdAsync(userId.ToString());
-            bool roleExists = await this.roleManager.RoleExistsAsync(roleName);
+            bool roleExists = await roleManager.RoleExistsAsync(roleName);
 
             if (user == null || !roleExists)
             {
                 return false;
             }
 
-            bool alreadyInRole = await this.userManager.IsInRoleAsync(user, roleName);
+            bool alreadyInRole = await userManager.IsInRoleAsync(user, roleName);
             if (alreadyInRole)
             {
-                IdentityResult? result = await this.userManager
+                IdentityResult? result = await userManager
                     .RemoveFromRoleAsync(user, roleName);
 
                 if (!result.Succeeded)

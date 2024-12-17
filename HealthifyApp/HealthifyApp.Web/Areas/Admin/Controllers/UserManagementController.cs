@@ -1,4 +1,4 @@
-﻿using HealthifyApp.Service.Data.Interfaces;
+﻿using HealthifyApp.Service.Data.Interfaces.AdminInterfaces;
 using HealthifyApp.Services.Data.Interfaces;
 using HealthifyApp.Web.Controllers;
 using HealthifyApp.Web.ViewModels.Admin.UserManagement;

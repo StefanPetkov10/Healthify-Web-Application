@@ -1,0 +1,54 @@
+﻿@using HealthifyApp.Web.ViewModels.Admin.Goal;
+@model IEnumerable<UserGoalsViewModel>
+
+@{
+    ViewData["Title"] = "Goal Management";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Goal Management</h1>
+
+    @foreach (var user in Model)
+    {
+        <!-- Името на потребителя се показва САМО веднъж -->
+        <div class="mb-4">
+            <h3 class="fw-bold text-primary">@($"{user.FirstName} {user.LastName}")</h3>
+
+            <!-- Проверяваме дали има цели -->
+            @if (user.Goals.Any())
+            {
+                <!-- Таблица с целите -->
+                <table class="table table-striped table-hover mt-3">
+                    <thead>
+                        <tr>
+                            <th>Goal Type</th>
+                            <th>Start Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var goal in user.Goals)
+                        {
+                            <tr>
+                                <td>@goal.GoalType</td>
+                                <td>@goal.StartDate</td>
+                                <td>
+                                    <form method="post" asp-action="DeleteGoal" asp-route-goalId="@goal.GoalId" class="d-inline">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this goal?');">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <!-- Съобщение, ако потребителят няма цели -->
+                <p class="text-muted">This user has no goals.</p>
+            }
+        </div>
+    }
+</div>

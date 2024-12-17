@@ -1,6 +1,6 @@
 ﻿using HealthifyApp.Web.ViewModels.Admin.UserManagement;
 
-namespace HealthifyApp.Service.Data.Interfaces
+namespace HealthifyApp.Service.Data.Interfaces.AdminInterfaces
 {
     public interface IUserService
     {
