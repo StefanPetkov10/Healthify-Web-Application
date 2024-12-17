@@ -2,6 +2,7 @@
 using HealthifyApp.Data.Repository.Interfaces;
 using HealthifyApp.Service.Data.Interfaces.AdminInterfaces;
 using HealthifyApp.Services.Data;
+using HealthifyApp.Services.Mapping;
 using HealthifyApp.Web.ViewModels.Admin.TargetNutrition;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,6 +48,29 @@ namespace HealthifyApp.Service.Data.AdminServices
                     }).ToList()
                 })
                 .ToList();
+        }
+
+        public async Task<AdminDeleteTargetNutritionViewModel?> AdminDeleteTargetNutritionAsync(Guid id)
+        {
+            AdminDeleteTargetNutritionViewModel? targetNutritionDelete = await targetNutritionRepository
+                .GetAllAttached()
+                .To<AdminDeleteTargetNutritionViewModel>()
+                .FirstOrDefaultAsync(tn => tn.Id.ToLower() == id.ToString().ToLower());
+
+            return targetNutritionDelete;
+        }
+
+        public async Task<bool> AdminDeletePermanentlyTargetNutritionAsync(Guid id)
+        {
+            TargetNutrition targetNutrition = await targetNutritionRepository
+                .GetByIdAsync(id);
+
+            if (targetNutrition != null)
+            {
+                targetNutritionRepository.Delete(targetNutrition);
+            }
+
+            return true;
         }
     }
 }

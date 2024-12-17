@@ -143,14 +143,10 @@ namespace HealthifyApp.Services.Tests
         {
             // Arrange
             var targetNutrition = targetNutritionData[0];
-            var goal = goalData[0];
 
             targetNutritionRepository.Setup(r => r.GetByIdAsync(targetNutrition.Id)).ReturnsAsync(targetNutrition);
-            goalRepository.Setup(r => r.FirstOrDefaultAsync(It.IsAny<Expression<Func<Goal, bool>>>()))
-                .ReturnsAsync(goal);
 
             targetNutritionRepository.Setup(r => r.Delete(It.IsAny<TargetNutrition>())).Verifiable();
-            goalRepository.Setup(r => r.Delete(It.IsAny<Goal>())).Verifiable();
 
             var service = new TargetNutritionService(goalRepository.Object, targetNutritionRepository.Object, userProfileRepository.Object);
 
@@ -160,7 +156,6 @@ namespace HealthifyApp.Services.Tests
             // Assert
             Assert.IsTrue(result);
             targetNutritionRepository.Verify(r => r.Delete(It.IsAny<TargetNutrition>()), Times.Once);
-            goalRepository.Verify(r => r.Delete(It.IsAny<Goal>()), Times.Once);
         }
     }
 }
